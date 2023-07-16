@@ -8,7 +8,7 @@ sidebar_position: 2
 **Email**: [rhanihasan@gmail.com](mailto:rhanihasan@gmail.com)
 Test Hii
 **Phone**:8433663196  
-(Under process) **Website**: [https://rhanihasan.github.io/cybersecuritys/](https://rhanihasan.github.io/cybersecurity/)
+(Under process) **Website**: [https://rhanihasan.github.io/myjourney/](https://rhanihasan.github.io/cybersecurity/)
 
 **Objective**: Seeking a challenging position in a reputed organization where I can leverage my cybersecurity skills. I aim to expand my knowledge, learn new skills, and contribute to the organization's growth and success.
 
