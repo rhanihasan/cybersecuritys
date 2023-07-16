@@ -6,9 +6,9 @@ sidebar_position: 2
 
 **Hasan Rhani**  
 **Email**: [rhanihasan@gmail.com](mailto:rhanihasan@gmail.com)
-Test Hii
+
 **Phone**:8433663196  
-(Under process) **Website**: [https://rhanihasan.github.io/myjourney/](https://rhanihasan.github.io/cybersecurity/)
+(Under process) **Website**: [https://rhanihasan.github.io/myjourney/](https://rhanihasan.github.io/myjourney/)
 
 **Objective**: Seeking a challenging position in a reputed organization where I can leverage my cybersecurity skills. I aim to expand my knowledge, learn new skills, and contribute to the organization's growth and success.
 
@@ -74,68 +74,48 @@ _Roles and Responsibilities_:
 
 	- _Role_: Implemented ISE 3.2 on Azure cloud with dot1x, TACACS, profiling, and more.
 
-**Devices**: Cisco Catalyst Switch 2960, 3850, 6509, 7260, 9300, X-series. Cisco Catalyst Router 2611, 2811 series. Cisco ISR Router 2911, 4331, 4661. Cisco Nexus 5k, 9k series. Cisco ENCS 5412. Cisco ESA, ISE, WSA S195. Cisco ASA 5505, 5508x, 5510, 5520x, 5545x, 5555x series. FTD FMC (CLI & ASDM). Cisco Meraki MX64 series, MR36. HPE-Aruba: Aruba Switch 2920, 3810, CX6k series, HP Comware Switch 5600. Aruba API, WLC. RAY R6A-C. Palo Alto: PA220, PA440, PA820. Checkpoint MGMT & DISTRIBUTE 3600, 4000, 5000 series.
 
 ## **Technical Skills**:
 
-- Expertise in advanced networking protocols and technologies including Ether-channel, VTP, Stacking, VSS, IRF, VSF, Port-Security, Spanning Tree Protocol (STP), RSTP, HSRP, VRRP, VRF, QoS, VPC, and VXLAN.
+-	Cracker Of CEHv12, Metasploit, burp suite, Wifi penstesting & More
+-	Packet CVE-IDs : CVE-2002-0510,CVE-2021-28041,CVE-2023-20082,CVE-2021-28041,CVE-2023-20082
+-	Expertise in advanced networking protocols and technologies including Ether-channel, VTP, Stacking, VSS, IRF, VSF, Port-Security, Spanning Tree Protocol (STP),RSTP, HSRP, VRRP VRF, QoS, VPC, and VXLAN  (Dynamic and Static), DHCP, DNS, SNMP, SLA, Redundancy, Standard & Extended ACL, and ZBF.
+-	Skilled in implementing Active-Passive and Active-Active Failover (HA), Cluster setups, and AAA authentication.
+-	Proficient in IPSEC (Site-to-Site, IKEv1 & IKEv2), Remote Access, Thin Client, Clientless VPN, DMVPN Phases I, II & III, and CA Certificate management.
+-	Experienced in URL Filtering, AVC, Security-Context, MPF, and Password Recovery.
+-	Familiarity with network infrastructure components such as WLC, FireEye, Gigamon, MPLS, SD-WAN, DNA, DNAC, AD, AWS, Netskope, Virtualization, vSphere, and Docker.
 
--  Strong knowledge of routing (Dynamic and Static), DHCP, DNS, SNMP, SLA, Redundancy, Standard & Extended ACL, and ZBF.
-
--  Skilled in implementing Active-Passive and Active-Active Failover (HA), Cluster setups, and AAA authentication.
-
-- Proficient in IPSEC (Site-to-Site, IKEv1 & IKEv2), Remote Access, Thin Client, Clientless VPN, DMVPN Phases I, II & III, and CA Certificate management.
-
-- Experienced in URL Filtering, AVC, Security-Context, MPF, and Password Recovery.
-
-- Familiarity with network infrastructure components such as WLC, FireEye, Gigamon, MPLS, SD-WAN, DNA, DNAC, AD, AWS, Netskope, Virtualization, vSphere, and Docker.
 
 ## **Certifications**:
 
 - _OSCP Pursuing_
-
 - CCNP Security- CCN Institute.
-
 - CCNA - CCN Institute.
-
-- The Foundation of Cybersecurity By Google.
-
 - CMNA - Cisco Meraki.
-
 - Netskope Cloud Security Specialist - Netskope.
-
 - Aruba Mobility Essentials.
-
 - Aruba Network Essentials.
-
 - IBM Cloud Essentials.
-
 -  Cybersecurity Essentials - Cisco.
-
 - MS-OFFICE, Photoshop, DTP, HTML - AAA Foundation.
 
 ## **Training**:
 
 - Cybersecurity - CCN.
-
 - Cisco Full Catalyst Stack - Cisco.
-
 - Cisco Nexus NDFC Dashboard Fabric Controller Test Drive - Cisco.
-
 -  Cisco ISE 101 - Cisco.
 
 ## **Education Qualification**:
 
 - Bcom from Rizvi College of Arts, Science and Commerce.
-
 - HSC from Rizvi College of Arts, Science and Commerce.
-
 - SSC from Saint Theresa's High School.
 
 ## **Personal Information**:
 
 -  Permanent Address: Room No 335, Bhadur Chawl, Makrani Gali, Bheram Nagar, Bandra East, Mumbai 400051.
-
 -  Languages: English and Hindi.
-
 - Marital Status: Single.
+
+**Devices**: Cisco Catalyst Switch 2960, 3850, 6509, 7260, 9300, X-series. Cisco Catalyst Router 2611, 2811 series. Cisco ISR Router 2911, 4331, 4661. Cisco Nexus 5k, 9k series. Cisco ENCS 5412. Cisco ESA, ISE, WSA S195. Cisco ASA 5505, 5508x, 5510, 5520x, 5545x, 5555x series. FTD FMC (CLI & ASDM). Cisco Meraki MX64 series, MR36. HPE-Aruba: Aruba Switch 2920, 3810, CX6k series, HP Comware Switch 5600. Aruba API, WLC. RAY R6A-C. Palo Alto: PA220, PA440, PA820. Checkpoint MGMT & DISTRIBUTE 3600, 4000, 5000 series.
