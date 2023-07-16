@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhassan_website=self.webpackChunkhassan_website||[]).push([[5186],{8548:s=>{s.exports=JSON.parse('{"label":"hello","permalink":"/cybersecuritys/blog/tags/hello","allTagsPath":"/cybersecuritys/blog/tags","count":2}')}}]);
