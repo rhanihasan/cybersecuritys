@@ -14,14 +14,10 @@ sidebar_position: 2
 
 *Profile*:
 
--  Bachelor's degree in Management Studies with a strong focus on cybersecurity.
-
+-  Bachelor's degree in Commerce Studies with a strong focus on cybersecurity.
 - Proficient in WAN and LAN technologies, with experience in multi-vendor environments.
-
 - 1.6 years of experience in designing, implementing, installing, and managing networks.
-
 -  Currently undergoing CCNP Security and CEH training at Real-Time Connecting Cyber Networks, Mumbai.
-
 -  Possess excellent general management, negotiation, interpersonal, communication, and team-building skills.
 
 ## ***Technical Experience***:
