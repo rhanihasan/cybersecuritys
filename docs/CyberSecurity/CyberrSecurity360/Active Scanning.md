@@ -61,9 +61,9 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 
 >#nc -lp 1234
 
-|   |
+| Getting reply form Server  |
 |---|
-|Getting reply form Server|
+||
 |![Getting_Reply_From_Server](./cybersecurity_img/Active_Scanning/Netcad/Getting%20reply%20form%20Server.png)|
 
 
