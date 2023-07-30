@@ -93,10 +93,6 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 |![ifconfig](./cybersecurity_img/Active_Scanning/Netdiscover/ifcnofig.png)|
 
 
-|Syntax & Commands|
-|---|
-|netdiscover -i eth0 [ -i define interface] |
-|![netdiscover -i](./cybersecurity_img/Active_Scanning/Netdiscover/netdiscover-i.png)|
 
 
 ## **Network Scanning Using Nmap**
@@ -296,3 +292,164 @@ This allows the command to quickly check the status of the specified ports on th
 |nmap -Pn --host-timeout 201ms --max-retries 0 -p 7000,8000,9000 [Target-IP]|
 |---|
 |![](./cybersecurity_img/Active_Scanning/specific_port_scan/nmap%20-Pn%20--host-timeout%20201ms%20--max-retries_port_knock.png)|
+
+
+## NSE -Nmap Scripting Engine
+
+## What is NSE?
+Nmap Scripting Engine (NSE) allows users to run custom scripts. Which is stored in /usr/share/nmap/scripts 
+NSE is LUA based Language.
+There are many Services that Nmap has default scripts.
+
+
+
+### Let's  look any script...
+The  author of this script is 
+Defaults Scripts
+
+|author = {"Eddie Bell", "Rob Nicholls", "Ange Gutek", "David Fifield"}|
+|---|
+|![Insideinscript](./cybersecurity_img/Active_Scanning/nse/insidescript.png)|
+|When open the script there are some variable defined which is the prerequisiteof script like ftp port etc which is …|
+|![Inside_scripty_ftp](./cybersecurity_img/Active_Scanning/nse/insidescriptftd1.png)|
+|As below see the functions|
+|portrule = shortport.port_or_service({21,990}, {"ftp","ftps"})|
+|To do this function it required Login which is anonymous login here |
+|![Inside_Script_ftp2](./cybersecurity_img/Active_Scanning/nse/insidescriptftd2.png)|
+
+
+|Wiresharks|
+|---|
+|![Wiresharks_ftp_script](./cybersecurity_img/Active_Scanning/nse/inside_script_wiresharks.png)|
+
+
+- As see Is open ASCII mode Data connection for file list…
+
+- After this the LIST will let 
+
+|$LIST as this fuctions is in variable to send the cmd LIST to FTP Server , What is List it is name speech, it get the list details of ftp server.|
+|---|
+|![inside_scripts_ftd_3](./cybersecurity_img/Active_Scanning/nse/insidescriptftd3.png)|
+
+
+|LIST on Linux |
+|---|
+|![inside_script_ftp_4](./cybersecurity_img/Active_Scanning/nse/insidescriptftd4.png)|
+
+|Wiresharks|
+|---|
+|![Inside_script_ftp_wiresharks](./cybersecurity_img/Active_Scanning/nse/inside_script_ftp_wiresharks.png)|
+
+|This is the output get because of LIST|
+|---|
+|![Inside-Scripty_ftp_results](./cybersecurity_img/Active_Scanning/nse/insidescriptftdresults.png)|
+
+
+## FTP Scans
+
+``` 
+nmap 192.168.100.130 -p 21 -sVT --script=ftp-anon.nse 
+```
+
+|Syntax & Commands|
+|---|
+|-S TCP|
+|-v for Version|
+|-T For time template which by defaults is 3|
+
+
+|Wiresharks|
+|---|
+|First Nmap uses the ARP Address to resolve the ip-addr, Then its send 3 way handshake and again send 3 way handshake.|
+|![FTP_Wireshark_Scan](./cybersecurity_img/Active_Scanning/ftp_scan/ftp_scan_wiresharks.png)|
+|As you can see the Nmap uses the login credentials|
+|![FTP_Wireshark_scan_use_default_scan](./cybersecurity_img/Active_Scanning/ftp_scan/ftp_scan_nse_script_default_Scan.png)|
+
+
+## FTP Nmap Scan Use all Script
+
+|Syntax & Commands|
+|---|
+|![FTP_Scan_using_all_ports](./cybersecurity_img/Active_Scanning/ftp_scan/frp_scans_using_all_ports.png)|
+
+
+VulnScan 
+•	The basic way of running Nmap scripts is by using the -sC option, running the default scripts.
+>>#nmap -sV -sC [target-ipaddr]
+
+•	To run a specific script against a target, the name of the script must be specified in the command. 
+>>#nmap -sV --script http-sql-injection.nse [target-ipaddr]
+
+As well as specifying the name of the script, it is sometimes necessary to specify arguments to achieve the desired behaviour
+>>#nmap --script http-wordpress-brute.nse --script-args ‘passdb=passwords.txt’ [target-ipadddr]
+>>#nmap -sV --script mysql-dump-hashes [target-ipaddr] --script-args='username=root,password=abc123'
+
+Run all NSE scripts against found ports
+$nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
+
+
+## Nmap Traceroute
+
+- Which check the hosts are there in-between the source to destination...
+
+|Syntax & Commands|
+|---|
+|![Nmap_Traceroute](./cybersecurity_img/Active_Scanning/nmap_traceroute/nmap_traceroute1.png)|
+
+
+## Aggresive Scans
+
+- As the name say the scan Aggressively which is  -A , -traceroute, -sC Defualt script scan, -Sv  Service Scan,  -O OS Prob
+
+|Syntax & Commands|
+|---|
+|![Aggresive_Scan](./cybersecurity_img/Active_Scanning/aggresive_scan/aggresive_scan.png)|
+
+
+## Save The Output
+
+•	-O for the Output.
+•	-oN to specific output in Nmap format
+
+|Syntax & Commands|
+|---|
+|![Save_The_output_1](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output1.png)|
+|-oX  use combine with other tools |
+|![saave_the_output2](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output2.png)|
+|-Os is for script kiddie which replace randoms alphabtes which randoms signs.|
+|![save_the_output_3](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output3.png)|
+|-oG the grapabale, its provide the simiplyfied output which can be easy filter.|
+|![save_the_output4](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output4.png)|
+
+
+## Timing Templates
+
+
+Its start from -T0 to T5
+T0 is easy slow scan which is harder to detects
+As the T number increase 
+The scan and chances of getting detect will increase.
+
+|Syntax & Commands|
+|---|---|
+|T0|paranoid timing|
+|T1 | sneaky timing|
+|T2 | polite timing|
+|T3 |normal timing|
+|T4 | aggressive timing|
+|T5 | insane timing|
+
+|T5|
+|---|
+|![Save_the_output_T5](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output_T5.png)|
+
+
+## Vulnerability Assessment (Nessus)
+
+
+### What is Nessus? 
+Nessus is an automation tool which provides the enumeration and scanning in Graphical mode. 
+
+
+### How does Nessus work?
+In the backend   Its uses the open sources traditional service like nmap, netdiscover  etc but provides the output in Simple graphical format. In addition to the Nessus Vulnerability Scan, we also utilized a network port scan. With the results of this scan, we can see the internal footprint of open ports and services.
