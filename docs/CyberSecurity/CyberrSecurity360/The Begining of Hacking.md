@@ -319,5 +319,130 @@ Whenever computer/device  creates files, it creates meta data and saved that met
 The meta data can be retrieve by multiply ways,
 ::: 
 
+---
 
-## ***Past Cybersecurity Attacks***
+
+# *** Cyber security Unleashing Synergy: Safeguarding Digital Assets in the Modern Age***
+
+:::note
+Hasan Opinion
+"Don't be too overwhelmed with trying to understand every single specialization within cyber security."
+:::
+
+## **Cyber Security: Strengthening Digital Fortifications**
+
+|Basic Terminologies|
+|----|
+
+||	
+|---|---|
+|OS | **Operating system** the interface between computer hardware and the user.|
+|Linux | An **open-source** operating system .|
+|Assests | An item perceived as having **value** to an organization.|
+|Vulnrabilities | Anything that can impact the confidentiality, integrity, or availability of an asset.|
+|Risks | A weakness that can be exploited by a **threat** .|
+|Availability | The idea that data is accessible to those who are authorized to access it.|
+|Compliance|The process of adhering to internal standards and external regulations.|
+|CIA Trials | **Confidentiality**, **integrity**, **availability** A model that helps inform how organizations consider risk when setting up systems and security policies.|
+|Hacktivist | A person who uses hacking to achieve a political goal.|
+|HIPAA | **Health Insurance Portability and Accountability Act A U.S**. federal law established to protect patients' health information.|
+| NIST & CSF | **National Institute of Standards and Technology  Cyber Security Framework**. A voluntary framework that consists of standards, guidelines, and best practices to manage cybersecurity risk.|
+|Privcay Protection | The act of safeguarding personal information from unauthorized use.|
+|PHI | **Protected health information**, Information that relates to the past, present, or future physical or mental health or condition of an individual.|
+|Security Architecture |A type of security design composed of multiple components, such as tools and processes, that are used to protect an organization from risks and external threats.|
+|Security Control | Safeguards designed to reduce specific security risks.|
+|Security Ethics |Guidelines for making appropriate decisions as a security professional.|
+|Security Framework | Guidelines used for building plans to help mitigate risk and threats to data and privacy.|
+|Security Governance |Practices that help support, define, and direct security efforts of an organization.|
+|SPII |**Sensitive personally identifiable information**.  A specific type of PII that falls under stricter handling guidelines.|
+|SOAR | **Security orchestration automation, and response**. A collection of applications, tools, and workflows that use automation to respond to security events,|
+|Chronicle | A cloud-native tool designed to retain, analyze, and search data.|
+|Incidents Response | An organization’s quick attempt to identify an attack, contain the damage, and correct the effects of a security breach.|
+|Logs | A record of events that occur within an organization’s systems.|
+| Metrics | Key technical attributes such as response time, availability, and failure rate, which are used to assess the performance of a software application.|
+| PlayBook | A manual that provides details about any operational action.|
+| BCP | An organization's ability to maintain their everyday productivity by establishing risk disaster recovery plans.|
+| AV | AntiVirus. A software program used to prevent, detect, and eliminate malware and viruses.|
+| Database | An organized collection of information or data.|
+| Data Point | A specific piece of information.|
+| IDS | **Intrusion detection system**  An application that monitors system activity and alerts on possible intrusions. |
+| IPS | Intrusion Prevention systems An application that prevent system activity. |
+| Packet Snipper | Network protocol analyzer  A tool designed to capture and analyze data traffic within a network.|
+| Order of volatility | A sequence outlining the order of data that must be preserved from first to last.|
+| Programming |A process that can be used to create a specific set of instructions for a computer to execute tasks.|
+|Protecting and preserving evidence	| The process of properly working with fragile and volatile digital evidence. |
+
+### **SIEM**
+
+- A SIEM tool is an application that collects and analyzes log data to monitor critical activities in an organization. An application that collects and analyzes log data to monitor critical activities in an organization
+
+#### **Splunk**
+
+- Splunk Enterprise provides SIEM solutions. Splunk Enterprise is a self-hosted tool used to retain, analyze, and search an organization's log data. Another SIEM tool is Google's Chronicle. Chronicle is a cloud-native SIEM tool that stores security data for search and analysis. Cloud-native means that Chronicle allows for fast delivery of new features.
+##### **Splunk Cloud**
+- A cloud-hosted tool used to collect, search, and monitor log data
+	
+#### **Splunk Enterprise**
+- A self-hosted tool used to retain, analyze, and search an organization's log data to provide security information and alerts in real-time
+
+
+### **Defence in Depth**
+
+ Multiple layers of security placed throughout an environment
+
+- Data at Rest
+	-	Information that is not in use and is static in location (example: storage)
+
+- Data in Motion
+	- Information that is in transit from one location to another (example: network communications)
+
+- Data in Use 
+	- Information that is utilized by software applications
+
+
+---
+
+## **Security Assessment & Testing: Staying Ahead in the Cyber Arms Race**
+
+
+### **What & Why Security Assessment**
+
+- Asset security
+	- Focused on securing digital and physical assets. It's also related to the storage, maintenance, retention, and destruction of data
+
+
+- Security architecture and engineering
+	- Focused on optimizing data security by ensuring effective tools, systems, and processes are in place to protect an organization's assets and data
+
+- Communication and network security
+	- Focused on managing and securing physical networks and wireless communications
+
+
+- Identity and access management
+	- Focused on access and authorization to keep data secure, by making sure users follow established policies to control and manage assets.
+	- Components of IAM
+		- Identification
+		- Authentication
+		- Authorization
+		- Accountability
+
+
+- Security assessment and testing
+	- Focused on conducting security control testing, collecting and analysing data, and conducting security audits to monitor for risks, threats, and vulnerabilities
+
+- Security operations
+	- Focused on conducting investigations and implementing preventative measures
+
+- Incident and vulnerability response playbooks
+	- Incident and vulnerability response playbooks are commonly used by entry-level cyber security professionals. They are developed based on the goals outlined in an organization’s business continuity plan. 
+	- A business continuity plan is an established path forward allowing a business to recover and continue to operate as normal, despite a disruption like a security breach.
+	- These two types of playbooks are similar in that they both contain predefined and up-to-date lists of steps to perform when responding to an incident. 
+	- These playbooks also help minimize errors and ensure that important actions are performed within a specific timeframe.
+	- When an incident, threat, or vulnerability occurs or is identified, the level of risk to the organization depends on the potential damage to its assets. A basic formula for determining the level of risk is that risk equals the likelihood of a threat. For this reason, a sense of urgency is essential. Mishandling data can easily compromise forensic data, rendering it unusable. 
+	- Steps included in incident and vulnerability playbooks include: 
+	- Preparation
+	- Detection
+	- Analysis
+	- Containment
+	- Eradication
+	- Recovery from an incident
