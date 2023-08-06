@@ -249,6 +249,164 @@ Company then only hires where you have MAC addr then only you get IP addr.
 
 ---
 
+## **Communication protocols**
+
+Communication protocols govern the exchange of information in network transmission. They dictate how the data is transmitted between devices and the timing of the communication. They also include methods to recover data lost in transit.
+
+### **TCP**
+Transmission Control Protocol (TCP) is an internet communication protocol that allows two devices to form a connection and stream data. TCP uses a three-way handshake process. First, the device sends a synchronize (SYN) request to a server. Then the server responds with a SYN/ACK packet to acknowledge receipt of the device's request. Once the server receives the final ACK packet from the device, a TCP connection is established. In the TCP/IP model, TCP occurs at the transport layer.
+The TCP ensures that data is reliably transmitted to the destination service. TCP contains the port number of the intended destination service, which resides in the TCP header of an TCP/IP packet.
+- The total protocol is 255.
+- Transmission control protocol.
+- TCP has protocol number 6.
+> TCP has a **Three-way handshake**.
+- A --> B SYK packet
+- A <-- B SYK packet
+- A --> B ACK Packet
+
+Now the connection is made. This process is called **TCP full connection** also known as **three-way handshake.**
+
+If the connection is closed this packet will be there.
+•	A --> B Fin packet.
+•	A ß B Fin ack packet.
+This is called a **Five-way handshake**.
+
+
+### **UDP** 
+- User Datagram protocol, protocol number is 17.
+- It’s a request and response mode.
+- It has header/Flag size of 8bytes.
+- It is also known as ‘stateless protocol’ meaning it doesn’t acknowledge that packet being sent have been received it most used for steaming media.
+- User Datagram Protocol (UDP) is a connectionless protocol that does not establish a connection between devices before a transmission. This makes it less reliable than TCP. But it also means that it works well for transmissions that need to get to their destination quickly. For example, one use of UDP is for internet gaming transmissions. In the TCP/IP model, UDP occurs at the transport layer
+
+
+### **DNS**
+
+
+- Domain Name System uses port 53 works on UDP protocol mostly but also works on TCP.
+- Domain Name System (DNS) is a protocol that translates internet domain names into IP addresses. When a client computer wishes to access a website domain using their internet browser, a query is sent to a dedicated DNS server. The DNS server then looks up the IP address that corresponds to the website domain. DNS normally uses UDP on port 53. However, if the DNS reply to a request is large, it will switch to using the TCP protocol. In the TCP/IP model, DNS occurs at the application layer.
+
+#### **Why DNS come?**
+Because all the device /router/ any machine understand binary, and we humans are not good in remembering numbers/IP Addrs. That why DNS comes and helps,
+It requery Numbers / IP Addrs into Names 
+
+
+
+### **DNS Types** 
+DNS has Multiply types of Records 
+
+- **A record**: Is requery for IPv4
+- **AAAA record** : is requery for IPv6
+- **MX record** [mail server record ]:  it specifies the mail server responsible for accepting incoming emails.
+- **Name server Record**: It provides information about authoritative name servers for a domain.
+- **CNAME Record**: Redirector [One server domain redirect to Different Server domain], It acts as a redirector, redirecting one server domain to a different server domain.
+
+:::note
+ The latest and best which is used in Current Network environment is QUIC Protocol !!.
+:::
+
+
+
+## **Management Protocols**
+
+Management protocols are used for monitoring and managing activity on a network. They include protocols for error reporting and optimizing performance on the network.
+
+- **Simple Network Management Protocol (SNMP)** is a network protocol used for monitoring and managing devices on a network. SNMP can reset a password on a network device or change its baseline configuration. It can also send requests to network devices for a report on how much of the network’s bandwidth is being used up. 
+	- In the TCP/IP model, SNMP occurs at the application layer.
+
+- **Internet Control Message Protocol (ICMP)** is an internet protocol used by devices to tell each other about data transmission errors across the network. ICMP is used by a receiving device to send a report to the sending device about the data transmission. ICMP is commonly used as a quick way to troubleshoot network connectivity and latency by issuing the “ping” command on a Linux operating system. 
+	- In the TCP/IP model, ICMP occurs at the internet layer.
+
+
+## **Security Protocols**
+
+Security protocols are network protocols that ensure that data is sent and received securely across a network. Security protocols use encryption algorithms to protect data in transit. Below are some common security protocols.
+
+- **Hypertext Transfer Protocol Secure (HTTPS)** is a network protocol that provides a secure method of communication between clients and website servers. 
+	- HTTPS is a secure version of HTTP that uses secure sockets layer/transport layer security (SSL/TLS) encryption on all transmissions so that malicious actors cannot read the information contained. HTTPS uses port 443. 
+	- In the TCP/IP model, HTTPS occurs at the application layer.
+
+- **Secure File Transfer Protocol (SFTP)** is a secure protocol used to transfer files from one device to another over a network. SFTP uses secure shell (SSH), typically through TCP port 22. SSH uses Advanced Encryption Standard (AES) and other types of encryption to ensure that unintended recipients cannot intercept the transmissions.
+	-  In the TCP/IP model, SFTP occurs at the application layer. 
+	- SFTP is used often with cloud storage. Every time a user uploads or downloads a file from cloud storage, the file is transferred using the SFTP protocol.
+
+:::note
+Note: The encryption protocols mentioned do not conceal the source or destination IP address of network traffic. This means a malicious actor can still learn some basic information about the network traffic if they intercept it.
+:::
+
+### **Dynamic Host Configuration Protocol**
+
+**Dynamic Host Configuration Protocol (DHCP)** is in the management family of network protocols. DHCP is an application layer protocol used on a network to configure devices. 
+- It assigns a unique IP address and provides the addresses of the appropriate DNS server and default gateway for each device.
+- DHCP servers operate on UDP port 67 while DHCP clients operate on UDP port 68.
+
+### **Address Resolution Protocol**
+- I think by now you are familiar with IP and MAC addresses.  
+- Each device on a network has both an IP address that identifies it on the network and a MAC address that is unique to that network interface. 
+- A device’s IP address may change over time, but its MAC address is permanent. 
+- Address Resolution Protocol (ARP) is an internet layer protocol in the TCP/IP model used to translate the IP addresses that are found in data packets into the MAC address of the hardware device. 
+- Each device on the network performs ARP and keeps track of matching IP and MAC addresses in an ARP cache. ARP does not have a specific port number.
+
+
+### **Telnet** 
+
+- Telnet is an application layer protocol that allows a device to communicate with another device or server. Telnet sends all information in clear text. 
+- It uses command line prompts to control another device similar to secure shell (SSH), but Telnet is not as secure as SSH. 
+- Telnet can be used to connect to local or remote devices and uses TCP port 23. 
+
+
+### **Secure shell**
+
+- Secure shell protocol (SSH) is used to create a secure connection with a remote system. This application layer protocol provides an alternative for secure authentication and encrypted communication. SSH operates over the TCP port 22 and is a replacement for less secure protocols, such as Telnet.
+
+### **Post office protocol**
+- **Post office protocol (POP)** is an application layer (layer 4 of the TCP/IP model) protocol used to manage and retrieve email from a mail server. 
+- Many organizations have a dedicated mail server on the network that handles incoming and outgoing mail for users on the network. 
+- User devices will send requests to the remote mail server and download email messages locally. 
+- If you have ever refreshed your email application and had new emails populate in your inbox, you are experiencing POP and internet message access protocol (IMAP) in action.
+- Unencrypted, plaintext authentication uses TCP/UDP port 110 and encrypted emails use Secure Sockets Layer/Transport Layer Security (SSL/TLS) over TCP/UDP port 995.  
+- When using POP, mail has to finish downloading on a local device before it can be read and it does not allow a user to sync emails. 
+
+### **Internet Message Access Protocol (IMAP)**
+- **IMAP** is used for incoming email. It downloads the headers of emails, but not the content. 
+- The content remains on the email server, which allows users to access their email from multiple devices. 
+- IMAP uses TCP port 143 for unencrypted email and TCP port 993 over the TLS protocol. Using IMAP allows users to partially read email before it is finished downloading and to sync emails. However, IMAP is slower than POP3.
+
+### **Simple Mail Transfer Protocol**
+
+- **Simple Mail Transfer Protocol (SMTP)** is used to transmit and route email from the sender to the recipient’s address. 
+- SMTP works with Message Transfer Agent (MTA) software, which searches DNS servers to resolve email addresses to IP addresses, to ensure emails reach their intended destination. 
+- SMTP uses TCP/UDP port 25 for unencrypted emails and TCP/UDP port 587 using TLS for encrypted emails. 
+- The TCP port 25 is often used by high-volume spam. 
+- SMTP helps to filter out spam by regulating how many emails a source can send at a time.
+
+### **Protocols and port numbers**
+
+- Remember that port numbers are used by network devices to determine what should be done with the information contained in each data packet once they reach their destination.
+- Firewalls can filter out unwanted traffic based on port numbers. 
+>> For example, an organization may configure a firewall to only allow access to TCP port 995 (POP3) by IP addresses belonging to the organization.
+
+
+|Protocols | Ports|
+|---|---|
+| DHCP | UDP port 67 (servers) UDP port 68 (clients)|
+| ARP | none|
+|Telnet|TCP port 23|
+|SSH |TCP port 22|
+|POP3|TCP/UDP port 110 (unencrypted) TCP/UDP port 995 (encrypted, SSL/TLS)|
+|IMAP|TCP port 143 (unencrypted)  TCP port 993 (encrypted, SSL/TLS)|
+|SMTP|TCP/UDP port 587 (encrypted, TLS)|
+
+
+
+
+
+
+
+
+
+
+
 # Working Processs
 
 ## ***Network devices*** 
