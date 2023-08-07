@@ -251,3 +251,6 @@ Checked the env file.
 :::
 
 ---
+
+DOS Vuln 
+A website which provide the output of search is vuln to dos/ddos because it can inject the payload which will be hard to decomplying by server as a queries.
