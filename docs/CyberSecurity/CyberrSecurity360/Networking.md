@@ -8,6 +8,21 @@ sidebar_position: 3
 ---
 
 
+
+:::tip
+
+A Typical day of me as a network engineer.
+
+It would start with solving a problem.  Maybe I  trying to debug, why is this particular endpoint flooded with so 
+much traffic?  Or why is this endpoint actually slowing down?  And I would start with, okay, let me get to the endpoint. 
+Let me capture some traffic on the endpoint and see what kind of traffic is coming in and going out through this endpoint. 
+So I would typically go back, think about the problem during lunch. Sometimes things would click. When I am  thinking i might not have thought about a problem from a different perspective, i might want to actually see how it looks like.  So i would go about maybe doing a lab recreate. Let me connect these endpoints and let me try to reproduce the issue. I might see some things in the lab recreate that you might have not 
+thought of. And i might need to actually consult with experts from different domains who might know better about this area. Get their view on what the problem is, analyze, show them everything that you have done. I  might get the solution just by talking to people. It's a pretty busy day, but it's also a very fun day. It's like solving puzzles all the time, which is pretty exciting. Some of the best practices in network  that I've learned are, 
+don't try to always reinvent the wheel. There are certain protocols, there are certain algorithms that have been tried, tested, analyzed, and they have been deemed secure for being used in network security.
+ 
+
+
+:::
 ## ***What is Network ?***
 
 Connecting two or more computers.
@@ -301,7 +316,7 @@ DNS has Multiply types of Records
 - **Name server Record**: It provides information about authoritative name servers for a domain.
 - **CNAME Record**: Redirector [One server domain redirect to Different Server domain], It acts as a redirector, redirecting one server domain to a different server domain.
 
-:::note
+:::info
  The latest and best which is used in Current Network environment is QUIC Protocol !!.
 :::
 
@@ -330,7 +345,7 @@ Security protocols are network protocols that ensure that data is sent and recei
 	-  In the TCP/IP model, SFTP occurs at the application layer. 
 	- SFTP is used often with cloud storage. Every time a user uploads or downloads a file from cloud storage, the file is transferred using the SFTP protocol.
 
-:::note
+:::caution
 Note: The encryption protocols mentioned do not conceal the source or destination IP address of network traffic. This means a malicious actor can still learn some basic information about the network traffic if they intercept it.
 :::
 
@@ -398,16 +413,6 @@ Note: The encryption protocols mentioned do not conceal the source or destinatio
 |SMTP|TCP/UDP port 587 (encrypted, TLS)|
 
 
-
-
-
-
-
-
-
-
-
-# Working Processs
 
 ## ***Network devices*** 
 
@@ -606,4 +611,173 @@ That means to use the _software application or deployment they do agree on rules
 |![ssl-connetion-fin-packet](./cybersecurity_img/Basic%20Enum%2C%20Info%20Gathering%20%26%20Vulnerability%20Assessment/service/https/netcat_https_connection_fin_packet_wiresharks.png) |
 
 ---
+
+## **The evolution of wireless security protocols**
+
+In the early days of the internet, all internet communication happened across physical cables. It wasn’t until the mid-1980s that authorities in the United States designated a spectrum of radio wave frequencies that could be used without a license, so there was more opportunity for the internet to expand. 
+
+In the late 1990s and early 2000s, technologies were developed to send and receive data over radio. Today, users access wireless internet through laptops, smart phones, tablets, and desktops. Smart devices, like thermostats, door locks, and security cameras, also use wireless internet to communicate with each other and with services on the internet.
+
+|![WIFI_WEP_WPA1_WPA2_3](./cybersecurity_img/Networking/WIFI_WPA_123.png)|
+|---|
+
+
+## **Introduction to wireless communication protocols**
+
+- Many people today refer to wireless internet as Wi-Fi. 
+- Wi-Fi refers to a set of standards that define communication for wireless LANs. 
+- Wi-Fi is a marketing term commissioned by the Wireless Ethernet Compatibility Alliance (WECA). 
+- WECA has since renamed their organization Wi-Fi Alliance. 
+- Wi-Fi standards and protocols are based on the 802.11 family of internet communication standards determined by the Institute of Electrical and Electronics Engineers (IEEE). 
+- ***As a Network Engineer i have seen Wi-Fi referred to as IEEE 802.11.***
+- Wi-Fi communications are secured by wireless networking protocols. 
+- Wireless security protocols have evolved over the years, helping to identify and resolve vulnerabilities with more advanced wireless technologies.
+- In this reading, you will learn about the evolution of wireless security protocols from WEP to WPA, WPA2, and WPA3. 
+- I also learn how the Wireless Application Protocol was used for mobile internet communications.
+
+## **Wired Equivalent Privacy**
+
+- Wired equivalent privacy (WEP) is a wireless security protocol designed to provide users with the same level of privacy on wireless network connections as they have on wired network connections. 
+- WEP was developed in 1999 and is the oldest of the wireless security standards.
+- WEP is largely out of use today, but security analysts should still understand WEP in case they encounter it. 
+For example, a network router might have used WEP as the default security protocol and the network administrator never changed it. Or, devices on a network might be too old to support newer Wi-Fi security protocols. Nevertheless, a malicious actor could potentially break the WEP encryption, so it’s now considered a high-risk security protocol.
+
+## **Wi-Fi Protected Access**
+
+- Wi-Fi Protected Access (WPA) was developed in 2003 to improve upon WEP, address the security issues that it presented, and replace it. WPA was always intended to be a transitional measure so backwards compatibility could be established with older hardware.
+- The flaws with WEP were in the protocol itself and how the encryption was used. WPA addressed this weakness by using a protocol called Temporal Key Integrity Protocol (TKIP). 
+- WPA encryption algorithm uses larger secret keys than WEPs, making it more difficult to guess the key by trial and error.
+- WPA also includes a message integrity check that includes a message authentication tag with each transmission. 
+- If a malicious actor attempts to alter the transmission in any way or resend at another time, WPA’s message integrity check will identify the attack and reject the transmission.
+- Despite the security improvements of WPA, it still has vulnerabilities. Malicious actors can use a key reinstallation attack (or KRACK attack) to decrypt transmissions using WPA. 
+- Attackers can insert themselves in the WPA authentication handshake process and insert a new encryption key instead of the dynamic one assigned by WPA. If they set the new key to all zeros, it is as if the transmission is not encrypted at all.
+- Because of this significant vulnerability, WPA was replaced with an updated version of the protocol called WPA2. 
+
+
+
+## **WPA2 & WPA3**
+
+### **WPA2**
+- The second version of Wi-Fi Protected Access—known as WPA2—was released in 2004. WPA2 improves upon WPA by using the Advanced Encryption Standard (AES). WPA2 also improves upon WPA’s use of TKIP. WPA2 uses the Counter Mode Cipher Block Chain Message Authentication Code Protocol (CCMP), which provides encapsulation and ensures message authentication and integrity. Because of the strength of WPA2, it is considered the security standard for all Wi-Fi transmissions today. WPA2, like its predecessor, is vulnerable to KRACK attacks. This led to the development of WPA3 in 2018. 
+
+### **Personal**
+- WPA2 personal mode is best suited for home networks for a variety of reasons. It is easy to implement, initial setup takes less time for personal than enterprise version. The global passphrase for WPA2 personal version needs to be applied to each individual computer and access point in a network. 
+- This makes it ideal for home networks, but unmanageable for organizations. 
+
+
+
+### **Enterprise**
+
+- WPA2 enterprise mode works best for business applications. 
+- It provides the necessary security for wireless networks in business settings. 
+- The initial setup is more complicated than WPA2 personal mode, but enterprise mode offers individualized and centralized control over the Wi-Fi access to a business network. This means that network administrators can grant or remove user access to a network at any time. 
+- Users never have access to encryption keys, this prevents potential attackers from recovering network keys on individual computers.
+
+### **WPA3**
+
+- WPA3 is a secure Wi-Fi protocol and is growing in usage as more WPA3 compatible devices are released. These are the key differences between WPA2 and WPA3:
+	- WPA3 addresses the authentication handshake vulnerability to KRACK attacks, which is present in WPA2. 
+	- WPA3 uses Simultaneous Authentication of Equals (SAE), a password-authenticated, cipher-key-sharing agreement. This prevents attackers from downloading data from wireless network connections to their systems to attempt to decode it.
+	- WPA3 has increased encryption to make passwords more secure  by using 128-bit encryption, with WPA3-Enterprise mode offering optional 192-bit encryption.
+
+
+
+## **Computing processes in the cloud**
+
+- Traditional networks are called on-premise networks, which means that all of the devices used for network operations are kept at a physical location owned by the company, like in an office building, for example. Cloud computing, however, refers to the practice of using remote servers, applications, and network services that are hosted on the internet instead of at a physical location owned by the company.
+
+- A cloud service provider (CSP) is a company that offers cloud computing services. These companies own large data centers in locations around the globe that house millions of servers. Data centers provide technology services, such as storage, and compute at such a large scale that they can sell their services to other companies for a fee. Companies can pay for the storage and services they need and consume them through the CSP’s application programming interface (API) or web console.
+
+- CSPs provide three main categories of services:
+	- Software as a service (SaaS) refers to software suites operated by the CSP that a company can use remotely without hosting the software. 
+
+	- Infrastructure as a service (Iaas) refers to the use of virtual computer components offered by the CSP. These include virtual containers and storage that are configured remotely through the CSP’s API or web console. Cloud-compute and storage services can be used to operate existing applications and other technology workloads without significant modifications. Existing applications can be modified to take advantage of the availability, performance, and security features that are unique to cloud provider services.
+
+	- Platform as a service (PaaS) refers to tools that application developers can use to design custom applications for their company. Custom applications are designed and accessed in the cloud and used for a company’s specific business needs.
+
+|![Cloud_intor](./cybersecurity_img/Networking/Cloud_intro.png)|
+|---|
+
+### **Hybrid cloud environments**
+
+- When organizations use a CSP’s services in addition to their on-premise computers, networks, and storage, it is referred to as a hybrid cloud environment.
+- When organizations use more than one CSP, it is called a multi-cloud environment. 
+- The vast majority of organizations use hybrid cloud environments to reduce costs and maintain control over network resources.
+
+## **Network security applications**
+
+- This section of the course covers the topic of network hardening and monitoring. Each device, tool, or security strategy put in place by security analysts further protects—or hardens—the network until the network owner is satisfied with the level of security. 
+- This approach of adding layers of security to a network is referred to as defense in depth.
+- In this reading, you are going to learn about the role of four devices used to secure a network—firewalls, intrusion detection systems, intrusion prevention systems, and security incident and event management tools.
+- Network security professionals have the choice to use any or all of these devices and tools depending on the level of security that they hope to achieve. 
+- This reading will discuss the benefits of layered security. Each tool mentioned is an additional layer of defense that can incrementally harden a network, starting with the minimum level of security (provided by just a firewall), to the highest level of security (provided by combining a firewall, an intrusion detection and prevention device, and security event monitoring). 
+
+|![Networking_seucrity_application](./cybersecurity_img/Networking/Networking_security_application.png)|
+|---|
+
+## **Firewall**
+
+- Most firewalls are similar in their basic functions. 
+- Firewalls allow or block traffic based on a set of rules. As data packets enter a network, the packet header is inspected and allowed or denied based on its port number. 
+- NGFWs are also able to inspect packet payloads. Each system should have its own firewall, regardless of the network firewall.
+
+|![Networking_firewall_1](./cybersecurity_img/Networking/Networking_Firewall_1.png)|
+|---|
+
+## **Intrusion Detection System** 
+
+- An **intrusion detection system (IDS)** is an application that monitors system activity and alerts on possible intrusions. 
+- An IDS alerts administrators based on the signature of malicious traffic.
+- The IDS is configured to detect known attacks. IDS systems often sniff data packets as they move across the network and analyze them for the characteristics of known attacks. 
+- Some IDS systems review not only for signatures of known attacks, but also for anomalies that could be the sign of malicious activity. 
+- When the IDS discovers an anomaly, it sends an alert to the network administrator who can then investigate further.
+- The limitations to IDS systems are that they can only scan for known attacks or obvious anomalies. 
+- New and sophisticated attacks might not be caught. 
+- The other limitation is that the IDS doesn’t actually stop the incoming traffic if it detects something awry. 
+- It’s up to the network administrator to catch the malicious activity before it does anything damaging to the network. 
+
+|![NETWORKING_IDS](./cybersecurity_img/Networking/NETWORKING_IDS.png)|
+|---|
+
+## **Intrusion Prevention System** 
+
+
+- An **intrusion prevention system (IPS)** is an application that monitors system activity for intrusive activity and takes action to stop the activity. 
+- It offers even more protection than an IDS because it actively stops anomalies when they are detected, unlike the IDS that simply reports the anomaly to a network administrator.
+- An IPS searches for signatures of known attacks and data anomalies. 
+- An IPS reports the anomaly to security analysts and blocks a specific sender or drops network packets that seem suspect. 
+
+|![Networking_IPS](./cybersecurity_img/Networking/NETWORKING_IPS_1.png)|
+|---|
+
+
+- The IPS (like an IDS) sits behind the firewall in the network architecture. 
+- This offers a high level of security because risky data streams are disrupted before they even reach sensitive parts of the network. 
+- However, one potential limitation is that it is inline: If it breaks, the connection between the private network and the internet breaks. 
+- Another limitation of IPS is the possibility of false positives, which can result in legitimate traffic getting dropped.
+
+## **Full packet capture devices**
+
+- Full packet capture devices can be incredibly useful for network administrators and security professionals. 
+- These devices allow you to record and analyze all of the data that is transmitted over your network. 
+- They also aid in investigating alerts created by an IDS.
+
+## **Security Information and Event Management** 
+
+- **A security information and event management system (SIEM)**  is an application that collects and analyzes log data to monitor critical activities in an organization. SIEM tools work in real time to report suspicious activity in a centralized dashboard. 
+- SIEM tools additionally analyze network log data sourced from IDSs, IPSs, firewalls, VPNs, proxies, and DNS logs. SIEM tools are a way to aggregate security event data so that it all appears in one place for security analysts to analyze. This is referred to as a single pane of glass. 
+- Below, you can review an example of a dashboard from Google Cloud’s SIEM tool, Chronicle. 
+- Chronicle is a cloud-native tool designed to retain, analyze, and search data.
+|![SEIM_BY_GOOGLE](./cybersecurity_img/Networking/SEIM_GOOGLE_CHROMLE.png)|
+|---|
+
+### **Splunk**
+- Splunk is another common SIEM tool. 
+- Splunk Enterprise and Splunk Cloud. 
+- Both options include detailed dashboards which help security professionals to review and analyze an organization's data. 
+- There are also other similar SIEM tools available, and it's important for security professionals to research the different tools to determine which one is most beneficial to the organization.
+- A SIEM tool doesn’t replace the expertise of security analysts, or of the network- and system-hardening activities covered in this course, but they’re used in combination with other security methods. 
+- Security analysts often work in a Security Operations Center (SOC) where they can monitor the activity across the network. 
+- They can then use their expertise and experience to determine how to respond to the information on the dashboard and decide when the events meet the criteria to be escalated to oversight.
+
 
