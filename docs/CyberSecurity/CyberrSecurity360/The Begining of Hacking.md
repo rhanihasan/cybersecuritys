@@ -259,11 +259,32 @@ _During this phase the **tester** attempts to take **advantage** of any **vulner
 	- **_Confirm access_**_: verifying that the **exploit** was **successful** and that the hacker has **gained access** to the target system or networks._
 
 
+
+## **The Mitre co-operation organization**  
+
+### **Which Handles the CVE & CWE** 
+
+
+###  **Common Vulnerabilities exposure (CVE)**
+
+### What is CVE 
+
+Example I used TP-Link router for home internet And so do the many people and what if an attacker found out the vulnerability in TP-link router. I can be the target of that attacker . So when ever the device is  used in multiply location then if vulnerability found its comes under CVE. And if reported that CVE its gets CVE-ID with the credit of reporter and vuln details with patches details.
+
 ## **_CVE – Termiologies_**
 
 **_CVE_** _(Common Vulnerabilities and Exposures) is a standardized identifier for a software vulnerability, which identify to refer in world wide ._
 
-## **_CVSS – Terminologies_**
+###  **Common Weakness exposure  (CWE)**
+
+Its an category which Details about vulnerabilities & Patches where its blinded with the CVE and CVSS
+
+
+## **CVSS**
+
+CVSS is an vector which gives the number how critical the vulnerabilities is .
+
+### **_CVSS – Terminologies_**
 
 _while_ **_CVSS_** _(Common Vulnerability Scoring System) is a numerical score that assesses the severity of a vulnerability._
 
@@ -301,12 +322,12 @@ _while_ **_CVSS_** _(Common Vulnerability Scoring System) is a numerical score t
 ## ***What is PCI-DSS ?*** 
 
 **It the standard for Payment industry,**
-	Its policies are as follow
+Its policies are as follow
+
 >	1.	protect the User Data.
 >	2.	Encrypt of User Data.
 >	3.	Password Policies of User Data.
->	4.	Non-redemption for Both entities.
->	and more.
+>	4.	Non-redemption for Both entities and more.
 
 ---
 
@@ -320,6 +341,7 @@ The meta data can be retrieve by multiply ways,
 ::: 
 
 ---
+
 
 
 # *** Cyber security Unleashing Synergy: Safeguarding Digital Assets in the Modern Age***
