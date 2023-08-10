@@ -267,11 +267,11 @@ _During this phase the **tester** attempts to take **advantage** of any **vulner
 
 ###  **Common Vulnerabilities exposure (CVE)**
 
-### What is CVE 
+### **What is CVE** 
 
 Example I used TP-Link router for home internet And so do the many people and what if an attacker found out the vulnerability in TP-link router. I can be the target of that attacker . So when ever the device is  used in multiply location then if vulnerability found its comes under CVE. And if reported that CVE its gets CVE-ID with the credit of reporter and vuln details with patches details.
 
-## **_CVE – Termiologies_**
+### **_CVE – Termiologies_**
 
 **_CVE_** _(Common Vulnerabilities and Exposures) is a standardized identifier for a software vulnerability, which identify to refer in world wide ._
 
@@ -280,7 +280,7 @@ Example I used TP-Link router for home internet And so do the many people and wh
 Its an category which Details about vulnerabilities & Patches where its blinded with the CVE and CVSS
 
 
-## **CVSS**
+### **CVSS**
 
 CVSS is an vector which gives the number how critical the vulnerabilities is .
 
