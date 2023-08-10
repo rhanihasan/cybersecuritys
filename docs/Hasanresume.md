@@ -24,12 +24,12 @@ sidebar_position: 2
 
 _Current Company_: ***Netplace Technologies Pvt Ltd Duration***: 23 May 2022
 
-_Present Designation_: Network Engineer
+####  _Present Designation_: **CyberSecurity Engineer**
+#### _Past Designation_ : **Network Engineer**
 
-_Roles and Responsibilities_:
+### _Roles and Responsibilities_:
 
 -  Implementing new networks and upgrading existing networks with feasible solutions.
-
 - Handling escalation cases and providing outage reports to customers.
 
 ## ***Projects Handled:***
@@ -69,6 +69,8 @@ _Roles and Responsibilities_:
 -   _Cisco ISE_ Deployment on Azure Cloud for Kaya Clinic HQ:
 
 	- _Role_: Implemented ISE 3.2 on Azure cloud with dot1x, TACACS, profiling, and more.
+
+
 
 
 ## **Technical Skills**:
