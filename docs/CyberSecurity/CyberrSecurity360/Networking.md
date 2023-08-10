@@ -706,7 +706,7 @@ For example, a network router might have used WEP as the default security protoc
 
 ## **Network security applications**
 
-- This section of the course covers the topic of network hardening and monitoring. Each device, tool, or security strategy put in place by security analysts further protects—or hardens—the network until the network owner is satisfied with the level of security. 
+- Each device, tool, or security strategy put in place by security analysts further protects—or hardens—the network until the network owner is satisfied with the level of security. 
 - This approach of adding layers of security to a network is referred to as defense in depth.
 - In this reading, you are going to learn about the role of four devices used to secure a network—firewalls, intrusion detection systems, intrusion prevention systems, and security incident and event management tools.
 - Network security professionals have the choice to use any or all of these devices and tools depending on the level of security that they hope to achieve. 
@@ -776,7 +776,7 @@ For example, a network router might have used WEP as the default security protoc
 - Splunk Enterprise and Splunk Cloud. 
 - Both options include detailed dashboards which help security professionals to review and analyze an organization's data. 
 - There are also other similar SIEM tools available, and it's important for security professionals to research the different tools to determine which one is most beneficial to the organization.
-- A SIEM tool doesn’t replace the expertise of security analysts, or of the network- and system-hardening activities covered in this course, but they’re used in combination with other security methods. 
+- A SIEM tool doesn’t replace the expertise of security analysts, or of the network- and system-hardening activities , but they’re used in combination with other security methods. 
 - Security analysts often work in a Security Operations Center (SOC) where they can monitor the activity across the network. 
 - They can then use their expertise and experience to determine how to respond to the information on the dashboard and decide when the events meet the criteria to be escalated to oversight.
 
