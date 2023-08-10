@@ -324,10 +324,12 @@ _while_ **_CVSS_** _(Common Vulnerability Scoring System) is a numerical score t
 **It the standard for Payment industry,**
 Its policies are as follow
 
->	1.	protect the User Data.
->	2.	Encrypt of User Data.
->	3.	Password Policies of User Data.
->	4.	Non-redemption for Both entities and more.
+<code>
+1.	protect the User Data.
+2.	Encrypt of User Data.
+3.	Password Policies of User Data.
+4.	Non-redemption for Both entities and more.
+</code>
 
 ---
 
