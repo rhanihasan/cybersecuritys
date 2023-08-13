@@ -8,7 +8,7 @@ sidebar_position: 6
 
 
 
-### What is Active Scanning?
+### **What is Active Scanning?**
 
 Active scan, is scan in real time so the target may find the scanner.
 
@@ -18,7 +18,7 @@ Active scan, is scan in real time so the target may find the scanner.
 
 **Cons** :- Active scanning also has some drawbacks. It can be time consuming, as it requires more resources than passive scanning. Additionally, it can be disruptive to the system or network. The target or the entitles may find out that they have been active scan.
 
-## TTL Probs
+## **TTL Probs**
 
 The **TTL** is determined by the remote host. The ping you see in the shell is the **echo-reply**. The initial **TTL** is set by the OS. Linux uses 64, Windows 128 and Routers 255. Every Hop reduces the TTL by at least 1
 
@@ -37,11 +37,11 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 
 ## **Netcat and** **NetDiscover**
 
-### What is Netcat?
+### **What is Netcat?**
 
 -  **_Netcat_** : Is a software utility it can be a Server OR a Client.
 
-### Syntax & Command
+### **Syntax & Command**
 
 >#netstate -altp [ to see availability]
 
@@ -52,7 +52,7 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 |![Listing_AND_Port_Randoms](./cybersecurity_img/Active_Scanning/Netcad/Listing%20and%20Using%20Random%20Port.png)|
 
 
-### Syntax & Command
+### **Syntax & Command**
 
 >#nc (linux-ip-addr) 127.0.0.1 (random port ) 1234 ( start Server)
 
@@ -68,7 +68,7 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 
 ## ***Network Scan Using NetDiscover***
 
-### ***What is Netdiscover?***
+### **What is Netdiscover?**
  
 - Netdiscover Which use ARP Protocols to recognizes the network and network machines vendous 
 
@@ -97,15 +97,15 @@ For example: If you ping a Linux Host and there are 20 Hops between, then the TT
 
 ## **Network Scanning Using Nmap**
 
-### What is Nmap?
+### **What is Nmap?**
 
 -  Nmap (Network Mapper) is a free and open-source tool used to discover hosts and services of devices
 
-###  Why Use Nmap For Hacking
+###  **Why Use Nmap For Hacking**
 
 -  Nmap is a powerfull tool that can used to gather information about target systems. It can to identify open ports/services.
 
-## Pre-requisities
+## **Pre-requisities**
 
 Before you can use Nmap, you will need a basic understanding of the following:
 
@@ -113,7 +113,7 @@ Before you can use Nmap, you will need a basic understanding of the following:
 - Command-line interface (CLI)
 - Operating systems (Windows, Linux, macOS)
 
-## Installing Nmap
+## **Installing Nmap**
  
 
 |Nmap can be installed on various operating systems|
@@ -122,12 +122,12 @@ Before you can use Nmap, you will need a basic understanding of the following:
 | Linux: sudo apt-get install nmap|
 | macOS: brew install nmap|
 
-### Basic Nmap Scanning
+### **Basic Nmap Scanning**
 
 
 
 
-### Syntax & Command
+### **Syntax & Command**
 |Nmap has a wide range of command-line Commands & syntax|
 |---|---|
 |sS:|TCP SYN scan (Send SYN Packet)|
@@ -154,35 +154,35 @@ Before you can use Nmap, you will need a basic understanding of the following:
 |v:|Verbose output|
 |oA:|Output in all formats (standard, XML, and grepable)|
 
-### Basic scan
+### **Basic scan**
 
 >  nmap (IP Address)  or nmap (website.com)
 
-### Host Discovery
+### **Host Discovery**
 
-### What is Host Discovery?
+### **What is Host Discovery?**
 
 The first step in nmap scaning is to find out the network's hosts
 
-### Syntax & Command
+### **Syntax & Command**
 
 >   nmap -sn (IPAddrs) or (IP Range)
 
-### Port Scanning
+### **Port Scanning**
 
-### What is Port Scanning
+### **What is Port Scanning**
 
 Ones the hosts is discovered need to find what open ports are in those hosts
 
 > nmap -p (port_range) (host)
 
-### Operating System Detection
+### **Operating System Detection**
 
 Nmap scan can also detect the OS of those hosts
 
 >  nmap -O (host)
 
-### Handy options
+### **Handy options**
 
 |   |   |
 |---|---|
@@ -194,7 +194,7 @@ Nmap scan can also detect the OS of those hosts
 |Pn|#nmap –Pn [target-ipaddr] - disable ping. Most big companies will have ping diabled on most external entities|
 |n|#nmap -n[target-ipaddr] - disable DNS resolution, helps speed up scan|
 
-### Specify ports
+### **Specify ports**
 
 >   Top Ports >> # nmap [IP Address] --top-ports
 
@@ -266,13 +266,13 @@ Nmap scan can also detect the OS of those hosts
 |![nmap -sn](./cybersecurity_img/Active_Scanning/specific_port_scan/nmap_-sn.png)|
 
 
-## Banner Grabbing
+## **Banner Grabbing**
 
 Banner grabbing collect information using devices banner >> #nmap -sV -v -p- [IP Address]
 - OS SCAN -guess provides a faster, more aggressive scan, which is useful when Nmap retrieves close to 100% OS detection. However, aggressive scanning may result in missing some ports. 
 - OS SCAN -limit is an option used to limit what targets to scan. This option is useful when you have a large range of IPs to scan.
 
-### Syntax & Command
+### **Syntax & Command**
 
 
 |nmap -sV -v -p- [IP Address]|
@@ -284,9 +284,9 @@ Banner grabbing collect information using devices banner >> #nmap -sV -v -p- [IP
 |nmap -O -sV [IP Address]|
 |![](./cybersecurity_img/Active_Scanning/specific_port_scan/nmap_-O_-sV_banner_grabbing.png)|
 
-## Port Knock
+## **Port Knock**
 
-### Syntax & Command
+### **Syntax & Command**
 This allows the command to quickly check the status of the specified ports on the target host and skip the ping process. 
 
 |nmap -Pn --host-timeout 201ms --max-retries 0 -p 7000,8000,9000 [Target-IP]|
@@ -294,16 +294,16 @@ This allows the command to quickly check the status of the specified ports on th
 |![](./cybersecurity_img/Active_Scanning/specific_port_scan/nmap%20-Pn%20--host-timeout%20201ms%20--max-retries_port_knock.png)|
 
 
-## NSE -Nmap Scripting Engine
+## **NSE -Nmap Scripting Engine**
 
-## What is NSE?
+## **What is NSE?**
 Nmap Scripting Engine (NSE) allows users to run custom scripts. Which is stored in /usr/share/nmap/scripts 
 NSE is LUA based Language.
 There are many Services that Nmap has default scripts.
 
 
 
-### Let's  look any script...
+### **Let's  look any script...**
 The  author of this script is 
 Defaults Scripts
 
@@ -345,7 +345,7 @@ Defaults Scripts
 |![Inside-Scripty_ftp_results](./cybersecurity_img/Active_Scanning/nse/insidescriptftdresults.png)|
 
 
-## FTP Scans
+## **FTP Scans**
 
 ``` 
 nmap 192.168.100.130 -p 21 -sVT --script=ftp-anon.nse 
@@ -366,7 +366,7 @@ nmap 192.168.100.130 -p 21 -sVT --script=ftp-anon.nse
 |![FTP_Wireshark_scan_use_default_scan](./cybersecurity_img/Active_Scanning/ftp_scan/ftp_scan_nse_script_default_Scan.png)|
 
 
-## FTP Nmap Scan Use all Script
+## **FTP Nmap Scan Use all Script**
 
 |Syntax & Commands|
 |---|
@@ -388,7 +388,7 @@ Run all NSE scripts against found ports
 $nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
 
 
-## Nmap Traceroute
+## **Nmap Traceroute**
 
 - Which check the hosts are there in-between the source to destination...
 
@@ -397,7 +397,7 @@ $nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
 |![Nmap_Traceroute](./cybersecurity_img/Active_Scanning/nmap_traceroute/nmap_traceroute1.png)|
 
 
-## Aggresive Scans
+## **Aggresive Scans**
 
 - As the name say the scan Aggressively which is  -A , -traceroute, -sC Defualt script scan, -Sv  Service Scan,  -O OS Prob
 
@@ -406,7 +406,7 @@ $nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
 |![Aggresive_Scan](./cybersecurity_img/Active_Scanning/aggresive_scan/aggresive_scan.png)|
 
 
-## Save The Output
+## **Save The Output**
 
 •	-O for the Output.
 •	-oN to specific output in Nmap format
@@ -422,7 +422,7 @@ $nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
 |![save_the_output4](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output4.png)|
 
 
-## Timing Templates
+## **Timing Templates**
 
 
 Its start from -T0 to T5
@@ -444,12 +444,12 @@ The scan and chances of getting detect will increase.
 |![Save_the_output_T5](./cybersecurity_img/Active_Scanning/savetheoutpu/save_the_output_T5.png)|
 
 
-## Vulnerability Assessment (Nessus)
+## **Vulnerability Assessment (Nessus)**
 
 
-### What is Nessus? 
+### **What is Nessus?** 
 Nessus is an automation tool which provides the enumeration and scanning in Graphical mode. 
 
 
-### How does Nessus work?
+### **How does Nessus work?**
 In the backend   Its uses the open sources traditional service like nmap, netdiscover  etc but provides the output in Simple graphical format. In addition to the Nessus Vulnerability Scan, we also utilized a network port scan. With the results of this scan, we can see the internal footprint of open ports and services.
