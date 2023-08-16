@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Memory 
 
+---
+
 I think We  **All know what Memory is** it Stored data.
 
 ## Types of Memory
