@@ -1,18 +1,24 @@
 ---
 sidebar_position: 1
 ---
+import Highlight from '@site/src/components/Highlight';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Memory 
+# Basic Of Memory
 
 ---
 
-I think We  **All know what Memory is** it Stored data.
+<Tabs>
+  <TabItem value="What is Memory" >
+    It Stored data.
+  </TabItem>
+</Tabs>
 
 ## Types of Memory
 
-- There are two types of memory 
-    - Internal Memory
-    - External Memory  
+- Internal Memory
+- External Memory  
 
 ## Internal Memory
 
@@ -20,25 +26,25 @@ I think We  **All know what Memory is** it Stored data.
 
 #### What & Why ROM
 
-Read Only Memory. Small chip that doesn’t have a lot of space and does the task that it is programmed to do. It has a memory of 10mb, 12mb etc.
-Example: washing machine contains rom that tells it to set a timer and do different cycles for different amount of time, our phone shows the company name whenever it is switched on etc.
+- Read Only Memory. 
+- Small chip that doesn’t have a lot of space and does the task that it is programmed to do. It has a memory of 10mb, 12mb etc.
+- Example: washing machine contains rom that tells it to set a timer and do different cycles for different amount of time, our phone shows the company name whenever it is switched on etc.
 
-### EPROM 
+### Type of ROM 
 
-#### What & Why EPROM
-
-Erasable programmable read only memory. Rom that can be removed and erased and reprogrammed.
-
-### EEPROM
-
-#### Why & Why EEPROM
-
-electrically erasable read only memory. Rom that can electrically erased and reprogrammed.
+<Tabs>
+  <TabItem value="EPROM" >
+    Erasable programmable read only memory. Rom that can be removed and erased and reprogrammed.
+  </TabItem>
+   <TabItem value="EEPROM" >
+    Electrically erasable read only memory. Rom that can electrically erased and reprogrammed.
+  </TabItem>
+</Tabs>
 
 
 ### RAM
 
-#### What & Why RAM
+### What & Why RAM
 
 Read Only Memory. 
 Ram gives the cpu the files required for processing after retrieving it from the hard drive. Cache is present between ram and cpu.
@@ -131,26 +137,34 @@ These harddrives are connected to SATA drive. (pata --> sata) pata was used befo
 :::
 
   
+<Tabs>
+  <TabItem value="LPDDR" label="LPDDR" >
+    Low Power Double Data Rate which is mostly used in Phones.
+  </TabItem>
 
-- LPDDR [low Power Double data Rate]
-- LPDDR is mostly used for PHONE
+  <TabItem value="DIMM" label="DIMM">
+    Dual In-Line Memory Module Which is used in Laptops & DIMM is memory module comprised of a small-side circuit board that holds a series of memory called DRAM
+  </TabItem>
+</Tabs>
 
-- DIMM [Dual in-line Memory Module]
-    - It is useful in laptop, attach RAM inside of it
 
-- DIMM is memory module comprised of a small-side circuit board that holds a series of memory called DRAM
+### Cables
 
-SATA [Serial Advanced Technology Attachment] :
-It was invented after pata Cable, it is also use to share data form HDD to RAM (like upto 2GB)
+<Tabs>
+  <TabItem value="PATA" label="PATA Cable" >
+   It  was first cable in industry to tranfer data from Hard drive to ram (upto 1GB)
+  </TabItem>
 
-- PATA Cable :
-    - It  was first cable in industry to tranfer data from Hard drive to ram (upto 1GB)
-
-- M2:
-    - It is also a data cable and more efficient than SATA cable (upto 4GB).
-
-- NVME [non-volatile memory express]:
-    - It is all in newly and lasted cable used to transfer data from HDD/SDD to RAM.
+  <TabItem value="SATA" label="SATA Cable">
+    It was invented after pata Cable, it is also use to share data form HDD to RAM (like upto 2GB)
+  </TabItem>
+  <TabItem value="M2" label="M2">
+    It is also a data cable and more efficient than SATA cable (upto 4GB).
+  </TabItem>
+     <TabItem value="NVME" label="NVME" >
+   Non-Volatile Memory Express which is all in newly and lasted cable used to transfer data from HDD/SDD to RAM.
+  </TabItem>
+</Tabs>
 
 |![Memory_external_harddrive](./img/memorymindmap.png)|
 |---| 
