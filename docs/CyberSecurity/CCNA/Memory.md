@@ -110,6 +110,20 @@ The information stored in this type of memory is lost when the power supply to t
     - DDR1, DDR2, DDR3, DDR4 
     - DDR1 has created by IBM 
 
+- CPU 
+    - Central Processing Unit. 
+    - A CPU has multipy Cores. Cores are called the brain .
+    - Cores type : Single core, Dual core , Quad Core , Octa core, Hexa core , Deca core.
+
+- NIC Card 
+    - Network Interface Controller/Network Adopter.
+    - NIC is a computer hardware component that connect a computer to a computer network.
+    - NIC has MAC-Addr Not computer has MAC-Addr.
+
+- GPU 
+    - Graphics Processing Unit
+    - GPU is used in a wide range of apps including graphics and videos rendering. Although they best known for their capabilities in opening.
+
 ---
 
 ## External Memory 
@@ -165,6 +179,11 @@ These harddrives are connected to SATA drive. (pata --> sata) pata was used befo
    Non-Volatile Memory Express which is all in newly and lasted cable used to transfer data from HDD/SDD to RAM.
   </TabItem>
 </Tabs>
+
+<code>
+User ==> Hard drive ==> Video ==>Play Video ==> CPU Command ==> RAM ==> Hard drive Software ==> Pickup ==> Video Played
+</code>
+
 
 |![Memory_external_harddrive](./img/memorymindmap.png)|
 |---| 
