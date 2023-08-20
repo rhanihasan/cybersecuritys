@@ -2,6 +2,10 @@
 sidebar_position: 2
 ---
 
+import Highlight from '@site/src/components/Highlight';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # The Beginning of Hacking !!!
 ---
 
@@ -35,11 +39,18 @@ Opinions: **Unauthorized access to entity using loopholes is hacking**
 
 ##  ***Different NAME from REDTEAM Side:***
 
-**Hackers** : Hacker will perform the unauthorized access to entity.
+<Tabs>
+  <TabItem value="Hackers" label="Hackers" default>
+    Hacker will perform the unauthorized access to entity.
+  </TabItem>
+  <TabItem value="Crackers" label="Crackers">
+    It’s the one who utilizes the unauthorized access to damage the entitle.
+  </TabItem>
+  <TabItem value="Script Kidde" label="Script Kidde">
+    They don’t have the in-depend knowledge of script, like using someone else tool to perform hacking is a part of script kidding. These individuals use pre-written scripts or tools to hack into systems, often without understanding how they work.  including ME 
+  </TabItem>
+</Tabs>
 
-**Crackers** : It’s the one who utilizes the unauthorized access to damage the entitle.
-
-**Script Kidde** : They don’t have the in-depend knowledge of script, like using someone else tool to perform hacking is a part of script kidding. These individuals use pre-written scripts or tools to hack into systems, often without understanding how they work.  including ME 
 
 ![  Different NAME from REDTEAM Side ](./cybersecurity_img/Different_NAME_from_REDTEAM_Side.png)
 
@@ -47,16 +58,22 @@ Opinions: **Unauthorized access to entity using loopholes is hacking**
 
 ## ***Different Types Of Hackers***
 
-**BlackHats Hackers**: If a hacker found any bug etc. then it will be not going to report it because the Blackhat hacker has a motive to get the benefits on it whatever the entity and utilizes to their own benefits.
+<Tabs>
+  <TabItem value="BlackHats Hackers" label="BlackHats Hackers" default>
+    If a hacker found any bug etc. then it will be not going to report it because the Blackhat hacker has a motive to get the benefits on it whatever the entity and utilizes to their own benefits.
 These individuals engage in illegal hacking activities, often for personal gain or to cause harm.
-
-**WhiteHats hackers**: If hacker found any bug etc. then it will be reported because the Whitehat hacker has a goal to secure whatever the entity.
+  </TabItem>
+  <TabItem value="WhiteHats Hackers" label="WhiteHats Hackers">
+   If hacker found any bug etc. then it will be reported because the Whitehat hacker has a goal to secure whatever the entity.
 Also known as ethical hackers, these individuals use their hacking skills for defensive purposes, such as testing an organization's security systems to identify vulnerabilities that need to be fixed.
-
-**Grey Hats Hackers**: it’s the mixer of both. These individuals may sometimes engage in illegal hacking activities, but also use their skills for defensive purposes.
-
-**Blue Hat Hackers**: These individuals are not professional hackers, but may engage in hacking as a hobby or to test their own systems or networks
-
+  </TabItem>
+  <TabItem value="Grey Hats Hackers" label="GreyHats Hackers">
+   It’s the mixer of both. These individuals may sometimes engage in illegal hacking activities, but also use their skills for defensive purposes.
+  </TabItem>
+    <TabItem value="Blue Hats Hackers" label="BlueHats Hackers">
+   These individuals are not professional hackers, but may engage in hacking as a hobby or to test their own systems or networks
+  </TabItem>
+</Tabs>
 
 ![   Different_types_of_hackers ](./cybersecurity_img/Different_types_of_hackers.png)
 
@@ -65,15 +82,26 @@ Also known as ethical hackers, these individuals use their hacking skills for de
 
 ## ***Elements of Information Security for Hacking.***
 
-**_Confidentiality_**: Data should not be shared with unauthorized.
+<Tabs>
+  <TabItem value="Authenticity" label="Authenticity" default>
+ A person/ entity / data trying to snoof/pretend of being someone which it is not.
+  </TabItem>
+  <TabItem value="Integrity" label="Integrity">
+  Data should not tamper or be known as hashing.
+  </TabItem>
+  <TabItem value="Availability" label="Availability">
+   Data/anything should be available when needed.
+  </TabItem>
+</Tabs>
 
-**_Integrity_**: Data should not tamper or be known as hashing.
-
-**_Availability_**: Data/anything should be available when needed.
-
-**Authenticity**: A person/ entity / data trying to snoof/pretend of being someone which it is not.
-
-**Non-repudiation**: A prove of the sender or anything which can’t be deny by someone. A guarantee entity which upholds the proof of those events/incidents that are occurred.
+<Tabs>
+  <TabItem value="Confidentiality" label="Confidentiality" default>
+Data should not be shared with unauthorized.
+  </TabItem>
+  <TabItem value="Non-Repudiation" label="Non-Repudiation">
+ A prove of the sender or anything which can’t be deny by someone. A guarantee entity which upholds the proof of those events/incidents that are occurred.
+  </TabItem>
+</Tabs>
 
 
 ---
