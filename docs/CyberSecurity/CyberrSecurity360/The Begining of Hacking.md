@@ -112,10 +112,14 @@ Data should not be shared with unauthorized.
 **Phase of hacking is the umbrella/Tree of hacking activity.**
 
 **_Information Gathering_**: It is the most important part/ crucial initial phase in hacking.
-
-**_Active information_****:** Gathering when the target/entity is aware that their information is being gathered.
-
-**_Passive_** **_information_**: Gathering when the target/entity is unaware that their information is being gathered.
+<Tabs>
+  <TabItem value="Active Information" label="Active Information" default>
+Gathering when the target/entity is aware that their information is being gathered.
+  </TabItem>
+  <TabItem value="Passive Information" label="Passive Information">
+ Gathering when the target/entity is unaware that their information is being gathered.
+  </TabItem>
+</Tabs>
 
 :::note
 
@@ -125,15 +129,20 @@ Data should not be shared with unauthorized.
 
 
 
-
-**_Scanning_**: Validating information obtained through information Gathering. During scanning, it helps in gaining access to the entity.
-
-**_Gaining access_**: Successfully compromising the targeted/entity, indicating a successful hacking attempt.
-
-**_Maintaing access_**: After some time, the entity will attempt to validate and clean up the compromised system, while aiming for long-term access.
-
-**_Clearing tracks and reporting_**:
--  _Reporting: the documents the vulnerabilities, methods used, and potential impact. They then present the findings to relevant parties, explain the vulnerabilities clearly, and provide Solutions recommendations.._ _Reporting helps the organizations to identify and address vulnerabilities, improving their security and protecting sensitive data._
+<Tabs>
+  <TabItem value="Scanning" label="Scanning" default>
+Validating information obtained through information Gathering. During scanning, it helps in gaining access to the entity.
+  </TabItem>
+  <TabItem value="Gaining Access" label="Gaining Access" default>
+Successfully compromising the targeted/entity, indicating a successful hacking attempt.
+  </TabItem>
+  <TabItem value="Maintaining Access" label="Maintaining Access" default>
+After some time, the entity will attempt to validate and clean up the compromised system, while aiming for long-term access.
+  </TabItem>
+    <TabItem value="Clearing Tracks & Reporting" label="Clearing Tracks Reporting" default>
+Reporting: the documents the vulnerabilities, methods used, and potential impact. They then present the findings to relevant parties, explain the vulnerabilities clearly, and provide Solutions recommendations. & Reporting helps the organizations to identify and address vulnerabilities, improving their security and protecting sensitive data.
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -152,12 +161,17 @@ The goal of penetration testing is to uncover weaknesses in the system's defense
 
 **Methodologies** means **_roads_**.
 
-**_Whitebox testing_**: The tester possesses knowledge about the target entity and has access to internal resources, allowing for a more comprehensive evaluation. They know the target/entity and have access to penetrate the system.
-
-**_Blackbox testing_**: The tester lacks prior knowledge about the entity and has no access to internal information, replicating an external attacker's perspective. They don't know anything about the entity and have no access to form the entity's side. It involves blind testing with zero knowledge of the entity.
-
-**_Grey box testing_**: This approach combines elements of both Whitebox and Blackbox testing. The tester has limited knowledge or partial access to certain aspects of the entity. It falls between the two extremes, providing some level of insider knowledge without full access.
-
+<Tabs>
+  <TabItem value="WhiteBox Testing" label="WhiteBox Testing" default>
+The tester possesses knowledge about the target entity and has access to internal resources, allowing for a more comprehensive evaluation. They know the target/entity and have access to penetrate the system.
+  </TabItem>
+  <TabItem value="BlackBox Testing" label="BlackBox Testing" default>
+The tester lacks prior knowledge about the entity and has no access to internal information, replicating an external attacker's perspective. They don't know anything about the entity and have no access to form the entity's side. It involves blind testing with zero knowledge of the entity.
+  </TabItem>
+    <TabItem value="GreyBox Testing" label="GreyBox Testing" default>
+This approach combines elements of both Whitebox and Blackbox testing. The tester has limited knowledge or partial access to certain aspects of the entity. It falls between the two extremes, providing some level of insider knowledge without full access.
+  </TabItem>
+</Tabs>
 
 >**_Example:_**
 >
