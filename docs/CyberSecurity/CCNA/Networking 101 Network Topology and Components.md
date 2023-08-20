@@ -2,7 +2,11 @@
 sidebar_position: 2
 ---
 
-# Network 101 Topology & Components
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Highlight from '@site/src/components/Highlight';
+
+#  Topology & Components
 
 ---
 
@@ -34,13 +38,14 @@ Its a point to point connection.
 
 #### **BNC Creator : Bayonet Neill–Concelman**
  
-#### **BNC Connector** 
-- It was used to connect multiple devices .
-- It was use as a switch at that time.
-
-#### **Coaxial Cable**
-- It was used to connect devices.
-- It is a single wire cable that can sent or received data at one at the time.
+<Tabs>
+  <TabItem value="BNC Connector" label="BNC Connector" default>
+    It was used to connect multiple devices & It was work switches as that time
+  </TabItem>
+  <TabItem value="Coaxial Cable" label="Coaxial Cable">
+    It was used to connect devices. & It has a single Wire Cable that send or received data at one at a time.
+  </TabItem>
+</Tabs>
 
 ## **Ring Topology**
 ### **What is Ring Topology**

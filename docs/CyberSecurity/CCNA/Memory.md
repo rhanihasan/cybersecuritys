@@ -5,7 +5,7 @@ import Highlight from '@site/src/components/Highlight';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Basic Of Memory
+#  Memory
 
 ---
 
@@ -15,22 +15,24 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-## Types of Memory
+## **Types of Memory**
 
 - Internal Memory
 - External Memory  
 
-## Internal Memory
+---
 
-### ROM
+## **Internal Memory**
 
-#### What & Why ROM
+### **ROM**
+
+### **What & Why ROM**
 
 - Read Only Memory. 
 - Small chip that doesn’t have a lot of space and does the task that it is programmed to do. It has a memory of 10mb, 12mb etc.
 - Example: washing machine contains rom that tells it to set a timer and do different cycles for different amount of time, our phone shows the company name whenever it is switched on etc.
 
-### Type of ROM 
+### **Type of ROM** 
 
 <Tabs>
   <TabItem value="EPROM" >
@@ -42,9 +44,11 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 
-### RAM
+---
 
-### What & Why RAM
+### **RAM**
+
+### **What & Why RAM**
 
 Read Only Memory. 
 Ram gives the cpu the files required for processing after retrieving it from the hard drive. Cache is present between ram and cpu.
@@ -161,8 +165,9 @@ These harddrives are connected to SATA drive. (pata --> sata) pata was used befo
   </TabItem>
 </Tabs>
 
+---
 
-### Cables
+### **Cables**
 
 <Tabs>
   <TabItem value="PATA" label="PATA Cable" >
