@@ -258,12 +258,14 @@ _During this phase the **tester** attempts to take **advantage** of any **vulner
 	
 	- **_Confirm access_**_: verifying that the **exploit** was **successful** and that the hacker has **gained access** to the target system or networks._
 
+---
 
 
 ## **The Mitre co-operation organization**  
 
-### **Which Handles the CVE & CWE** 
+#### **Which Handles the CVE & CWE** 
 
+---
 
 ###  **Common Vulnerabilities exposure (CVE)**
 
@@ -324,12 +326,11 @@ _while_ **_CVSS_** _(Common Vulnerability Scoring System) is a numerical score t
 **It the standard for Payment industry,**
 Its policies are as follow
 
-<code>
-1.	protect the User Data.
-2.	Encrypt of User Data.
-3.	Password Policies of User Data.
-4.	Non-redemption for Both entities and more.
-</code>
+- protect the User Data.
+- Encrypt of User Data.
+- Password Policies of User Data.
+- Non-redemption for Both entities and more.
+
 
 ---
 
@@ -396,6 +397,8 @@ Hasan Opinion
 | Programming |A process that can be used to create a specific set of instructions for a computer to execute tasks.|
 |Protecting and preserving evidence	| The process of properly working with fragile and volatile digital evidence. |
 
+---
+
 ### **SIEM**
 
 - A SIEM tool is an application that collects and analyzes log data to monitor critical activities in an organization. An application that collects and analyzes log data to monitor critical activities in an organization
@@ -409,6 +412,7 @@ Hasan Opinion
 #### **Splunk Enterprise**
 - A self-hosted tool used to retain, analyze, and search an organization's log data to provide security information and alerts in real-time
 
+---
 
 ### **Defence in Depth**
 
@@ -457,13 +461,15 @@ Hasan Opinion
 - Security operations
 	- Focused on conducting investigations and implementing preventative measures
 
-- Incident and vulnerability response playbooks
-	- Incident and vulnerability response playbooks are commonly used by entry-level cyber security professionals. They are developed based on the goals outlined in an organization’s business continuity plan. 
-	- A business continuity plan is an established path forward allowing a business to recover and continue to operate as normal, despite a disruption like a security breach.
-	- These two types of playbooks are similar in that they both contain predefined and up-to-date lists of steps to perform when responding to an incident. 
-	- These playbooks also help minimize errors and ensure that important actions are performed within a specific timeframe.
-	- When an incident, threat, or vulnerability occurs or is identified, the level of risk to the organization depends on the potential damage to its assets. A basic formula for determining the level of risk is that risk equals the likelihood of a threat. For this reason, a sense of urgency is essential. Mishandling data can easily compromise forensic data, rendering it unusable. 
-	- Steps included in incident and vulnerability playbooks include: 
+---
+
+### **Incident and vulnerability response playbooks**
+- Incident and vulnerability response playbooks are commonly used by entry-level cyber security professionals. They are developed based on the goals outlined in an organization’s business continuity plan. 
+- A business continuity plan is an established path forward allowing a business to recover and continue to operate as normal, despite a disruption like a security breach.
+- These two types of playbooks are similar in that they both contain predefined and up-to-date lists of steps to perform when responding to an incident. 
+- These playbooks also help minimize errors and ensure that important actions are performed within a specific timeframe.
+- When an incident, threat, or vulnerability occurs or is identified, the level of risk to the organization depends on the potential damage to its assets. A basic formula for determining the level of risk is that risk equals the likelihood of a threat. For this reason, a sense of urgency is essential. Mishandling data can easily compromise forensic data, rendering it unusable. 
+- Steps included in incident and vulnerability playbooks include: 
 	- Preparation
 	- Detection
 	- Analysis
