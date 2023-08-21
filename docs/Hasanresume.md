@@ -8,7 +8,7 @@ sidebar_position: 2
 **Email**: [rhanihasan@gmail.com](mailto:rhanihasan@gmail.com)
 
 **Phone**:8433663196  
-(Under process) **Website**: [https://rhanihasan.github.io/myjourney/](https://rhanihasan.github.io/myjourney/)
+(Under process) **Website**: [https://rhanihasan.github.io/journey/](https://rhanihasan.github.io/journey/)
 
 **Objective**: Seeking a challenging position in a reputed organization where I can leverage my cybersecurity skills. I aim to expand my knowledge, learn new skills, and contribute to the organization's growth and success.
 

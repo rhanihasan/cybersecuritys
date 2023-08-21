@@ -16,14 +16,14 @@ const config = {
   url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/myjourney/',
+  baseUrl: '/journey/',
 
 
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'rhanihasan', // Usually your GitHub org/user name.
-  projectName: 'myjourney', // Usually your repo name.
+  projectName: 'journey', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'ignore',
@@ -109,11 +109,11 @@ const config = {
             items: [
               {
                 label: 'Hasan Resume',
-                to: '/myjourney/docs/Hasanresume',
+                to: '/journey/docs/Hasanresume',
               },
               {
                 label: 'CyberSecuritys',
-                to: '/myjourney/docs/category/cybersecurity ',
+                to: '/journey/docs/category/cybersecurity ',
                 
               },
             ],
