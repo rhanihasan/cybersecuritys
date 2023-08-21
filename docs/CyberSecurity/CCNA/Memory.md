@@ -5,7 +5,7 @@ import Highlight from '@site/src/components/Highlight';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  Memory
+#  Fundamentails of Memory
 
 ---
 

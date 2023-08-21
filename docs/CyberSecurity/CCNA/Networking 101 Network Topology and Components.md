@@ -182,3 +182,49 @@ Its a point to point connection.
 - FTD
     - Firepower thread defence
     - This device works as WSA, firewall, NGIPS, amp
+
+- ESA
+
+  - Email Security Appliance monitors and filters emails.ﾠ
+  - It helps to secure emails from unauthorized access.
+  - Filter emails with this device flited Gioe Location based  EG: File type exe, gif, jpeg etc.
+  - It is a security device used to prevent email attacks on companies.
+
+- WSA
+
+  - Web security appliance monitors and filters traffic going on the internet.
+  - It helps to filter URL.
+  - Does profiling of unknow websites can set a particular time to access.
+  - It also helps to set video quality and disable download button.
+  - Block files if it has virus in it.
+  - They prevent virus from internet.
+
+- ISE
+
+  - It is a device where username passwords are made for employees for authentication.
+  - ISE generates own account and password for the devices.
+
+- AAA
+- Authentication check whether the user is stored in the database.[who are you]
+- Authorization Give access to only devices which the user is authorized [what provilige you have]
+- Accouting Keeps a track of all the activities that are perfromed by the user.
+
+- NGIPS
+
+  - Next generation Intrusion prevention system
+  - Scans data for virus, trojans etc.
+  - It tracks all the activities done, works as unauthorized files.
+  - It is positioned behind firewall.
+
+- WIFI
+  - These are called access-point in terms of networking.
+
+- AMP
+
+  - Advanced malware protection
+  - Protects against malware
+
+
+- TALOS
+
+  - Cisco Talos is a threat intelligence and research organization that provides protection against cybersecurity threats. They offer a range of security solutions, including threat intelligence, research, and analysis, as well as products such as firewalls and intrusion prevention systems. Their aim is to help organizations stay ahead of emerging threats and protect their assets from cyber attacks.
