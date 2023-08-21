@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkhassan_website=self.webpackChunkhassan_website||[]).push([[123],{1133:e=>{e.exports=JSON.parse('{"title":"CyberSecurity","description":"My Journy of CyberSecurity.","slug":"/category/cybersecurity","permalink":"/journey/docs/category/cybersecurity","navigation":{"next":{"title":"Memory","permalink":"/journey/docs/CyberSecurity/CCNA/Memory"}}}')}}]);
