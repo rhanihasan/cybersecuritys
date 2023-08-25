@@ -24,8 +24,8 @@ sidebar_position: 2
 
 _Current Company_: ***Netplace Technologies Pvt Ltd Duration***: 23 May 2022
 
-####  _Present Designation_: **CyberSecurity Engineer**
-#### _Past Designation_ : **Network Engineer**
+###  _Present Designation_: **CyberSecurity Engineer**
+### _Past Designation_ : **Network Engineer**
 
 ### _Roles and Responsibilities_:
 
@@ -34,48 +34,28 @@ _Current Company_: ***Netplace Technologies Pvt Ltd Duration***: 23 May 2022
 
 ## ***Projects Handled:***
 
-- _Star | Disney_ (Location: URMI , Mumbai | June-Sept 2022):
+- Role: Implemented Cisco Catalyst 9300 switches on all floors.
 
-	- Role: Implemented Cisco Catalyst 9300 switches on all floors.
+- Role: Implemented HPE Aruba 2920 switches on all floors.
 
-- _Viacom18_ (Location: Vile Parle, GYS Building | Nov-Dec 2022):
+- Role_: Implemented HPE Comware 5600 and 2920 switches on all floors.
 
-	- _Role_: Implemented HPE Aruba 2920 switches on all floors.
+- _Role_: Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4331 at Mumbai NTT DC and Pune Nextra DC.
 
--  Lower Parel, Peninsula (Nov-Dec - Present):
+-   _Role_: Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4661.
 
-	-   _Role_: Implemented HPE Comware 5600 and 2920 switches on all floors.
+-  Role: Conducted WiFi pentesting for Meraki MR44 air marshal testing and performed rule assessment.
 
-- Vile Parle, Zion Building (Nov-Jan):
+- _Role_: Upgraded traditional URMI switches using DNAC SWIM.
 
--  _Role_: Troubleshooting low bandwidth issues.
-
--  _Accelya_ (Jan-May 2023):
-
-	- _Role_: Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4331 at Mumbai NTT DC and Pune Nextra DC.
-
-- _AITA/SIS_ (Jan-May 2023):
-
-	-   _Role_: Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4661.
-
-- TATA Motors (March-May 2023):
-
-	-  Role: Conducted WiFi pentesting for Meraki MR44 air marshal testing and performed rule assessment.
-
--  _URMI_ Switches Upgradation via DNAC SWIM (April-June 2023):
-
-	- _Role_: Upgraded traditional URMI switches using DNAC SWIM.
-
--   _Cisco ISE_ Deployment on Azure Cloud for Kaya Clinic HQ:
-
-	- _Role_: Implemented ISE 3.2 on Azure cloud with dot1x, TACACS, profiling, and more.
+- _Role_: Implemented ISE 3.2 on Azure cloud with dot1x, TACACS, profiling, and more.
 
 
 
 
 ## **Technical Skills**:
 
--	Cracker Of CEHv12, Metasploit, burp suite, Wifi penstesting & More
+-	Cracker Of CEHv12, Metasploit, burp suite, Wifi penstesting , VAPT  & More
 -	Packet CVE-IDs : CVE-2002-0510,CVE-2021-28041,CVE-2023-20082,CVE-2021-28041,CVE-2023-20082
 -	Expertise in advanced networking protocols and technologies including Ether-channel, VTP, Stacking, VSS, IRF, VSF, Port-Security, Spanning Tree Protocol (STP),RSTP, HSRP, VRRP VRF, QoS, VPC, and VXLAN  (Dynamic and Static), DHCP, DNS, SNMP, SLA, Redundancy, Standard & Extended ACL, and ZBF.
 -	Skilled in implementing Active-Passive and Active-Active Failover (HA), Cluster setups, and AAA authentication.
@@ -114,6 +94,6 @@ _Current Company_: ***Netplace Technologies Pvt Ltd Duration***: 23 May 2022
 
 -  Permanent Address: Room No 335, Bhadur Chawl, Makrani Gali, Bheram Nagar, Bandra East, Mumbai 400051.
 -  Languages: English and Hindi.
-- Marital Status: Single.
+- Marriage Status: Single.
 
 **Devices**: Cisco Catalyst Switch 2960, 3850, 6509, 7260, 9300, X-series. Cisco Catalyst Router 2611, 2811 series. Cisco ISR Router 2911, 4331, 4661. Cisco Nexus 5k, 9k series. Cisco ENCS 5412. Cisco ESA, ISE, WSA S195. Cisco ASA 5505, 5508x, 5510, 5520x, 5545x, 5555x series. FTD FMC (CLI & ASDM). Cisco Meraki MX64 series, MR36. HPE-Aruba: Aruba Switch 2920, 3810, CX6k series, HP Comware Switch 5600. Aruba API, WLC. RAY R6A-C. Palo Alto: PA220, PA440, PA820. Checkpoint MGMT & DISTRIBUTE 3600, 4000, 5000 series.
