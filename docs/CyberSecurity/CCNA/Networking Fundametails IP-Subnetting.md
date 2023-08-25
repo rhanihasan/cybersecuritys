@@ -9,6 +9,8 @@ import Highlight from '@site/src/components/Highlight';
 
 # IP Address & Subnetting
 
+---
+
 ## IP & MAC
 
 - Internet Protocols.
