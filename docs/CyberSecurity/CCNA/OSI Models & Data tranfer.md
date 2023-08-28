@@ -8,7 +8,7 @@ import Highlight from '@site/src/components/Highlight';
 
 
 
-## OSI Model Layers
+# OSI Model Layers
 
 ### ISO: International Standard Organization
 
