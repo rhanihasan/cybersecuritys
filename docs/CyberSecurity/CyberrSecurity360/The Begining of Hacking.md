@@ -83,8 +83,8 @@ Also known as ethical hackers, these individuals use their hacking skills for de
 ## ***Elements of Information Security for Hacking.***
 
 <Tabs>
-  <TabItem value="Authenticity" label="Authenticity" default>
- A person/ entity / data trying to snoof/pretend of being someone which it is not.
+  <TabItem value="Confidentiality" label="Confidentiality" default>
+Data should not be shared with unauthorized.
   </TabItem>
   <TabItem value="Integrity" label="Integrity">
   Data should not tamper or be known as hashing.
@@ -95,8 +95,8 @@ Also known as ethical hackers, these individuals use their hacking skills for de
 </Tabs>
 
 <Tabs>
-  <TabItem value="Confidentiality" label="Confidentiality" default>
-Data should not be shared with unauthorized.
+    <TabItem value="Authenticity" label="Authenticity" default>
+ A person/ entity / data trying to snoof/pretend of being someone which it is not.
   </TabItem>
   <TabItem value="Non-Repudiation" label="Non-Repudiation">
  A prove of the sender or anything which can’t be deny by someone. A guarantee entity which upholds the proof of those events/incidents that are occurred.
