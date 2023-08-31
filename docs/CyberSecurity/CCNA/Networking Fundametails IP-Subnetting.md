@@ -316,4 +316,24 @@ IPv6 was introduced to address the shortage of IPv4 addresses.
   - Location changing in IPv6 doesn't necessarily result in IP changes.
 - VPN supports IPv6 features.
 
+
+### **Difference between IPv4 and IPv6**
+
+- It became clear that all of the IPv4 addresses would eventually be depleted; this is called IPv4 address exhaustion. At the time, no one had anticipated how many computing devices would need an IP address in the future.
+- IPv6 was developed to mitigate IPv4 address exhaustion and other related concerns.
+
+| **IP Version 4 Vs IP Version 6** |
+| --- |
+| One of the key differences between IPv4 and IPv6 is the length of the addresses. |
+| - IPv4 addresses are numeric, made of 4 bytes, and allow for up to 4.3 billion possible addresses. |
+| - IPv4 addresses are made up of four strings, and the numbers range from 0 to 255. |
+|   - An example of an IPv4 address would be: 198.51.100.0. IPv6 addresses are hexadecimal, made up of 16 bytes, and allow for up to 340 undecillion addresses (340 followed by 36 zeros).| 
+|   - An example of an IPv6 address would be: 2002:0db8:0000:0000:0000:ff21:0023:1234.|
+| There are also some differences in the layout of an IPv6 packet header. The IPv6 header format is much simpler than IPv4. For example, the IPv4 Header includes the HLEN Identification, and Flags fields, whereas the IPv6 does not. The IPv6 header introduces different fields not included in IPv4 headers, such as the Flow Label and Traffic Class.|  
+| There are some important security differences between IPv4 and IPv6. |
+| - IPv6 offers more efficient routing and eliminates private address collisions that can occur on IPv4 when two devices on the same network are attempting to use the same address. |
+
+![Different_between_ipv4_ipv6](./cybersecurity_img/Networking/DIFFERENT_BW_IPV4_IPV6.png)
+
+
 ---
