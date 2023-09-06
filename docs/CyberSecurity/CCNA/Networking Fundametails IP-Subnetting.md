@@ -333,7 +333,7 @@ IPv6 was introduced to address the shortage of IPv4 addresses.
 | There are some important security differences between IPv4 and IPv6. |
 | - IPv6 offers more efficient routing and eliminates private address collisions that can occur on IPv4 when two devices on the same network are attempting to use the same address. |
 
-![Different_between_ipv4_ipv6](./cybersecurity_img/Networking/DIFFERENT_BW_IPV4_IPV6.png)
+![Different_between_ipv4_ipv6](./img/DIFFERENT_BW_IPV4_IPV6.png)
 
 
 ---
