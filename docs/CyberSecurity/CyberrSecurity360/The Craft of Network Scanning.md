@@ -453,3 +453,290 @@ Nessus is an automation tool which provides the enumeration and scanning in Grap
 
 ### **How does Nessus work?**
 In the backend   Its uses the open sources traditional service like nmap, netdiscover  etc but provides the output in Simple graphical format. In addition to the Nessus Vulnerability Scan, we also utilized a network port scan. With the results of this scan, we can see the internal footprint of open ports and services.
+
+
+## Nessus Installation Script
+
+```bash
+#!/bin/bash
+if [[ $(id -u) -ne 0 ]] ; then
+    echo "Please run as root"
+    exit 1
+fi
+
+echo "//=============================================================="
+echo "   Nessus 10.5.1 DOWNLOAD, INSTALL, and CRACK   - Zen 20230123"
+echo "   special thanks to John Doe for showing this works on Debian"
+echo "//=============================================================="
+
+echo " o making sure we have prerequisites.."
+sudo apt-get update &>/dev/null
+sudo apt-get install curl dpkg expect -y &>/dev/null
+
+echo " o stopping old nessusd in case there is one!"
+/bin/systemctl stop nessusd.service &>/dev/null
+
+echo " o downloading Nessus.."
+curl -A Mozilla --request GET \
+  --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.2-debian10_amd64.deb' \
+  --output 'Nessus-10.5.2-debian10_amd64.deb' &>/dev/null
+
+{ if [ ! -f Nessus-10.5.2-debian10_amd64.deb ]; then
+  echo " o nessus download failed :/ exiting. get a copy of it from t.me/pwn3rzs"
+  exit 0
+fi }
+
+echo " o installing Nessus.."
+chmod +x Nessus-10.5.2-debian10_amd64.deb &>/dev/null
+dpkg -i Nessus-10.5.2-debian10_amd64.deb &>/dev/null
+
+# Look, I tried to just make changes and run but it doesn't work. If you can optimize
+# what I'm doing here, let me know. But this was it for me; it had to be run once :/
+
+echo " o starting service once FIRST TIME INITIALIZATION (we have to do this)"
+/bin/systemctl start nessusd.service &>/dev/null
+
+echo " o let's allow Nessus time to initialize - we'll give it like 20 seconds..."
+sleep 20
+
+echo " o stopping the nessus service.."
+/bin/systemctl stop nessusd.service &>/dev/null
+
+echo " o changing nessus settings to Zen preferences (freedom fighter mode)"
+echo "   listen port: 11127"
+/opt/nessus/sbin/nessuscli fix --set xmlrpc_listen_port=11127 &>/dev/null
+
+echo "   theme:       dark"
+/opt/nessus/sbin/nessuscli fix --set ui_theme=dark &>/dev/null
+
+echo "   safe checks: off"
+/opt/nessus/sbin/nessuscli fix --set safe_checks=false &>/dev/null
+
+echo "   logs:        performance"
+/opt/nessus/sbin/nessuscli fix --set backend_log_level=performance &>/dev/null
+
+echo "   updates:     off"
+/opt/nessus/sbin/nessuscli fix --set auto_update=false &>/dev/null
+/opt/nessus/sbin/nessuscli fix --set auto_update_ui=false &>/dev/null
+/opt/nessus/sbin/nessuscli fix --set disable_core_updates=true &>/dev/null
+
+echo "   telemetry:   off"
+/opt/nessus/sbin/nessuscli fix --set report_crashes=false &>/dev/null
+/opt/nessus/sbin/nessuscli fix --set send_telemetry=false &>/dev/null
+
+echo " o adding a user you can change this later (u:admin, p:admin)"
+cat > expect.tmp<<'EOF'
+spawn /opt/nessus/sbin/nessuscli adduser admin
+expect "Login password:"
+send "admin\r"
+expect "Login password (again):"
+send "admin\r"
+expect "*(can upload plugins, etc.)? (y/n)*"
+send "y\r"
+expect "*(the user can have an empty rules set)"
+send "\r"
+expect "Is that ok*"
+send "y\r"
+expect eof
+EOF
+expect -f expect.tmp &>/dev/null
+rm -rf expect.tmp &>/dev/null
+
+echo " o downloading new plugins.."
+curl -A Mozilla -o all-2.0.tar.gz \
+  --url 'https://plugins.nessus.org/v2/nessus.php?f=all-2.0.tar.gz&u=4e2abfd83a40e2012ebf6537ade2f207&p=29a34e24fc12d3f5fdfbb1ae948972c6' &>/dev/null
+
+{ if [ ! -f all-2.0.tar.gz ]; then
+  echo " o plugins all-2.0.tar.gz download failed :/ exiting. get a copy of it from t.me/pwn3rzs"
+  exit 0
+fi }
+
+echo " o installing plugins.."
+chmod +x all-2.0.tar.gz &>/dev/null
+/opt/nessus/sbin/nessuscli update all-2.0.tar.gz &>/dev/null
+
+echo " o fetching version number.."
+# I have seen this not be correct for the download. Hrm. But, it works for me.
+vernum=$(curl https://plugins.nessus.org/v2/plugins.php 2> /dev/null)
+
+echo " o building plugin feed..."
+cat > /opt/nessus/var/nessus/plugin_feed_info.inc <<EOF
+PLUGIN_SET = "${vernum}";
+PLUGIN_FEED = "ProfessionalFeed (Direct)";
+PLUGIN_FEED_TRANSPORT = "Tenable Network Security Lightning";
+EOF
+
+echo " o protecting files.."
+chattr -i /opt/nessus/lib/nessus/plugins/plugin_feed_info.inc &>/dev/null
+cp /opt/nessus/var/nessus/plugin_feed_info.inc /opt/nessus/lib/nessus/plugins/plugin_feed_info.inc &>/dev/null
+
+echo " o let's set everything immutable..."
+chattr +i /opt/nessus/var/nessus/plugin_feed_info.inc &>/dev/null
+chattr +i -R /opt/nessus/lib/nessus/plugins &>/dev/null
+
+echo " o but unsetting key files.."
+chattr -i /opt/nessus/lib/nessus/plugins/plugin_feed_info.inc &>/dev/null
+chattr -i /opt/nessus/lib/nessus/plugins  &>/dev/null
+
+echo " o starting service.."
+rm -r all-2.0.tar.gz &>/dev/null
+/bin/systemctl start nessusd.service &>/dev/null
+
+echo " o Let's sleep for another 20 seconds to let the server have time to start!"
+sleep 20
+
+echo " o Monitoring Nessus progress. Following line updates every 10 seconds until 100%"
+zen=0
+while [ $zen -ne 100 ]
+do
+ statline=`curl -sL -k https://localhost:11127/server/status|awk -F"," -v k="engine_status" '{ gsub(/{|}/,""); for(i=1;i<=NF;i++) { if ( $i ~ k ){printf $i} } }'`
+ if [[ $statline != *"engine_status"* ]]; then echo -ne "\n Problem: Nessus server unreachable? Trying again..\n"; fi
+ echo -ne "\r $statline"
+ if [[ $statline == *"100"* ]]; then zen=100; else sleep 10; fi
+done
+
+echo -ne '\n  o Done!\n'
+echo
+
+echo "        Access your Nessus:  https://localhost:11127/ (or your VPS IP)"
+echo "                             username: admin"
+echo "                             password: admin"
+echo "                             you can change this any time"
+echo
+
+read -p "Press enter to continue"
+```
+
+## Run the script
+
+```
+┌──(root㉿kali)-[/home/hasanrehni/CyberSecurity360]
+└─# bash nessus.sh 
+//==============================================================
+Nessus 10.5.1 DOWNLOAD, INSTALL, and CRACK -Zen 20230123
+special thanks to John Doe for showing this works on Debian
+//==============================================================
+ o making sure we have prerequisites..
+ o stopping old nessusd in case there is one!
+ o downloading Nessus..
+ o installing Nessus..
+ o starting service once FIRST TIME INITIALIZATION (we have to do this)
+ o let's allow Nessus time to initalize - we'll give it like 20 seconds...
+ o stopping the nessus service..
+ o changing nessus settings to Zen preferences (freedom fighter mode)
+   listen port: 11127
+   theme:       dark
+   safe checks: off
+   logs:        performance
+   updates:     off
+   telemetry:   off
+ o adding a user you can change this later (u:admin,p:admin)
+ o downloading new plugins..
+ o installing plugins..
+ o fetching version number..
+ o building plugin feed...
+ o protecting files..
+ o let's set everything immutable...
+ o but unsetting key files..
+ o starting service..
+ o Let's sleep for another 20 seconds to let the server have time to start!
+ o Monitoring Nessus progress. Following line updates every 10 seconds until 100%
+ "engine_status":"progress":35
+ "engine_status":"progress":100
+  o Done!
+
+        Access your Nessus:  https://localhost:11127/ (or your VPS IP)
+                             username: admin
+                             password: admin
+                             you can change this any time
+
+Press enter to continue                                                                                                                                                                                                                   
+┌──(root㉿kali)-[/home/hasanrehni/CyberSecurity360]
+```
+
+|Default username and password is admin|
+|---|
+|![Nessus_login_page](./cybersecurity_img/TheCraftofnetworkingscan/Nessus_loginpage.png)|
+
+
+## Nessus Usage Tips
+
+### Launching a Scan
+
+To initiate a scan, use the following button:
+- **New Scan**
+
+### Scan Templates
+
+Nessus offers various scan templates for your convenience.
+
+### Creating Custom Templates
+
+You can create custom templates through the side menu option:
+- **Policies**
+
+Navigate to **New Policy** and select where you want to apply it.
+
+|![NewPolciy](./cybersecurity_img/TheCraftofnetworkingscan/Newpolicy.png)|
+|---|
+
+
+### Modifying Plugin Settings and Creating Custom Rules
+
+For plugin settings and custom rule creation, follow these steps:
+
+1. Go to the menu:
+   - **Plugin Rules**
+
+2. Navigate to **Plugin Rule** and click **New Rule** to create rules as needed.
+
+|![NewPlugins](./cybersecurity_img/TheCraftofnetworkingscan/NewPlugins.png)|
+|---|
+
+
+
+## Identifying Active Hosts with Nessus
+
+### Host Discovery Scan
+
+To easily identify active hosts using Nessus, you can use the **Host Discovery** scan template. This scan type allows you to discover hosts and check open ports, making it one of the most useful scan types.
+
+**How to Launch the Host Discovery Scan:**
+
+|![HostDiscoveryScan](./cybersecurity_img/TheCraftofnetworkingscan/hostDiscoveryScan.png)|
+|---|
+
+
+1. Navigate to **New Scan**.
+
+|![NewDiscoveryScan](./cybersecurity_img/TheCraftofnetworkingscan/Newdiscoveryscan.png)|
+|---|
+
+2. Click on **Host Discovery** in the 'Scan Templates' section.
+
+3. On the Basic Tab, fill in the information as required.
+
+4. Click on **Save** to save your scan configuration.
+
+5. Launch the scan.
+
+|![Launchthescan](./cybersecurity_img/TheCraftofnetworkingscan/Launchthescan.png)|
+|---|
+
+6. Scanning in Progress
+
+|![ScanningProcess](./cybersecurity_img/TheCraftofnetworkingscan/ScannigProcess.png)|
+|---|
+
+
+**Results of Hosts:**
+
+|![Host Results](./cybersecurity_img/TheCraftofnetworkingscan/hostresults.png)|
+|---|
+
+**Results of Host Vulnerabilities:**
+
+|![Vulnerability Results](./cybersecurity_img/TheCraftofnetworkingscan/Vulnerablyhost.png)|
+|---|
+
+This Host Discovery scan is an effective way to identify active hosts on your network.
