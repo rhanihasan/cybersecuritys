@@ -11,14 +11,8 @@ I enjoy learning about how to test computer systems to make sure they are secure
 
 ## My Work
 
-This repository contains my work on the following topics:
-
-* Penetration testing
-* Networking
-* Server security
-* Ethical hacking
-* Malware analysis
-* Threat intelligence
+- Network Security Engineer 
+- Cybersecuriy Engineer 
 
 I am always working on new projects, so please check back often.
 
