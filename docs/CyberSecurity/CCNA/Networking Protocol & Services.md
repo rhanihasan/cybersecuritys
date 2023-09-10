@@ -437,6 +437,253 @@ TThe configuration/CMD may very as per OEMs
 
 
 
+## HTTP/S 
+ 
+### What & Why HTTP/S 
+ 
+- It's a Service which uses protocols. 
+- Sources want to communicate with HTTP OR HTTPS it will use this protocol or the structure of this protocol [TCP/UDP] Latest is QUIC  
+ 
+`A ==> B` 
+ 
+- How is the URL structured? 
+
+  - The first is http/https [which/what is protocol] 
+  - The second is ip-addr or name [which and what is the destination] http://192.168.1.1 
+  - The third is Path or folder [wherever the services have in the backend file and Directory] http://192.168.1.1/unresticeted-file-upload.php 
+  - The fourth is Whatever the file you want to access after this [cmd is a parameter here and whoami is the value here for the that particular Shell ]http://192.168.1.1/unresticeted-file-upload.php?/cmd/whoami 
+ 
+
+#### HTTP
+|**HTTP port 80**|
+|---|
+|`#nc lvp 80 [server]`|
+|`#nc 127.0.0.1 80 [client or use browser]`|
+|![HTTP-PACEKT](./img/Protocols&Services/HTTPPACKET.png)|
+|First **TCP** connection made because http uses TCP |
+|Then **http** connection made:|
+|![HTTP-PACKET-WIRESHARK](./img/Protocols&Services/HTTP-PACKET-WIRESHARK.png)|
+|**Fin Packet**|
+![HTTP-FIN-PACKET](./img/Protocols&Services/HTTP-FIN-PACKET.png)|
+|**When the port is not open and client request in TCP this is the RSK packet:**|
+|![HTTP-RST-PACKET-WIRESHARK](./img/Protocols&Services/HTTP-RST-PACKET-WIRESHARK.png)|
+
+#### HTTPS
+|**HTTPS Port 443**|
+|---|
+|**HTTPS** is the upgradation version on HTTP.|
+|**HTTPS** is secure as in HTTP the message and packet are in readable format. But in HTTPS the packets are not in readable format.||
+|![HTTPS-HELLO-PACKET](./img/Protocols&Services/HTTPS-HELLO-PACKET.png)|
+|**Wireshark**|
+|![HTPPS-HELLO-PACKET-WIRESHARK](./img/Protocols&Services/HTTPS-HELLO-PACKET-WIRESHARK.png)|
+
+#### SSL is Included in HTTPS 
+- Hello client Is including in https service rule.
+- Because of SSL it used to encrypted the packets 
+
+|![HTTPS-SSL-WIRESHARK](./img/Protocols&Services/HTTPS-SSL-WIRESHARK.png)|
+|---|
+|**Fin Packet**|
+|![HTTPS-FIN-PACKET](./img/Protocols&Services/HTTPS-FIN-PACKET.png)|
+
+
+## HTTP/S Methods
+
+
+- In HTTP it has some methods which is  
+ 
+### Methods 
+`Common structure Is : [METHOD] / [FILE PATH] / [FILENAME] / [VARIBALE] = [VALUE]`
+ 
+`GET ==> when you want something from the server or submitting of something through URL.` 
+ 
+#### Why GET can't upload large file? 
+- Becuase when use such URLs that is what you GET method it is something happened in a backend  
+ 
+<Highlight color="#25c2a0"> GET change the URL, GET / [file size XXXXXXXXXXXXXXXX] /HTTP 1.1 And GET has some limitation that URL can be big enough but when you upload something, it has size limitations. that where POST comes. </Highlight>
+ 
+
+#### The basis search functionality can be use through GET 
+
+### **GET**:- 
+- The GET method is used to retrieve information from the given server using a given URL. Requests using GET should only retrieve data and should have no other effect on the data 
+
+
+**GET Method Request:**
+
+| Request Line | Headers                                        |
+|--------------|------------------------------------------------|
+|`GET /hello.htm HTTP/1.1 | User-Agent: Mozilla/4.0 (Windows NT)`|
+|            | Host: [IP, Name]                 |
+|            | Accept-Language: en-us            |
+|            | Accept-Encoding: gzip, deflate   |
+|            | Connection: Keep-Alive           |
+
+
+**GET Method Response:**
+
+| Status Line     | Headers                                        | Body                         |
+|-----------------|------------------------------------------------|------------------------------|
+| HTTP/1.1 200 OK | Date: Mon, DD-MM-YYYY HH:MM:SS IST | `\<html>...\<h1>Hello, World!\</h1>... `|
+|                 | Server: Apache/2.2.14 (Win32)       |                              |
+|                 | Last-Modified: DD-MM-YYYY HH:MM:SS IST  |                              |
+|                 | Content-Type: text/html             |                              |
+|                 | Connection: Closed/open             |                              |
 
 
 
+
+### POST
+
+- When Uploading file HTTP/HTTPS use POST, and Submit sensitivity information because the URL don’t change it stick to the `[title]` The POST data will not be going to be visible in Brower history, it can be used for multi-purpose file Uploading, sensitive information, cookies ETC  
+ 
+- Content Type ==> can be different type like ==> multipart/form data is the most common content type, boundary is the beginning and ending part. 
+- USER-Agent ==>  will going to have your browser information , at server end they can access-list the browser they what the client to interreact with  
+- ACCEPT ==> It is telling to server I can accept which type of data value  
+- ACCEPTY ==> Encodeing ==> client browser accept there are different encodeing value that your browser allowed and the server will send whenever its required  
+- COOKIE ==> whenever login in to particaular website your authentication data will gonna be saved in a cookie format  
+ 
+**POST Method Request:**
+
+| Request Line                  | Headers                                        |
+|-------------------------------|------------------------------------------------|
+| POST /cgi-bin/process.cgi HTTP/1.1 | User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT) |
+|                               | Host: 192.168.1.1/ane-pte                        |
+|                               | Content-Type: text/xml; charset=utf-8            |
+|                               | Accept-Language: en-us                          |
+|                               | Accept-Encoding: gzip, deflate                  |
+|                               | Connection: Keep-Alive                           |
+
+**POST Method Response:**
+
+| Status Line                  | Headers                                        |
+|-----------------------------|------------------------------------------------|
+| HTTP/1.1 200 OK             | Date: DD-MM-YYYY HH:MM:SS IST               |
+|                             | Server: Apache/2.2.14 (Win32)               |
+|                             | Last-Modified: DD-MM-YYYY HH:MM:SS IST     |
+|                             | Vary: Authorization, Accept                |
+|                             | Content-Type: text/html                   |
+|                             | Connection: Closed/open                  |
+
+
+<Highlight color="#25c2a0"> #http://192.168.1.1/Files/unrestricted_file.php/?username=xyz/?password=xyz </Highlight>
+
+### Options
+
+-  its say what are the other methods that are allowed. The OPTIONS method is used by the client to find out the HTTP methods and other options supported by a web server. The client can specify a URL for the OPTIONS method, or an asterisk (*) to refer to the entire server. The following example requests a list of methods supported by a web server running. 
+
+
+**OPTIONS Method Request:**
+
+| Request Line              | Headers                                 |
+|---------------------------|-----------------------------------------|
+| OPTIONS * HTTP/1.1        | User-Agent: Mozilla/4.0 (compatible; Windows NT) |
+
+**OPTIONS Method Response:**
+
+| Status Line              | Headers                                        |
+|-------------------------|------------------------------------------------|
+| HTTP/1.1 200 OK         | Date: Mon, DD-MM-YYYY HH:MM:SS IST           |
+|                         | Server: Apache/2.2.14 (Win32)                 |
+|                         | Allow: GET, HEAD, POST, OPTIONS, TRACE       |
+|                         | Content-Type: httpd/unix-director            |
+
+### Put
+- Something to be uploaded. 
+- Example: register on website this will happened through POST methods let say change the password that can be done by PUT method, it can depend on developer if want to use PUT  
+
+
+**PUT Method Request:**
+
+| Request Line             | Headers                                 |
+|--------------------------|-----------------------------------------|
+| PUT /hello.htm HTTP/1.1  | User-Agent: Mozilla/4.0 (compatible; Windows NT) |
+|                          | Host: [IP, Name]                         |
+|                          | Accept-Language: en-us                  |
+|                          | Connection: Keep-Alive                  |
+|                          | Content-type: text/html                 |
+
+**PUT Method Response:**
+
+| Status Line              | Headers                                        |
+|-------------------------|------------------------------------------------|
+| HTTP/1.1 201 Created    | Date: Mon, DD-MM-YYYY HH:MM:SS IST           |
+|                         | Server: Apache/2.2.14 (Win32)                 |
+|                         | Content-type: text/html                      |
+|                         | Content-length: 30                            |
+|                         | Connection: Closed                            |
+
+### Delete Method
+
+- Mostly used in APIs , this help deleting a data form XYZ, this DELETE method is used to request the server to delete a file at a location specified by the given URL. 
+
+**DELETE Method Request:**
+
+| Request Line             | Headers                                 |
+|--------------------------|-----------------------------------------|
+| DELETE /hello.htm HTTP/1.1 | User-Agent: Mozilla/4.0 (compatible; Windows NT) |
+|                          | Host: [IP, Name]                         |
+|                          | Accept-Language: en-us                  |
+|                          | Connection: Keep-Alive                  |
+
+**DELETE Method Response:**
+
+| Status Line              | Headers                                        |
+|-------------------------|------------------------------------------------|
+| HTTP/1.1 200 OK         | Date: DD-MM-YYYY HH:MM:SS IST               |
+|                         | Server: Apache/2.2.14 (Win32)                 |
+|                         | Content-type: text/html                      |
+
+### Connect Method
+- The CONNECT method is used by the client to establish a network connection to a web server over HTTP. 
+
+
+
+**CONNECT Method Request:**
+
+| Request Line              | Headers                                 |
+|---------------------------|-----------------------------------------|
+| CONNECT [IP, Name] HTTP/1.1 | User-Agent: Mozilla/4.0 (compatible; Windows NT) |
+
+**CONNECT Method Response:**
+
+| Status Line                 | Headers                                        |
+|----------------------------|------------------------------------------------|
+| HTTP/1.1 200 Connection established | Date: Mon, DD-MM-YYYY HH:MM:SS IST         |
+|                            | Server: Apache                               |
+
+
+## HTTP Status Code
+
+**1XX - Informational:**
+- 100 Continue: Continue with the request.
+- 101 Switching Protocols: Switch to a new protocol.
+- 102 Processing: Request is being processed, but there's no response yet.
+
+**2XX - Success:**
+- 200 OK: Request successful; data returned.
+- 201 Created: Request successful; a new resource has been created.
+- 202 No Content: Request successful; no data to return (typically used for updates).
+- 205 Reset Content: Request successful; client should reset the document view.
+
+**3XX - Redirection:**
+- 300 Multiple Choices: Multiple options available; client should choose one.
+- 302 Found: Resource temporarily moved; use the new URL (commonly used for redirects).
+- 303 See Other: Similar to 302, but explicitly indicating a GET request to the new URL.
+- 305 Use Proxy: Resource must be accessed through a proxy.
+
+**4XX - Client Error:**
+- 400 Bad Request: Server can't understand the request due to malformed syntax.
+- 401 Unauthorized: Request lacks proper authentication credentials.
+- 402 Payment Required: Not widely used, and meaning not well-defined.
+- 404 Not Found: Requested resource was not found.
+
+**5XX - Server Error:**
+- 501 Not Implemented: Server doesn't support needed functionality.
+- 502 Bad Gateway: Server acting as a gateway received an invalid response from an upstream server.
+- 503 Service Unavailable: Server currently unable to handle the request due to overloading or maintenance.
+- 504 Gateway Timeout: Server acting as a gateway did not receive a timely response from an upstream server.
+- 506 Variant Also Negotiates: Server has an internal configuration error.
+- 507 Insufficient Storage: Server is unable to store the representation needed to complete the request.
+
+## MindMap Pending
