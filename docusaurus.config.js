@@ -80,7 +80,7 @@ const config = {
         title: 'Home',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/employeelogo.png',
+          src: 'img/employeelogo.svg',
         },
         items: [
           {
