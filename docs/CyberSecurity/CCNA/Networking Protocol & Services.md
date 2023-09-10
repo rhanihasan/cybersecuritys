@@ -174,41 +174,26 @@ In TCP communication, a "half connection" refers to the initial phase of establi
 |                   | SYN-ACK Packet                              |
 |                   | ACK Packet                                  |
 
+|**Half Connection Sequence:**|
+|--|
+|**SYN Packet / Hello Packet:** The client initiates the connection by sending a SYN packet, often referred to as a "Hello Packet." This packet is used to request the server's attention and establish a connection.|
+|**SYN-ACK Packet:** The server responds with a SYN-ACK packet, acknowledging the client's request and indicating its readiness to establish the connection.|
+|**ACK Packet:** The client sends an ACK packet to confirm that it has received the server's response. This completes the initial handshake phase.|
+|**Timeout:** If the server does not respond within a certain timeout period (e.g., 75 seconds), the request/response packets may be discarded, and the connection attempt may be considered unsuccessful.|
+|![TCP_PACKET](./img/Protocols&Services/TCPSYNPKT.png)|
+|**CLient to Server**|
+|![TCP_CLienttoserver](./img/Protocols&Services/CLIENTTOSERVERTCP.png)|
+|**Server to Client**|
+|![ServertoCLient](./img/Protocols&Services/ServertoclientTCP.png)|
+|This process represents the "TCP Half Connection" phase.|
 
-**Half Connection Sequence:**
-
-1. **SYN Packet / Hello Packet:** The client initiates the connection by sending a SYN packet, often referred to as a "Hello Packet." This packet is used to request the server's attention and establish a connection.
-
-2. **SYN-ACK Packet:** The server responds with a SYN-ACK packet, acknowledging the client's request and indicating its readiness to establish the connection.
-
-3. **ACK Packet:** The client sends an ACK packet to confirm that it has received the server's response. This completes the initial handshake phase.
-
-**Timeout:** If the server does not respond within a certain timeout period (e.g., 75 seconds), the request/response packets may be discarded, and the connection attempt may be considered unsuccessful.
-
-![TCP_PACKET](./img/Protocols&Services/TCPSYNPKT.png)
-- CLient to Server
-
-![TCP_CLienttoserver](./img/Protocols&Services/CLIENTTOSERVERTCP.png)
-
-- Server to Client
-![ServertoCLient](./img/Protocols&Services/ServertoclientTCP.png)
-
-This process represents the "TCP Half Connection" phase.
-
-**TCP Full Connection or Five-Way Handshake**
-
-In a complete TCP connection, there's also a "Five-Way Handshake" that includes the termination of the connection:
-
-- **FIN Packet:** To close the connection, either the client or the server sends a FIN (Finish) packet to signal the intention to terminate the connection.
-
-![FINPACKET](./img/Protocols&Services/TCPFINPKT.png)
-
-- **If the TCP port is not open:** If the specified port on the server is not open or not listening, the server may respond with a RST (Reset) packet, indicating that the connection request is rejected.
-
-![RST_PACKET](./img/Protocols&Services/RSPTCPPKT.png)
-
-
-
+|**TCP Full Connection or Five-Way Handshake**|
+|---|
+|In a complete TCP connection, there's also a "Five-Way Handshake" that includes the termination of the connection:|
+|**FIN Packet:** To close the connection, either the client or the server sends a FIN (Finish) packet to signal the intention to terminate the connection.|
+|![FINPACKET](./img/Protocols&Services/TCPFINPKT.png)|
+|**If the TCP port is not open:** If the specified port on the server is not open or not listening, the server may respond with a RST (Reset) packet, indicating that the connection request is rejected.|
+|![RST_PACKET](./img/Protocols&Services/RSPTCPPKT.png)| 
 
 ### UDP (User Datagram Protocol)
 
@@ -216,34 +201,25 @@ In a complete TCP connection, there's also a "Five-Way Handshake" that includes 
 - When monitoring UDP traffic with Wireshark, you can use the filter `udp.port==1`.
 - The application layer will be visible when you enter the conversation.
 
-![UDPNETATE](./img/Protocols&Services/udpnetstate.png)
 
-#### Request and Response Packets
-
-![UDPREQUESTANDRESPONSE](./img/Protocols&Services/udprequestandresponse.png)
-
-#### Client Saying Hello to Server:
-
-![UDP_CLIENT_SAYING_HELLO_TO_SERVER](./img/Protocols&Services/UDPclientsayingserver.png)
-
-**Wireshark Capture:**
-
-![UDP-CLEINT-SAYING-HELLO-TO-SERVER-WIRESHARK](./img/Protocols&Services/UDPclientsayingserver_wireshark.png)
-
-#### Server Saying Hello to Client:
-
-![UDP-SERVER-SAYING-HELLO-TO-CLIENT](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT.png)
-
-**Wireshark Capture:**
-
-![UDP-SERVER-SAYING-HELLO-TO-CLIENT-WIRESHARK](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT-Wireshark.png)
+|![UDPNETATE](./img/Protocols&Services/udpnetstate.png)|
+|---|
+|**Request and Response Packets**|
+|![UDPREQUESTANDRESPONSE](./img/Protocols&Services/udprequestandresponse.png)|
+|**Client Saying Hello to Server**|
+|![UDP_CLIENT_SAYING_HELLO_TO_SERVER](./img/Protocols&Services/UDPclientsayingserver.png)|
+|**Wireshark Capture:**|
+|![UDP-CLEINT-SAYING-HELLO-TO-SERVER-WIRESHARK](./img/Protocols&Services/UDPclientsayingserver_wireshark.png)|
+|**Server Saying Hello to Client**|
+|![UDP-SERVER-SAYING-HELLO-TO-CLIENT](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT.png)|
+|**Wireshark Capture:**|
+|![UDP-SERVER-SAYING-HELLO-TO-CLIENT-WIRESHARK](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT-Wireshark.png)|
 
 - If both the client and server close the UDP connection, packets will not be generated.
 - UDP communication is based on request and response.
 - Port number 0 is used when there's no specific port assigned. In such cases, the operating system or application dynamically assigns an available port. This is particularly useful when connecting with multiple tabs in a browser or handling multiple simultaneous communications.
 
 
-You've provided information about ICMP (Internet Control Message Protocol). Here it is formatted in Markdown:
 
 ### ICMP (Internet Control Message Protocol)
 
