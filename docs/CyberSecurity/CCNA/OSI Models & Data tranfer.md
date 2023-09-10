@@ -79,11 +79,14 @@ Sessions allow devices to communicate with each other. The session layer is resp
 - Provides reliable communication between nodes.
 - Ensures reliable data transfer, speed, and segmentation.
 - Segmentation divides large data into manageable segments.
+- Error Correction Form Data Link Layer
 - Includes TCP and UDP protocols.
 
 #### Transport Layer
 
 The Transport layer is responsible for providing reliable host-to-host communication services for applications. It plays a crucial role in ensuring data transfer between source and destination devices. This layer decides the source and destination ports and selects the appropriate protocol for the service.
+
+- Assigns Random Ports 
 
 One of the main responsibilities of the Transport layer is to establish a reliable connection between nodes. It manages the speed of data transfer, flow control, and segmenting large data transmissions into smaller segments. These smaller segments are then reassembled at the receiving end to ensure proper processing by the Session layer. Transport layer protocols like TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) facilitate these functions.
 
@@ -109,6 +112,10 @@ The Network layer checks whether a particular packet is allowed to pass based on
 
 The Data Link layer focuses on the reliable transmission of data between nodes within a network segment. It operates across the physical layer and understands MAC addresses. Switches, which work at this layer, use MAC addresses to forward data to the appropriate destination.
 
+- LLC Local Link Control 
+
+    - Error Dectections 
+
 Data is sent in frames from the Data Link layer to the next layer. The Data Link layer is responsible for error detection and correction, ensuring that the data being transmitted is accurate and reliable. Protocols such as High-Level Data Link Control (HDLC) and Ethernet are commonly used at this layer.
 
 ### Layer 1: Physical Layer
@@ -124,6 +131,8 @@ The OSI model provides a structured approach to understanding and troubleshootin
 #### Physical Layer
 
 The Physical layer deals with the actual physical transmission of data over the network medium. It includes the hardware components and physical infrastructure required for network communication. Devices like hubs, modems, and cables are part of this layer.
+
+- Bandwidth, Voltage, Interface , Encapsulation & Decapsulation 
 
 In the Physical layer, data is represented as a stream of binary digits (0s and 1s) that travel across the physical wiring and cables. This layer ensures physical connectivity, checks transmission speed, and manages power supply to network devices.
 

@@ -151,7 +151,7 @@ In the digital world, ports are like doors, and TCP/UDP are the rules for delive
 
 
 
-**TCP Half Connection**
+### **TCP Half Connection**
 
 In TCP communication, a "half connection" refers to the initial phase of establishing a connection between a client and a server. Here's a breakdown of the key components:
 
@@ -206,3 +206,237 @@ In a complete TCP connection, there's also a "Five-Way Handshake" that includes 
 - **If the TCP port is not open:** If the specified port on the server is not open or not listening, the server may respond with a RST (Reset) packet, indicating that the connection request is rejected.
 
 ![RST_PACKET](./img/Protocols&Services/RSPTCPPKT.png)
+
+
+
+
+### UDP (User Datagram Protocol)
+
+- To use UDP, you can use the `-u` option.
+- When monitoring UDP traffic with Wireshark, you can use the filter `udp.port==1`.
+- The application layer will be visible when you enter the conversation.
+
+![UDPNETATE](./img/Protocols&Services/udpnetstate.png)
+
+#### Request and Response Packets
+
+![UDPREQUESTANDRESPONSE](./img/Protocols&Services/udprequestandresponse.png)
+
+#### Client Saying Hello to Server:
+
+![UDP_CLIENT_SAYING_HELLO_TO_SERVER](./img/Protocols&Services/UDPclientsayingserver.png)
+
+**Wireshark Capture:**
+
+![UDP-CLEINT-SAYING-HELLO-TO-SERVER-WIRESHARK](./img/Protocols&Services/UDPclientsayingserver_wireshark.png)
+
+#### Server Saying Hello to Client:
+
+![UDP-SERVER-SAYING-HELLO-TO-CLIENT](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT.png)
+
+**Wireshark Capture:**
+
+![UDP-SERVER-SAYING-HELLO-TO-CLIENT-WIRESHARK](./img/Protocols&Services/UDP-SERVER-SAYING-HELLO-TO-CLIENT-Wireshark.png)
+
+- If both the client and server close the UDP connection, packets will not be generated.
+- UDP communication is based on request and response.
+- Port number 0 is used when there's no specific port assigned. In such cases, the operating system or application dynamically assigns an available port. This is particularly useful when connecting with multiple tabs in a browser or handling multiple simultaneous communications.
+
+
+You've provided information about ICMP (Internet Control Message Protocol). Here it is formatted in Markdown:
+
+### ICMP (Internet Control Message Protocol)
+
+ICMP is a network layer protocol primarily used for diagnosing network-related issues and checking connectivity between devices on a network. It provides two main services
+
+
+## Services and Protocols
+
+#### **Protocols** have their own rules and regulations, and the same applies to **services** as well. Services depend on protocols, meaning that to use software applications or deploy services, they must adhere to the rules and regulations of both the protocol and the service.
+
+### ARP (Address Resolution Protocol)
+
+- Each device on the network performs **ARP** (Address Resolution Protocol) and maintains an **ARP cache**, which keeps track of matching IP and MAC addresses. ARP does not have a specific port number.
+
+### Telnet
+
+- **Telnet** is an application layer protocol that enables a device to communicate with another device or server. Telnet sends all information in clear text, making it less secure. It uses command-line prompts to control another device, similar to **Secure Shell (SSH)**. Telnet can be used to connect to local or remote devices and typically uses **TCP port 23**.
+
+### Secure Shell (SSH)
+
+- **Secure Shell (SSH)** is an application layer protocol used to establish secure connections with remote systems. This protocol provides secure authentication and encrypted communication, making it a more secure alternative to Telnet. SSH operates over **TCP port 22** and is used to replace less secure protocols like Telnet.
+
+You've provided information about various email-related protocols. Here's the content formatted in Markdown:
+
+## Email Protocols
+
+### Post Office Protocol (POP)
+
+- **POP (Post Office Protocol)** is an application layer protocol (Layer 4 of the TCP/IP model) used to manage and retrieve email from a mail server.
+- Many organizations have dedicated mail servers that handle incoming and outgoing mail for users on the network.
+- User devices send requests to the remote mail server to download email messages locally.
+- POP operates over **TCP/UDP port 110** for unencrypted, plaintext authentication, and **TCP/UDP port 995** over **Secure Sockets Layer/Transport Layer Security (SSL/TLS)** for encrypted emails.
+- With POP, mail must finish downloading on a local device before it can be read, and it doesn't allow users to sync emails.
+
+### Internet Message Access Protocol (IMAP)
+
+- **IMAP (Internet Message Access Protocol)** is used for incoming email. It downloads email headers but not the content.
+- Email content remains on the email server, allowing users to access their email from multiple devices.
+- IMAP uses **TCP port 143** for unencrypted email and **TCP port 993** over **TLS** for encrypted email.
+- IMAP allows users to partially read email before it finishes downloading and supports email synchronization. However, it is typically slower than POP3.
+
+### Simple Mail Transfer Protocol (SMTP)
+
+- **SMTP (Simple Mail Transfer Protocol)** is used to transmit and route email from the sender to the recipient's address.
+- SMTP works with **Message Transfer Agent (MTA)** software, which resolves email addresses to IP addresses using DNS servers to ensure emails reach their intended destination.
+- SMTP uses **TCP/UDP port 25** for unencrypted emails and **TCP/UDP port 587** using **TLS** for encrypted emails.
+- TCP port 25 is often associated with high-volume spam, but SMTP helps filter out spam by regulating how many emails a source can send at a time.
+
+## Services
+
+
+
+### Ping
+
+- **Purpose**: Ping is used to check the connectivity of a network or a specific device on the network.
+
+- **Protocol Rules**: Ping follows specific protocol rules to measure various aspects of network connectivity, such as determining whether messages are delivered, counting the timing of message delivery, and identifying packet loss or network downtime.
+
+- **Methods**: Ping uses two primary methods - ECHO and Echo Reply.
+
+
+#### ICMP Echo (Request)
+
+| Field                   | Description                                |
+|-------------------------|--------------------------------------------|
+| Source Address          | IP address of the source device            |
+| Source MAC Address      | MAC address of the source device           |
+| Source Port             | Source port (N/A for ICMP)                 |
+| Destination Address     | IP address of the destination device       |
+| Destination MAC Address | MAC address of the destination device      |
+| Destination Port        | Destination port (N/A for ICMP)            |
+| ICMP Code               | Specific code for ICMP Echo (Request)      |
+| Data                    | Data payload                               |
+
+#### ICMP Echo Reply (Response)
+
+| Field                   | Description                                |
+|-------------------------|--------------------------------------------|
+| Source Address          | IP address of the responding device        |
+| Source MAC Address      | MAC address of the responding device       |
+| Source Port             | Source port (N/A for ICMP)                 |
+| Destination Address     | IP address of the original sender          |
+| Destination MAC Address | MAC address of the original sender         |
+| Destination Port        | Destination port (N/A for ICMP)            |
+| ICMP Code               | Specific code for ICMP Echo Reply (Response)|
+| Data                    | Data payload                               |
+
+
+
+### Traceroute
+
+- **Purpose**: Traceroute is used to identify the path that network packets take from the source device to the destination address. It helps in understanding the route taken by packets and can be useful in diagnosing network routing issues.
+
+- **How it Works**: Traceroute sends a series of packets with increasing Time-to-Live (TTL) values. Each router along the path decrements the TTL value. When the TTL reaches zero, the router sends an ICMP Time Exceeded message back to the source device. By analyzing these messages, Traceroute can determine the route and delays involved in reaching the destination.
+
+**ICMP**, particularly **Ping** and **Traceroute**, is valuable for network troubleshooting and monitoring network performance. These tools provide essential insights into network connectivity and routing.
+
+You've provided a comprehensive overview of the Domain Name System (DNS) and its various aspects. DNS is indeed a critical protocol that plays a central role in translating human-readable domain names into IP addresses, making it easier for us to access websites and services on the internet.
+
+
+
+**DNS**
+
+- Domain Name System uses port 53 works on UDP protocol mostly but also works on TCP.
+- Domain Name System (DNS) is a protocol that translates internet domain names into IP addresses. When a client computer wishes to access a website domain using their internet browser, a query is sent to a dedicated DNS server. The DNS server then looks up the IP address that corresponds to the website domain. DNS normally uses UDP on port 53. However, if the DNS reply to a request is large, it will switch to using the TCP protocol. In the TCP/IP model, DNS occurs at the application layer.
+
+#### Why DNS come?
+- Because all the device /router/ any machine understand binary, and we humans are not good in remembering numbers/IP Addrs. That why DNS comes and helps, It requery Numbers / IP Addrs into Names 
+ 
+#### DNS Types 
+- DNS has Multiply types of Records 
+  - A record: Is requery for IPv4
+  - AAAA record : is requery for IPv6
+  - MX record [mail server record ]:  it specifies the mail server responsible for accepting incoming emails.
+  - Name server Record: It provides information about authoritative name servers for a domain.
+  - CNAME Record: Redirector [One server domain redirect to Different Server domain], It acts as a redirector, redirecting one server domain to a different server domain.
+ 
+:::note
+The latest and best which is used in Current Network environment is QUIC Protocol !!.
+:::
+
+
+| **DNS Request Packet** |                    | **DNS Response Packet** |                    |
+|------------------------|--------------------|--------------------------|--------------------|
+| **Source Address:**    | 127.0.0.1          | **Source Address:**      | 127.0.0.1          |
+| **Source MAC Address:**| MAC1               | **Source MAC Address:**  | MAC1               |
+| **Source Port:**       | 53                 | **Source Port:**         | 53                 |
+| **Destination Address:**| 8.8.8.8            | **Destination Address:** | 127.0.0.1          |
+| **Destination MAC Address:**| MAC2         | **Destination MAC Address:**| MAC1             |
+| **Destination Port:**  | 53                 | **Destination Port:**    | 53                 |
+| **Request:**           | Nasa.com           | **Response:**            | 200.1.1.10         |
+| **DATA:**              | [Additional data]  | **DATA:**                | [Additional data]  |
+
+
+
+#### Configuration 
+:::note
+The configuration/CMD may very as per OEMs
+:::
+1.	**ip dns server [enable to act as a DNS server]**: This command typically enables the device to act as a DNS server. It allows the device to respond to DNS queries from clients on the network. Enabling this feature allows the device to perform DNS resolution.
+2. **ip dns server gateway**: This command might specify the gateway or route for DNS traffic. It could indicate the path that DNS requests should take when leaving the local network.
+3.	**ip host www.google.com [Name of Site] 192.168.10.50 [IP address of that host]**: This command configures a static DNS mapping. It associates the hostname "www.google.com" with the IP address "192.168.10.50." This is useful for cases where you want to manually specify DNS mappings for specific hosts on your network.
+4.	**show running-configure | s ip host | ip dns**: This command displays the running configuration of the device and filters the output to show lines containing "ip host" or "ip dns." It allows you to view the current DNS-related configuration settings.
+
+
+
+### Dynamic Host Configuration Protocol
+ 
+- **Dynamic Host Configuration Protocol (DHCP)** is in the management family of network protocols. DHCP is an application layer protocol used on a network to configure devices. It assigns a unique IP address and provides the addresses of the appropriate DNS server and default gateway for each device. DHCP servers operate on UDP port 67 while DHCP clients operate on UDP port 68.
+
+- **Bootstrap Protocol** is Desgin to get client IPs and it has services 68 and 67 ports And the different is DHCP Work Under UDP and Bootstrap Protocol doesn’t 
+  - DHCP is a network protocol used to automatically assign IP addresses and other network configuration parameters to devices on a network.
+  - It operates over UDP (User Datagram Protocol) and uses port numbers 68 (DHCP Server or BOOTP) and 67 (DHCP Client or BOOTPC).
+
+
+
+#### How does it assigning IP Address Magic work ? 
+**DORA**
+
+#### IP Address Assignment Process (DORA):
+
+
+
+| DHCP Stage            | Packet Type          | Source Address | Source MAC Address | Source Port | Destination Address | Destination MAC Address | Destination Port | Requested Information          |
+|-----------------------|----------------------|----------------|--------------------|-------------|---------------------|-------------------------|-----------------|-------------------------------|
+| DHCP Discover Packet  | DHCP Discover Packet | 0.0.0.0        | MAC1               | 68 (Client) | 255.255.255.255    | MAC2 (Broadcast)       | 67 (Server)     | UDP Request (Discover)       |
+| DHCP Offer Packet     | DHCP Offer Packet    | 0.0.0.0        | MAC1               | 67 (Server) | 255.255.255.255    | MAC2 (Broadcast)       | 68 (Client)     | UDP Offered IP Address (192.168.10.3) |
+| DHCP Request Packet   | DHCP Request Packet  | 0.0.0.0        | MAC1               | 68 (Client) | 255.255.255.255    | MAC2 (Broadcast)       | 67 (Server)     | UDP Requested IP Address (192.168.10.3) |
+| DHCP Acknowledge Packet | DHCP Acknowledge Packet | 0.0.0.0      | MAC1               | 67 (Server) | 255.255.255.255    | MAC2 (Broadcast)       | 68 (Client)     | UDP Given IP Address (192.168.10.3) |
+
+
+![DHCP_DORA_LOGS](./img/Protocols&Services/DHCPLOGS.png)
+
+
+### Configuration.
+:::note
+TThe configuration/CMD may very as per OEMs
+:::
+
+|DHCP Server|
+|---|
+|`#ip dhcp pool [Name]`: This command is used to create a DHCP pool with a specified name. A DHCP pool defines the range of IP addresses that the DHCP server can assign to clients.|
+|`#network [192.168.10.0 255.255.255.0]`: This command specifies the network address and subnet mask for the DHCP pool. It defines the range of IP addresses that can be allocated to clients within this pool.|
+|`#default-gateway [IP-Address of Default Gateway]`: Here, you specify the default gateway's IP address that will be provided to DHCP clients. The default gateway is used for routing traffic outside the local network.|
+|`#dns-server [IP-Address in DNS Server]`: This command configures the DNS (Domain Name System) server's IP address that DHCP clients should use for domain name resolution.|
+|`#domain-name [Name of Domain]`: You set the domain name that DHCP clients should use. This domain name is often used for local network naming conventions.|
+|`#option [Number of Option]`: DHCP options are used to provide additional configuration information to clients. The number corresponds to a specific DHCP option, and you can assign values to these options based on your network requirements.|
+|`#debug ip dhcp server packet` [to check/see the packet of client to server]|
+|`#show ip dhcp binding` [to check/see the ip address given to Client data]|
+|`#show ip dhcp pool lease` [to check the duration timing / it can be increased to days or infinite.]|
+
+
+
+
+
+
