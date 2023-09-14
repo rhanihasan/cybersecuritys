@@ -37,7 +37,7 @@ Seeking a challenging position in a reputed organization where I can leverage my
 - Implemented HPE Comware 5600 and 2920 switches on all floors.
 - Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4331 at Mumbai NTT DC and Pune Nextra DC.
 - Refreshed implementation of Cisco Nexus 9300 and Cisco ISR 4661.
-- Conducted WiFi pentesting for Meraki MR44 air marshal testing and performed rule assessment.
+- Conducted WIPS for Meraki MR44 air marshal testing and performed rule assessment.
 - Upgraded traditional URMI switches using DNAC SWIM.
 - Implemented ISE 3.2 on Azure cloud with dot1x, TACACS, profiling, and more.
 
