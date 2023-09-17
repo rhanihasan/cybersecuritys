@@ -107,3 +107,109 @@ import Highlight from '@site/src/components/Highlight';
 | **Configuration (Client Mode)**    | - Set switch as a VTP Client: `vtp mode client` - Specify VTP domain: `vtp domain Shadow` - Set VTP password: `vtp password ShadowGuardain`                                             |
 
 This table provides an overview of VTP and its different modes, along with the basic configuration steps for setting up a switch as either a VTP Server or a VTP Client.
+
+## EtherChannel:
+
+EtherChannel is a method used for link aggregation and redundancy in network configurations. It operates under the IEEE 802.1ad standard and combines multiple Ethernet links into a single logical link. This provides increased bandwidth, load balancing, and fault tolerance.
+
+**Conditions for EtherChannel:**
+- The switch must support IEEE 802.1ad.
+- All cables in the EtherChannel bundle must have the same speed; mixing different cable speeds is not supported.
+
+**LACP (Link Aggregation Control Protocol):**
+- LACP stands for Link Aggregation Control Protocol, which is used to establish and manage EtherChannels.
+- LACP enables the combination of multiple network connections in parallel, improving performance and redundancy.
+
+### **LACP Modes:**
+
+<Tabs>
+  <TabItem value="Active" label="Active" >
+    In this mode, a device actively sends LACPDU (Link Aggregation Control Protocol Data Unit) packets to check if there are devices connected to the adjacent ports. If both sides detect each other, they establish a connection.
+  </TabItem>
+  <TabItem value="Passive" label="Passive">
+   In passive mode, a device waits to receive LACPDU packets from the adjacent ports. It accepts the connection if it receives the appropriate LACPDU packet from the other side. If both devices are in passive mode, they will wait for LACPDU packets, and no connection will be formed until one side changes its mode.
+  </TabItem>
+  <TabItem value="*ON (Open)" label="*ON (Open)">
+    The ON mode, also known as static mode, is a configuration where a connection is open without any negotiation. Both devices need to be in the ON mode for a connection to be established.
+  </TabItem>
+</Tabs>
+
+
+**PAGP (Port Aggregation Group Protocol):**
+- PAGP, or Port Aggregation Group Protocol, is a Cisco-proprietary protocol used for link aggregation, similar to LACP.
+- It is supported exclusively on Cisco devices.
+
+### **PAGP Modes:**
+
+<Tabs>
+  <TabItem value="Auto" label="Auto" >
+    The Auto mode in PAGP is similar to the passive mode in LACP. It waits for negotiation packets from the other end.
+  </TabItem>
+  <TabItem value="Desirable" label="Desirable">
+   The Desirable mode in PAGP is comparable to the active mode in LACP. It initiates negotiation with the other end.
+  </TabItem>
+ </Tabs>
+
+
+**Configuration for EtherChannel (Switch & Router):**
+
+**Switch Configuration:**
+1. `interface range fastethernet 0/1-2, ethernet 0/3` - Select the range of interfaces to bundle.
+2. `no shutdown` - Enable the selected interfaces.
+3. `channel-group [number] mode [active, passive, on]` - Create an EtherChannel group with a specific mode.
+4. `exit` - Exit interface configuration mode.
+5. `show interface port channel [number]` - Display information about the created EtherChannel.
+
+**For Switch (Additional Configuration):**
+6. `switchport mode access` or `switchport mode trunk encapsulation dot1q` - Set the interface mode to access or trunk.
+7. `switchport mode trunk` - Enable trunking on the interface.
+
+**For Router (Additional Configuration):**
+8. `IP address [ip-address] [subnet]` - Assign an IP address to the interface.
+
+:::note
+These configurations enable EtherChannel and LACP/PAGP on network devices, providing benefits like increased bandwidth, load balancing, and redundancy.
+:::
+
+
+
+| **EtherChannel and LACP/PAGP**       | **Description**                                                                                                                                                             |
+|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **EtherChannel Methods**             | IEEE 802.1ad is used for EtherChannel.                                                                                                                                        |
+| **Conditions for EtherChannel**       | - The switch must support IEEE 802.1ad. - All cables in the bundle must have the same speed; different cable speeds cannot be bundled.                                       |
+| **LACP (Link Aggregation Control Protocol)** | - Combines multiple network connections in parallel. - Three LACP Modes:   - **Active:** Sends LACPDU to check for connected devices.   - **Passive:** Waits for active packets to establish a connection.   - **On (Open):** Connection is open, no negotiation; also called static mode. |
+| **PAGP (Port Aggregation Group Protocol)** | - Supports only Cisco devices. - Two Modes:   - **Auto:** Similar to Passive in LACP, waits for negotiation.   - **Desirable:** Similar to Active in LACP, initiates negotiation.                                |
+| **Configuration (Switch & Router)**   | **Switch Configuration:** - `interface range fastethernet 0/1-2 , ethernet 0/3` - `no shutdown` - `channel-group [number] mode [active, passive, on]` - `exit` - `show interface port channel [number]` - **Switch:** - `switchport mode access` or `switchport mode trunk encapsulation dot1q` - `switchport mode trunk` - **Router Configuration:** - `ip address [ip-address] [subnet]` |
+
+
+## **CDP & LLDP**
+
+**CDP (Cisco Discovery Protocol) and LLDP (Link Layer Discovery Protocol):**
+
+CDP (Cisco Discovery Protocol) and LLDP (Link Layer Discovery Protocol) are network discovery protocols that operate at Layer 2 of the OSI model. They are used to discover information about directly connected devices in a network. While CDP is a Cisco-proprietary protocol, LLDP is an open standard defined by the IEEE.
+
+**CDP (Cisco Discovery Protocol):**
+- CDP is developed by Cisco and is primarily used in Cisco networking environments.
+- It operates at Layer 2 and allows Cisco devices to discover and learn information about neighboring Cisco devices.
+- CDP is used to gather information such as the device type, device name, and IP address of directly connected Cisco devices.
+
+**LLDP (Link Layer Discovery Protocol):**
+- LLDP is an open standard protocol defined by the IEEE (802.1AB) and is supported by a wide range of network vendors, not limited to Cisco.
+- Like CDP, LLDP operates at Layer 2 and enables devices to exchange information about their identity and capabilities with neighboring devices.
+- LLDP is used to discover details such as system name, system description, port identifier, and more.
+
+**Configuration for CDP and LLDP:**
+
+**To Enable LLDP:**
+- Enter the global configuration mode on a network device.
+- Use the command `lldp run` to enable LLDP globally on the device.
+- You can then use commands like `show lldp neighbors` and `show lldp details` to view LLDP information.
+
+**To Enable CDP:**
+- Enter the global configuration mode on a Cisco network device.
+- Use the command `cdp run` to enable CDP globally on the device.
+- To view CDP information, you can use the `show cdp neighbors` command.
+
+:::note
+These protocols help network administrators discover and understand the topology of their networks by providing information about directly connected devices. 
+:::
