@@ -213,3 +213,36 @@ CDP (Cisco Discovery Protocol) and LLDP (Link Layer Discovery Protocol) are netw
 :::note
 These protocols help network administrators discover and understand the topology of their networks by providing information about directly connected devices. 
 :::
+
+**Spanning Tree Protocol (STP):**
+
+Spanning Tree Protocol (STP) is a network protocol used to prevent loops in Ethernet networks, particularly in bridged or switched networks. STP ensures that there is only one logical path between all destinations on the network, preventing broadcast storms and other issues that can arise from network loops.
+
+**Key Concepts and Phases of STP:**
+
+1. **Election of Root and Bridge ID:**
+   - In the initial phase, switches elect a Root Bridge. The Root Bridge serves as the central reference point for the entire STP network.
+   - Each switch has a Bridge ID, which includes a priority value and a MAC address.
+   - By default, Cisco switches have a Bridge ID with a priority value of 32768 (or 32769 for VLAN 1).
+   - The switch with the lowest Bridge ID becomes the Root Bridge.
+   - If multiple switches have the same Bridge ID, the switch with the lowest MAC address is elected as the Root Bridge.
+   - Bridge Protocol Data Units (BPDU) packets are used for Root Bridge election.
+
+2. **Election of Root Port:**
+   - Each switch determines its best path (Root Port) to reach the Root Bridge.
+   - The best path is determined based on the lowest cumulative cost (port cost) to reach the Root Bridge.
+   - Port costs are assigned based on link speeds. For example, FastEthernet has a lower cost than Ethernet.
+   - The switch with the lowest cumulative cost to reach the Root Bridge becomes the Root Port.
+   
+3. **Blocking Ports:**
+   - After determining the Root Bridge and Root Port, STP identifies and blocks certain ports to prevent loops.
+   - Ports on non-Root Bridges that are not part of the best path to the Root Bridge are blocked.
+   - Blocked ports do not forward traffic but are in a "listening and learning" state.
+   
+**STP Process:**
+- STP operates in a series of phases that can take up to 30 seconds to complete.
+- The first 15 seconds are in the "listening" mode, where switches receive BPDU packets and exchange information.
+- The next 15 seconds are in the "learning" mode, during which switches determine the Root Bridge and Root Port.
+- Once the Root Bridge and Root Port are identified, the remaining ports are blocked to prevent loops.
+
+STP is crucial for network stability and redundancy in Ethernet networks. It ensures that even in complex network topologies, there is a single logical path to reach each destination, preventing data collisions and broadcast storms.
