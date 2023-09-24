@@ -108,7 +108,7 @@ import Highlight from '@site/src/components/Highlight';
 
 This table provides an overview of VTP and its different modes, along with the basic configuration steps for setting up a switch as either a VTP Server or a VTP Client.
 
-## EtherChannel:
+## **EtherChannel**:
 
 EtherChannel is a method used for link aggregation and redundancy in network configurations. It operates under the IEEE 802.1ad standard and combines multiple Ethernet links into a single logical link. This provides increased bandwidth, load balancing, and fault tolerance.
 
@@ -214,7 +214,7 @@ CDP (Cisco Discovery Protocol) and LLDP (Link Layer Discovery Protocol) are netw
 These protocols help network administrators discover and understand the topology of their networks by providing information about directly connected devices. 
 :::
 
-**Spanning Tree Protocol (STP):**
+## **Spanning Tree Protocol (STP):**
 
 Spanning Tree Protocol (STP) is a network protocol used to prevent loops in Ethernet networks, particularly in bridged or switched networks. STP ensures that there is only one logical path between all destinations on the network, preventing broadcast storms and other issues that can arise from network loops.
 
@@ -228,12 +228,31 @@ Spanning Tree Protocol (STP) is a network protocol used to prevent loops in Ethe
    - If multiple switches have the same Bridge ID, the switch with the lowest MAC address is elected as the Root Bridge.
    - Bridge Protocol Data Units (BPDU) packets are used for Root Bridge election.
 
+<Tabs>
+  <TabItem value="What is cisco bridge ID withour SYN ID ?" label="What is cisco bridge ID withour SYN ID ?" default>
+    32768 if SYN Count then 32769 Plus 1 increase with Vlan Counts
+  </TabItem>
+</Tabs>
+
+<Tabs>
+  <TabItem value="Why Takes Lowest Bridge ID ?" label="Why Takes Lowest Bridge ID ?" default>
+   Becasue Best Devices has the Lowest Bridge ID 
+  </TabItem>
+</Tabs>
+
 2. **Election of Root Port:**
    - Each switch determines its best path (Root Port) to reach the Root Bridge.
    - The best path is determined based on the lowest cumulative cost (port cost) to reach the Root Bridge.
    - Port costs are assigned based on link speeds. For example, FastEthernet has a lower cost than Ethernet.
    - The switch with the lowest cumulative cost to reach the Root Bridge becomes the Root Port.
-   
+  
+|Linkspeed|Speed|Post Cost |
+|---|---|---|
+|Ethernet | 10 MBPS | 100 |
+|FastEthernet| 100 MBPS | 19 |
+| GigabitEthernet | 1 GBPS | 4|
+|10GigabitEthernet | 10 GBPS | 2 | 
+
 3. **Blocking Ports:**
    - After determining the Root Bridge and Root Port, STP identifies and blocks certain ports to prevent loops.
    - Ports on non-Root Bridges that are not part of the best path to the Root Bridge are blocked.
