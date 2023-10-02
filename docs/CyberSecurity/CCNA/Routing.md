@@ -10,17 +10,6 @@ import Highlight from '@site/src/components/Highlight';
 
 
 
-### There are two types of Routing 
-- Static Routing & Default Routing
-    - Will have to inform and direct all router about they route or direction.
-    - Disadvantage
-        - Its hard to monitor in static routing.
-        - It doesn't know backups.
-        - Bydirections Routes required. 
-- Dynamic Routing 
-    - Its works on Alogrithums.
-    - There are three types of Alogrithums. 
-
 
 It seems like you've provided an overview of basic router configurations and routing concepts. Here's a summary of the key points:
 
@@ -74,3 +63,58 @@ It seems like you've provided an overview of basic router configurations and rou
 - Example Command: `ip route <destination> <subnet mask> <next hop IP>`
 - Default Route: Used when the destination IP is not known. Example: `ip route 0.0.0.0 0.0.0.0 <next hop IP>`
 
+- Static Routing & Default Routing
+    - Will have to inform and direct all router about they route or direction.
+    - Disadvantage
+        - Its hard to monitor in static routing.
+        - It doesn't know backups.
+        - Bydirections Routes required. 
+- Dynamic Routing 
+    - Its works on Alogrithums.
+    - There are three types of Alogrithums. 
+
+## **Dynamic Routing:**
+- Dynamic routing involves configuring a dynamic routing protocol on a router to automatically select the best routes.
+- These protocols automatically update routes when network changes occur, making them adaptive.
+
+### **Routing Protocol Types:**
+1. **IGP (Internal Gateway Protocol):**
+   - Used within a single autonomous system (organization or company) to share routes.
+   - Examples include RIP, OSPF, and EIGRP.
+   
+2. **EGP (External Gateway Protocol):**
+   - Used to share routes between different autonomous systems.
+   - Example: BGP (Border Gateway Protocol).
+
+**Routing Algorithm Types:**
+1. **Distance Vector Algorithm:**
+   - Older than the link-state protocol.
+   - Routers send known destination networks and metrics to their directly connected neighbors.
+   - Routers learn routes based on the information provided by their neighbors.
+   - Often referred to as "routing by rumor."
+
+2. **Link-State Algorithm:**
+   - Faster than distance vector.
+   - Every router creates a connectivity map of the network.
+   - Advertisements are shared among routers until all routers have the same network map.
+   - Each router independently calculates the best route to each destination based on this map.
+   - Requires more CPU on routers but shares more information.
+
+**Administrative Distance (AD):**
+- AD is used to determine the preference of routing protocols. Lower AD values indicate more trustworthy and preferred protocols.
+- When using static routes, you can append an AD value to indicate a preference. These are called "float static routes."
+
+**Passive Interfaces:**
+- Passive interfaces send routing protocol updates but do not accept any updates from the interface.
+- Useful for interfaces connected to non-routing devices (e.g., PCs, switches without routing capability).
+- Can be configured using commands like:
+  ```
+  enable
+  configure terminal
+  interface <interface>
+  router <routing-protocol>
+  passive-interface <interface>
+  ```
+
+**Debugging ICMP:**
+- The `debug ip icmp` command helps determine if a router is responding to ICMP (ping) requests.
