@@ -78,33 +78,34 @@ It seems like you've provided an overview of basic router configurations and rou
 - These protocols automatically update routes when network changes occur, making them adaptive.
 
 ### **Routing Protocol Types:**
-1. **IGP (Internal Gateway Protocol):**
+
+#### 1. **IGP (Internal Gateway Protocol):**
    - Used within a single autonomous system (organization or company) to share routes.
    - Examples include RIP, OSPF, and EIGRP.
    
-2. **EGP (External Gateway Protocol):**
+#### 2. **EGP (External Gateway Protocol):**
    - Used to share routes between different autonomous systems.
    - Example: BGP (Border Gateway Protocol).
 
-**Routing Algorithm Types:**
-1. **Distance Vector Algorithm:**
+#### **Routing Algorithm Types:**
+##### 1. **Distance Vector Algorithm:**
    - Older than the link-state protocol.
    - Routers send known destination networks and metrics to their directly connected neighbors.
    - Routers learn routes based on the information provided by their neighbors.
    - Often referred to as "routing by rumor."
 
-2. **Link-State Algorithm:**
+##### 2. **Link-State Algorithm:**
    - Faster than distance vector.
    - Every router creates a connectivity map of the network.
    - Advertisements are shared among routers until all routers have the same network map.
    - Each router independently calculates the best route to each destination based on this map.
    - Requires more CPU on routers but shares more information.
 
-**Administrative Distance (AD):**
+#### **Administrative Distance (AD):**
 - AD is used to determine the preference of routing protocols. Lower AD values indicate more trustworthy and preferred protocols.
 - When using static routes, you can append an AD value to indicate a preference. These are called "float static routes."
 
-**Passive Interfaces:**
+#### **Passive Interfaces:**
 - Passive interfaces send routing protocol updates but do not accept any updates from the interface.
 - Useful for interfaces connected to non-routing devices (e.g., PCs, switches without routing capability).
 - Can be configured using commands like:
@@ -116,5 +117,86 @@ It seems like you've provided an overview of basic router configurations and rou
   passive-interface <interface>
   ```
 
-**Debugging ICMP:**
+#### **Debugging ICMP:**
 - The `debug ip icmp` command helps determine if a router is responding to ICMP (ping) requests.
+
+### **RIP**
+
+RIP (Routing Information Protocol):
+
+#### **Overview:**
+- RIP was created using the Bellman-Ford algorithm and is also known as a distance vector protocol.
+- RIP counts the number of "hops" or routers between networks to determine the best path.
+- It chooses the best path based on the fewest number of hops, irrespective of link speed.
+
+#### **Disadvantages:**
+- Metric is based solely on hop count (minimum hop is considered the best).
+- RIP operates as a service under UDP port 520.
+- RIP has a maximum hop count limit of 15.
+
+#### **Timed Updates:**
+- RIP sends updates every 30 seconds to share routing information.
+- When a new router is added, it sends updates with both new and previous data.
+- Hold-down time of 180 seconds: RIP waits for this duration when a network goes down, thinking it might recover.
+- After 180 seconds, the flush timer becomes active, which is set to 60 seconds. During this time, it deletes network data. The total time is 240 seconds.
+
+#### **Administrative Distance (AD):**
+- AD values indicate the trustworthiness of a route. Lower values are more trusted.
+- RIP has an AD of 120.
+
+#### **RIP Version 1:**
+- Does not support authentication, which can lead to security issues and network instability.
+- Doesn't understand customized subnet masks, which means it doesn't support Variable Length Subnet Masks (VLSM) or Classless Inter-Domain Routing (CIDR).
+- Broadcasts all data, which can be inefficient.
+
+### **Differences Between RIPv1 and RIPv2:**
+
+| Aspect                 | RIPv1                            | RIPv2                              |
+|------------------------|----------------------------------|------------------------------------|
+| Routing Type           | Distance vector                  | Distance vector                    |
+| Subnet Mask Support    | Classful (No VLSM or CIDR)       | Classful and Classless (Supports VLSM and CIDR) |
+| Authentication         | No authentication support        | Supports authentication mode      |
+| Hop Limit              | 15                               | 15                                 |
+| Update Mechanism       | Broadcast updates                | Triggered updates                  |
+| Manual Route Summarization | Not supported                | Supported                          |
+
+
+:::note
+Authentication is important in **RIP** to prevent unauthorized routers from injecting incorrect routing information into the network, which could lead to network instability or attacks like DoS and DDoS. RIPv2, with its support for authentication and classless routing, offers enhanced security and flexibility compared to RIPv1.
+:::
+#### **Default Configuration:**
+```
+router rip
+version [number]
+network [network-id]
+```
+
+--- 
+
+
+### **IGRP (Interior Gateway Routing Protocol):**
+
+#### **Overview:**
+- IGRP (Interior Gateway Routing Protocol) was developed by **Cisco**.
+- It's used for routing within an autonomous system (AS).
+- IGRP uses a dual algorithm to calculate the metric.
+- The metric in IGRP is determined by two factors: bandwidth and delay.
+
+#### **Metric Components:**
+- **Bandwidth:** It represents the speed of the interface. Higher bandwidth is preferred.
+- **Delay:** IGRP calculates the delay based on how long it takes for a packet to travel from the source to the destination. Lower delay is preferred.
+
+#### **Timed Updates:**
+- IGRP sends updates every 90 seconds.
+- The maximum number of hops allowed in IGRP is 100.
+- The administrative distance (AD) value for IGRP is 100, which indicates its trustworthiness in routing decisions.
+- When IGRP sends updates, it broadcasts the data to all devices in the network.
+
+#### **Protocol Characteristics:**
+- IGRP uses protocol number 9 in IP headers.
+- IGRP operates in a classful manner, which means it does not support subnetting, Variable Length Subnet Masks (VLSM), or Classless Inter-Domain Routing (CIDR).
+
+:::note
+IGRP was an early proprietary routing protocol developed by **Cisco**. While it had some advantages, it's largely been replaced by more open and widely adopted routing protocols like **OSPF** and **EIGRP**. These modern protocols offer greater flexibility and are more suited to complex, modern networks.
+:::
+
