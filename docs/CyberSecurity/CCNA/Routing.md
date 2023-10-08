@@ -7,11 +7,7 @@ import TabItem from '@theme/TabItem';
 import Highlight from '@site/src/components/Highlight';
 
 # Routing
-
-
-
-
-It seems like you've provided an overview of basic router configurations and routing concepts. Here's a summary of the key points:
+---
 
 ## **Basic Router Concepts:**
 
@@ -49,7 +45,7 @@ It seems like you've provided an overview of basic router configurations and rou
 - `clock set <time and date>`: Set the router's time and date.
 - `clock timezone <timezone>`: Change the router's timezone.
 
-## Routing Concepts:**
+## **Routing Concepts:**
 
 - **Routing Protocols:** Routers use routing protocols to exchange network information and fill their routing tables. Examples include RIP, OSPF, and EIGRP.
 - **IGP (Interior Gateway Protocol):** Used for smaller networks within an organization. Examples: RIP, OSPF, EIGRP.
@@ -57,7 +53,7 @@ It seems like you've provided an overview of basic router configurations and rou
 - **Distance Vector vs. Link State:** Routing protocols can be categorized as distance vector (based on hop count) or link-state (considering factors like speed).
 - **Hop Count:** The number of routers between the source and destination is known as hop count.
 
-### Static Routing & Default Routing:**
+### **Static Routing & Default Routing:**
 
 - Static routing involves manually configuring routes on a router.
 - Example Command: `ip route <destination> <subnet mask> <next hop IP>`
@@ -129,6 +125,9 @@ RIP (Routing Information Protocol):
 - RIP counts the number of "hops" or routers between networks to determine the best path.
 - It chooses the best path based on the fewest number of hops, irrespective of link speed.
 
+#### **Metric Components:**
+- **Hops Counts**
+
 #### **Disadvantages:**
 - Metric is based solely on hop count (minimum hop is considered the best).
 - RIP operates as a service under UDP port 520.
@@ -170,6 +169,17 @@ router rip
 version [number]
 network [network-id]
 ```
+
+#### **RIP Commands**
+
+The following are some common RIP commands:
+
+- router rip: Enables RIP on the router.
+- version: Specifies the version of RIP to use.
+- network: Specifies the networks to advertise.
+- no auto-summarization: Disables automatic route summarization.
+- passive-interface: Prevents the router from sending routing updates on a specific interface.
+- efault-information originate: Advertises a default route.
 
 --- 
 
