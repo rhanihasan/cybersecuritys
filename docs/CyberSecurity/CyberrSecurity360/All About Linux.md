@@ -237,3 +237,9 @@ Each Linux distribution has its own user community and resources. These communit
 Many Linux experts and enthusiasts maintain blogs, YouTube channels, and other content platforms where they share tips, tricks, and tutorials related to Linux. These resources can provide valuable insights and practical demonstrations.
 
 By utilizing these resources, you can enhance your Linux skills, troubleshoot issues effectively, and stay up-to-date with the evolving Linux landscape. Whether you're a beginner or an experienced security analyst, these tools can help you make the most of Linux in your work.
+
+
+### Choosing An OS 
+
+|![ChoosinganOS](./cybersecurity_img/ChoosingOS.jpg)|
+|---|

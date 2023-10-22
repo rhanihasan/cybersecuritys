@@ -46,10 +46,9 @@ Seeking a challenging position as a Penetration Tester in a reputed organization
 
 ## **Technical Skills**
 
-### **Penetration Testing**
+### **RedTeam*
 
-- Proficient in penetration testing tools and techniques, including Nmap, Nessus, Burp Suite, Metasploit, Wireshark, and Kali Linux.
-- Experience with web application security testing (VAPT) and identifying/exploiting security vulnerabilities in web applications and networks.
+- Familiarity With XSS,CSRF,SQLi,OSi,File Upload,File Incusion.
 
 ### **Networking**
 
