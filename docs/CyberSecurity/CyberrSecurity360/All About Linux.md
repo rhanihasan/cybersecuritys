@@ -239,7 +239,7 @@ Many Linux experts and enthusiasts maintain blogs, YouTube channels, and other c
 By utilizing these resources, you can enhance your Linux skills, troubleshoot issues effectively, and stay up-to-date with the evolving Linux landscape. Whether you're a beginner or an experienced security analyst, these tools can help you make the most of Linux in your work.
 
 
-### Choosing An OS 
+## Choosing An OS 
 
 |![ChoosinganOS](./cybersecurity_img/ChoosingOS.jpg)|
 |---|
