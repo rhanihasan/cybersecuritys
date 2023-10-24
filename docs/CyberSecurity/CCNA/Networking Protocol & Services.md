@@ -421,14 +421,15 @@ TThe configuration/CMD may very as per OEMs
 - Sources want to communicate with HTTP OR HTTPS it will use this protocol or the structure of this protocol [TCP/UDP] Latest is QUIC  
  
 `A ==> B` 
- 
-- How is the URL structured? 
 
-  - The first is http/https [which/what is protocol] 
-  - The second is ip-addr or name [which and what is the destination] http://192.168.1.1 
-  - The third is Path or folder [wherever the services have in the backend file and Directory] http://192.168.1.1/unresticeted-file-upload.php 
-  - The fourth is Whatever the file you want to access after this [cmd is a parameter here and whoami is the value here for the that particular Shell ]http://192.168.1.1/unresticeted-file-upload.php?/cmd/whoami 
- 
+### **URL Structured** 
+|How is the URL structured? |
+|---|
+|The first is  `[which/what is protocol]` `http/https `|
+|The second is ip-addr or name `[which and what is the destination]` `http://192.168.1.1 `|
+|The third is Path or folder `[wherever the services have in the backend file and Directory]` `http://192.168.1.1/unresticeted-file-upload.php` |
+|The fourth is Whatever the file you want to access after this `[cmd is a parameter here and whoami is the value here for the that particular Shell ]` `http://192.168.1.1/unresticeted-file-upload.php?/cmd/whoami`|
+|![BaseUrl](./img/Protocols&Services/Baseurl.jpg)|
 
 #### HTTP
 |**HTTP port 80**|

@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 | 1gbps   | Gigabit Ethernet     | 802.3ab       | 1000base-t     | 100m       |
 | 10gbps  | 10 Gigabit Ethernet | 802.3an       | 10gbase-t      | 100m       |
 
-## Types of Cables:
+## **Types of Cables**:
 
 - **UTP (Unshielded Twisted Pair):**
   - Doesn't have Aluminium Shield.
@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
   - More expensive than UTP.
   - Used for external usage.
 
-## Ethernet Cable Types:
+## **Ethernet Cable Types:**
 
 - **Fast Ethernet (FE) and Ethernet (10/100 Mbps):**
   - These cables use 4 wires.
@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
   - These cables use 8 wires.
   - Provide higher data rates and require more wires for transmission.
 
-## Connection Between PC and Switch (Straight Through Cable):
+## **Connection Between PC and Switch (Straight Through Cable):**
 
 - Transmit Data (PC) → Receive Data (Switch):
   - Pin 1 (Transmit) on PC to Pin 1 (Receive) on Switch.
@@ -54,11 +54,11 @@ import TabItem from '@theme/TabItem';
   - Pin 3 (Receive) on PC to Pin 3 (Transmit) on Switch.
   - Pin 6 (Receive) on PC to Pin 6 (Transmit) on Switch.
 
-## Connection Between Switch and Router (Straight Through Cable):
+## **Connection Between Switch and Router (Straight Through Cable):**
 
 - Similar to PC to Switch connection, as the router behaves like a PC in this context.
 
-## Crossover Cable (Same Device to Same Device):
+## **Crossover Cable (Same Device to Same Device):**
 
 - When connecting devices of the same type (e.g., router to router), a crossover cable is used.
 - Pin 1 (Transmit) on one end to Pin 3 (Receive) on the other end.
@@ -68,7 +68,7 @@ import TabItem from '@theme/TabItem';
 
 This information outlines how Ethernet cables are used to establish connections between various network devices, covering both straight-through and crossover cable configurations.
 
-## Device Pin Connections:
+## **Device Pin Connections:**
 
 | Device   | Transmit | Receive |
 | -------- | -------- | ------- |
@@ -81,7 +81,7 @@ For gigabit Ethernet and 10 gig, for straight connections, all cables are connec
 
 New devices aren't affected by this because of AUTO MDI-X feature. The device detects which pins the device uses to transmit data and accordingly adjusts their own pins.
 
-## Cable Standard:
+## **Cable Standard:**
 
 TIA/EIA 568A Wiring | TIA/EIA 568B Wiring
 -------------------- | --------------------
@@ -101,7 +101,7 @@ Brown                 | Brown
 - ORANGE & GREEN / BOTH WHITE are the data flow wires.
 - BLUE & BROWN / WHITE are for supplying electric power to devices.
 
-## Fiber Optic Cable:
+## **Fiber Optic Cable:**
 
 - There are two types of fiber cables:
   1. Single mode: Core is smaller than multi-mode.
@@ -119,7 +119,7 @@ Informal Name | IEEE Standard | Speed  | Cable Type                    | Max Len
 - LR -> Long Range.
 - SR -> Short Range.
 
-## MDIX Technology:
+## **MDIX Technology:**
 
 - If accidentally applying the wrong standard of cable, this feature automatically changes the energy to both connections.
 - This allows them to cooperate; NIC cards support MDIX Technology.

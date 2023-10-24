@@ -11,7 +11,7 @@ import Highlight from '@site/src/components/Highlight';
 
 ---
 
-## IP & MAC
+## **IP & MAC**
 
 - Internet Protocols.
 - Internet Assigned Number Authority.
@@ -22,7 +22,7 @@ Devices need to find each other on a network to establish communications. These 
 
 **Example of IP and MAC:** A company gives you an ID card called an IP address. Your personal identity is called a MAC address. The company hires you based on your MAC address, and then you get an IP address.
 
-### IP Address Versions
+### **IP Address Versions**
 
 - IP Address has IPv4 and IPv6 versions.
 - IPv4 is made of 4 blocks, each block holds 8 bits.
@@ -43,7 +43,7 @@ IP addresses were created and assigned by the IANA Organization (Internet Assign
 
 IANA is responsible for distributing IP addresses globally.
 
-### IP Address Classes
+### **IP Address Classes**
 
 | Class   | Range                | Details                           |
 | ------- | -------------------- | --------------------------------- |
@@ -61,19 +61,30 @@ IANA is responsible for distributing IP addresses globally.
 - Last number zero indicates network.
 - One IP can maintain 65,535 devices (connection & port numbers).
 
-**Note:** Due to increased electronic devices, IP address shortage led IANA to introduce Private Addresses with NAT.
 
-### Types of IP Address
+### **Types of IP Address**
 
 1. **Public:** Used on the internet. No simultaneous identical IP and port for two machines.
 2. **Private:** Used in LAN. Different LANs can have the same IPs. Machines in LAN can't access the web.
 
-### NAT (Network Address Translation)
+### **NAT (Network Address Translation)**
 
 Converting private IP addresses into public IP addresses.
 Private IP addresses work under LAN but need NAT to access WAN.
 
-### Private IP Address IPv4
+:::note
+Due to increased electronic devices, IP address shortage led IANA to introduce Private Addresses with NAT.
+:::
+
+:::note
+PIX Engineer Created NAT Which was Network Translation Inc. & Cisco Buy PIX and comeup with PIX ASA Adpative Security Applicance. 
+:::
+
+|![Basicnat](./img/IP_Address/basicnat.jpg)|
+|---|
+
+
+### **Private IP Address IPv4**
 
 | Class   | Range                | Hosts                     |
 | ------- | -------------------- | ------------------------- |
@@ -83,7 +94,7 @@ Private IP addresses work under LAN but need NAT to access WAN.
 
 These are private addresses for local network use. They can't access the internet directly. Private IPs are converted to public for internet access.
 
-### Dig up IP Address
+### **Dig up IP Address**
 
 - IPv4 is divided into 4 parts, 0-255.0-255.0-255.0-255.
 - Each part has 8 bits.
@@ -97,9 +108,9 @@ These are private addresses for local network use. They can't access the interne
 
 ---
 
-## Subnet
+## **Subnet**
 
-### What & Why Subnet
+### **What & Why Subnet**
 
 - Subnetting divides big networks.
 - Subnetting controls IP addresses.
@@ -112,7 +123,7 @@ These are private addresses for local network use. They can't access the interne
 
 
 
-## What & Why Subnetting
+## **What & Why Subnetting**
 
 - Subnetting involves dividing subnets.
 - Network bits are fixed and cannot be changed.
@@ -136,7 +147,7 @@ These are private addresses for local network use. They can't access the interne
   - Class C 192.168.1.0 has 24 network bits and 8 host bits.
 
 
-## Formula for Subnet Mask Calculation
+## **Formula for Subnet Mask Calculation**
 
 |   N   |  2^n   |
 |:-----:|:------:|
@@ -153,7 +164,7 @@ N = 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 255
 
 
 
-### Network Bits and Host Bits for Each IP Class:
+### **Network Bits and Host Bits for Each IP Class:**
 
 #### Class A
 
@@ -187,7 +198,7 @@ Certainly! Here's the provided text formatted in markdown:
 
 
 
-## Subnet Address
+## **Subnet Address**
 
 | Number/ | Range             | Details                  |
 |:-------:|:-----------------:|:------------------------:|
@@ -217,7 +228,7 @@ Certainly! Here's the provided text formatted in markdown:
 | /31     | 255.255.255.254   |                           |
 | /32     | 255.255.255.255   | Default Universal Broadcast ID |
 
-### Formula for Subnet Mask
+### **Formula for Subnet Mask**
 
 **Class A**
 10.0.0.0 has 8 Network Bits and 24 Host Bits.
@@ -236,17 +247,17 @@ Network Bits [24] + Converted Host Bits = Subnet Mask.
 
 
 
-## FLSM (Fixed Length Subnet Mask)
+## **FLSM (Fixed Length Subnet Mask)**
 
-### What & Why FLSM
+### **What & Why FLSM**
 
 - FLSM stands for Fixed Length Subnet Mask.
 - Its subnet size can't be changed; also known as Fixed Size.
 - FLSM means a large IP can be divided into an equal number of smaller networks. For example, the network can be divided into 4 subnets, each with 40 IPs.
 
-## VLSM (Variable Length Subnet Mask)
+## **VLSM (Variable Length Subnet Mask)**
 
-### What & Why VLSM
+### **What & Why VLSM**
 
 - VLSM stands for Variable Length Subnet Mask.
 - VLSM allows us to allocate IPs according to our needs.
@@ -259,7 +270,7 @@ We start from the networks with the highest requirement.
 | 30           | 255.255.255.0       | 24           | 8         | 30         | 8 - 5 = 3 (Subnet /27) | 255.255.255.224 | 192.168.1.64 - 192.168.1.95 |
 | 20           | 255.255.255.0       | 24           | 8         | 14         | 8 - 4 = 4 (Subnet /28) | 255.255.255.240 | 192.168.1.96 - 192.168.1.111|
 
-### Example Binary Representation
+### **Example Binary Representation**
 
 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 |-----|----|----|----|---|---|---|---|
@@ -269,9 +280,9 @@ We start from the networks with the highest requirement.
 
 
 
-## Format of an IPv4 Packet
+## **Format of an IPv4 Packet**
 
-### Format of an IP Version 4: The Header & the Data
+### **Format of an IP Version 4: The Header & the Data**
 
 
 |![ipv4Header](./img/IP_Address/ipv4header.png)|
@@ -287,9 +298,9 @@ We start from the networks with the highest requirement.
 
 
 
-## IPv6
+## **IPv6**
 
-### What & Why IPv6
+### **What & Why IPv6**
 
 IPv6 was introduced to address the shortage of IPv4 addresses.
 - The size of IPv6 addresses is 128 bits.
