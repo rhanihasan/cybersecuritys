@@ -632,30 +632,32 @@ TThe configuration/CMD may very as per OEMs
 
 ## HTTP Status Code
 
-**1XX - Informational:**
+
+**1XX - Informational / Hold On:**
+
 - 100 Continue: Continue with the request.
 - 101 Switching Protocols: Switch to a new protocol.
 - 102 Processing: Request is being processed, but there's no response yet.
 
-**2XX - Success:**
+**2XX - Success / Here you go:**
 - 200 OK: Request successful; data returned.
 - 201 Created: Request successful; a new resource has been created.
 - 202 No Content: Request successful; no data to return (typically used for updates).
 - 205 Reset Content: Request successful; client should reset the document view.
 
-**3XX - Redirection:**
+**3XX - Redirection / Go Away :**
 - 300 Multiple Choices: Multiple options available; client should choose one.
 - 302 Found: Resource temporarily moved; use the new URL (commonly used for redirects).
 - 303 See Other: Similar to 302, but explicitly indicating a GET request to the new URL.
 - 305 Use Proxy: Resource must be accessed through a proxy.
 
-**4XX - Client Error:**
+**4XX - Client Error / You Fucked Up:**
 - 400 Bad Request: Server can't understand the request due to malformed syntax.
 - 401 Unauthorized: Request lacks proper authentication credentials.
 - 402 Payment Required: Not widely used, and meaning not well-defined.
 - 404 Not Found: Requested resource was not found.
 
-**5XX - Server Error:**
+**5XX - Server Error / I Fucked Up:**
 - 501 Not Implemented: Server doesn't support needed functionality.
 - 502 Bad Gateway: Server acting as a gateway received an invalid response from an upstream server.
 - 503 Service Unavailable: Server currently unable to handle the request due to overloading or maintenance.
