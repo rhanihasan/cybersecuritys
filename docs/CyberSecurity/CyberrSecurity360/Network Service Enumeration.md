@@ -46,41 +46,41 @@ sidebar_position: 10
 - The same service in Linux OS is called SAMBA.
 - SMB uses ports 139 & 443.
 
-### What does port 139 do?
+#### What does port 139 do?
 
 - Port 139 uses the **NetBIOS** protocol.
 - NetBIOS stands for Network Basic Input Output System.
 - Software applications that run on a NetBIOS network locate and identify each other via their NetBIOS names.
 
-### What does NetBIOS do?
+#### What does NetBIOS do?
 
 - Allows communication between computers on local networks.
 
-### Port 445
+#### Port 445
 
 - Port 445 is known as **SMB over IP** or **Server Message Block over IP**.
 - SMB in modern language is also referred to as **Common Internet File System**.
 - SMB can run directly over TCP/IP without the need for NetBIOS over TCP/IP.
 - Port 445 is used for SMB when running over IP.
 
-### IPC$ Share
+#### IPC$ Share
 
 - **IPC$** is a special hidden share that allows for inter-process communication (IPC) on Windows systems.
 - With an anonymous null session, you can access the IPC$ share and interact with exposed services.
 
-### SMB Protocol
+#### SMB Protocol
 
 - SMB is a **response-request protocol** used for sharing files, printers, and other resources on a network.
 
-### Client-Server Connection
+#### Client-Server Connection
 
 - Clients connect to servers using **TCP/IP** or **QUIC protocols**.
 
-### Enumerating NetBIOS
+#### Enumerating NetBIOS
 
 - Enumerating NetBIOS provides information about the target computer group, domain, network shares, and computer names.
 
-### Possible Credentials
+#### Possible Credentials
 
 | Username(s)          | Common Passwords              |
 |----------------------|------------------------------|
@@ -91,11 +91,11 @@ sidebar_position: 10
 
 ## Identification & Scan
 
-### SMB Communication via Wireshark
+#### SMB Communication via Wireshark
 
 You can analyze SMB communication using Wireshark, a network protocol analyzer.
 
-## nblookup
+### nblookup
 
 |Getting NetBIOS IP Address using `nmblookup`|
 |---|
@@ -104,7 +104,7 @@ You can analyze SMB communication using Wireshark, a network protocol analyzer.
 nmblookup -A <IP>
 ```
 
-## nbstate
+### nbstate
 
 |Getting PC Information using `nbstate`|
 |---|
@@ -116,9 +116,9 @@ nmblookup -A <IP>
 #nbtstat –A <target-IP-Addrs>
 ```
 
-## nbtscan
+### nbtscan
 
-### Syntax & Commands
+#### Syntax & Commands
 
 |You can use `nbtscan` to gather NetBIOS information from a target IP address. Below are the commands and syntax:|
 |---|
@@ -214,62 +214,11 @@ Certainly, here's the information about SMB enumeration using NSE (Nmap Scriptin
 |-----------------|----------------------------------------------|
 | Enumerate using SMB scripts | `nmap --script smb-enum-*.nse 192.168.50.124` |
 
-**Output:**
 
-```
-Starting Nmap 7.94 ( https://nmap.org ) at 2023-06-26 21:46 IST
-Starting Nmap 7.93 ( https://nmap.org ) at 2023-06-26 12:37 EDT
-Nmap scan report for 192.168.100.130
-                                                                                                                                                                                                                  
-┌──(root㉿kali)-[/usr/share/nmap/scripts]
-└─# nmap --script smb-enum-*.nse 192.168.100.130
-Starting Nmap 7.93 ( https://nmap.org ) at 2023-06-26 12:19 EDT
-Failed to resolve "smb-enum-groups.nse".
-Failed to resolve "smb-enum-processes.nse".
-Failed to resolve "smb-enum-services.nse".
-Failed to resolve "smb-enum-sessions.nse".
-Failed to resolve "smb-enum-shares.nse".
-Failed to resolve "smb-enum-users.nse".
-Nmap scan report for 192.168.100.130
-Host is up (0.0068s latency).
-Not shown: 983 closed tcp ports (reset)
-PORT     STATE SERVICE
-21/tcp   open  ftp
-22/tcp   open  ssh
-25/tcp   open  smtp
-80/tcp   open  http
-139/tcp  open  netbios-ssn
-443/tcp  open  https
-445/tcp  open  microsoft-ds
-512/tcp  open  exec
-513/tcp  open  login
-514/tcp  open  shell
-666/tcp  open  doom
-3306/tcp open  mysql
-5901/tcp open  vnc-1
-6001/tcp open  X11:1
-8080/tcp open  http-proxy
-8443/tcp open  https-alt
-9080/tcp open  glrpc
-MAC Address: 00:0C:29:9C:C7:94 (VMware)
- 
-Host script results:
-| smb-enum-domains: 
-|   Builtin
-|     Groups: n/a
-|     Users: n/a
-|     Creation time: unknown
-|     Passwords: min length: 5; min age: n/a days; max age: n/a days; history: n/a passwords
-|     Account lockout disabled
-|   BEE-BOX
-|     Groups: n/a
-|     Users: nobody\x00, bee\x00
-|     Creation time: unknown
-|     Passwords: min length: 5; min age: n/a days; max age: n/a days; history: n/a passwords
-|_    Account lockout disabled
- 
-Nmap done: 1 IP address (1 host up) scanned in 6.08 seconds
-```
+|**Output:**|
+|---|
+|![NMAP_SCAN_SMB_SCRIPT](./cybersecurity_img/Network_service_enumeration/nmapscansmbscripty.png)|
+
 
 #### Windows
 
@@ -296,51 +245,9 @@ Nmap done: 1 IP address (1 host up) scanned in 6.08 seconds
 |-----------------|----------------------------------------------|
 | Enumerate using SMB scripts | `nmap -vv --script smb-*.nse 192.168.100.130` |
 
-**Output:**
-
-```
-Completed SYN Stealth Scan at 12:37, 0.12s elapsed (1000 total ports)
-NSE: Script scanning 192.168.100.130.
-NSE: Starting runlevel 1 (of 1) scan.
-Initiating NSE at 12:37
-Completed NSE at 12:37, 6.30s elapsed
-Nmap scan report for 192.168.100.130
-Host is up, received arp-response (0.020s latency).
-Scanned at 2023-06-26 12:37:37 EDT for 7s
-Not shown: 983 closed tcp ports (reset)
-PORT     STATE SERVICE      REASON
-21/tcp   open  ftp          syn-ack ttl 64
-22/tcp   open  ssh          syn-ack ttl 64
-25/tcp   open  smtp         syn-ack ttl 64
-80/tcp   open  http         syn-ack ttl 64
-139/tcp  open  netbios-ssn  syn-ack ttl 64
-443/tcp  open  https        syn-ack ttl 64
-445/tcp  open  microsoft-ds syn-ack ttl 64
-512/tcp  open  exec         syn-ack ttl 64
-513/tcp  open  login        syn-ack ttl 64
-514/tcp  open  shell        syn-ack ttl 64
-666/tcp  open  doom         syn-ack ttl 64
-3306/tcp open  mysql        syn-ack ttl 64
-5901/tcp open  vnc-1        syn-ack ttl 64
-6001/tcp open  X11:1        syn-ack ttl 64
-8080/tcp open  http-proxy   syn-ack ttl 64
-8443/tcp open  https-alt    syn-ack ttl 64
-9080/tcp open  glrpc        syn-ack ttl 64
-MAC Address: 00:0C:29:9C:C7:94 (VMware)
- 
-Host script results:
-| smb-brute: 
-|_  No accounts found
- 
-NSE: Script Post-scanning.
-NSE: Starting runlevel 1 (of 1) scan.
-Initiating NSE at 12:37
-Completed NSE at 12:37, 0.00s elapsed
-Read data files from: /usr/bin/../share/nmap
-Nmap done: 1 IP address (1 host up) scanned in 16.78 seconds
-           Raw packets sent: 1001 (44.028KB) | Rcvd: 1001 (40.096KB)
-
-```
+|**Output:**|
+|---|
+|![NMAP_SCAN_SMB_STEALTH](./cybersecurity_img/Network_service_enumeration/nmapscansmbsteath.png)|
 
 
 ## SMB Enumeration Using SMBv2 Scripts
@@ -413,6 +320,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1.69 seconds
 - Null Sessions have no credentials, and authentication is performed over SMB.
 - Count Sessions or Guest Sessions typically have any name, and authentication is performed over SMB.
 
+---
 
 
 ## Guest Sessions Enumeration
@@ -455,3 +363,86 @@ smbclient -N -L 192.168.100.130
 |---|
 |![smbclientresults](./cybersecurity_img/Network_service_enumeration/smb_clientresults.png)|
 
+### **smbmap**
+
+|**Syntax & Commands**|
+|---|
+|`smbmap –u ‘anonymous’ -p ‘anonymous’ <Target-IP>`|
+|![SMBMAP_GUEST_SESSION](./cybersecurity_img/Network_service_enumeration/smbenumeration/smbmapguestsession.png)|
+
+
+### **Enum4linux**
+
+|**Syntax & Commands**|
+|---|
+|`enum4linux [-u "<username>" -p "<passwd>"] <Target-IP>`|
+|![ENUM4LINUX_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/enum4linuxbasicscan.png)|
+| **-a** Will do Basic Enumeration & **-A** will do Aggressive Enumeration |
+|`#enum4linux -a [-u "<username>" -p "<passwd>"] <Target-IP>`|
+|![ENUM4LINUX_BASIC_SCAN2](./cybersecurity_img/Network_service_enumeration/smbenumeration/enum4linuxbasicscan2.png)|
+
+
+### **Impacket-smbclient**
+
+|**Syntax & Commands**|
+|---|
+|` impacket-smbclient://<Username>@<target-ip>  (for windows)`|
+|![IMPACT-SMBCLIENT_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/impacket-smbscan.png)|
+
+### **Crackmapexec The Brute Force & Uses/Password Spray **
+
+|**Syntax & Commands**|
+|---|
+|`crackmapexec smb <IP> -u 'username.txt' -p 'password.txt'` | 
+|`crackmapexec smb <IP> -u 'username'.txt -H '<HASH>`|
+|IN crackmapexec Pwn3d means correct credentials.|
+|`crackmapexec smb <IP> -u 'username'.txt -p 'password.txt' --shares`|
+|![CRACKMAPEXEC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/crackmapexexecsmbscan.png)|
+|`crackmapexec smb <IP_Addres> --users [-u <username> -p <password>]`|
+|![CRACKMAPEXEC_BASIC_SCAN_1](./cybersecurity_img/Network_service_enumeration/smbenumeration/crackmapexecsmbscan1.png)|
+|`crackmapexec smb <IP> -u 'username' -p 'password' --shares #Guest user`|
+|OR|
+|`crackmapexec smb <IP> -u 'username' -H '<HASH>' --shares #Guest user`|
+|![CRACKMAPEXEC_SCAN_2](./cybersecurity_img/Network_service_enumeration/smbenumeration/crackmapexecscan2.png)|
+
+
+## **Null Sessions  Enumeration**
+
+### **What & Why Null Sessions**
+
+- Null sessions. Means blank password entered.
+- Null Sessions ==> NO Credentials ==> AUTH ==> SMB
+
+### **Smbclinet**
+
+|**Syntax & Commands**|
+|---|
+|smb client without username and password|
+|`smbclient -L <Target-IP>`|
+|-N means –no passwords|
+|`smbclient -N -L <Target-IP>`|
+|![SMBCLIENT_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/smbclinetbasicscan.png)|
+
+### **Smbmap**
+
+|**Syntax & Commands**|
+|---|
+|`smb –u’’ -p ‘’ -H <Target-IP>`|
+|![SMBMAP_NULL_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/smbmapnullbasicscan.png)|
+
+### **Enum4linux**
+
+|**Syntax & Commands**|
+|---|
+|`enum4linux [-u "<username>" -p "<passwd>"] <Target-IP>`|
+|![EMUN4LINUX_BASIC_SCAN_NULL](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/enum4linuxnullbasicscan.png)|
+
+
+### **Crackmapexec**
+
+|**Syntax & Commands**|
+|---|
+|`crackmapexec smb <IP> -u blank-p blank#Guest user`|
+|`crackmapexec smb <IP> -u blank-H '<HASH>`|
+|`crackmapexec smb <IP> -u blank-p blank--shares `|
+|![CRACKMAPEXEC_NULL_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/crackmapexecnullscan.png)|
