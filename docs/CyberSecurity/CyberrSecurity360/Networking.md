@@ -274,10 +274,10 @@ The TCP ensures that data is reliably transmitted to the destination service. TC
 - The total protocol is 255.
 - Transmission control protocol.
 - TCP has protocol number 6.
-> TCP has a **Three-way handshake**.
-- A --> B SYK packet
-- A <-- B SYK packet
-- A --> B ACK Packet
+ #### TCP has a **Three-way handshake**.
+- `A --> B SYK packet`
+- `A <-- B SYK packet`
+- `A --> B ACK Packet`
 
 Now the connection is made. This process is called **TCP full connection** also known as **three-way handshake.**
 
@@ -494,7 +494,8 @@ nc  127.0.0.1 1
 
 ![netcatserver_client](./cybersecurity_img/Networking/ports/netcatserver_client.png)
 
-- Wireshark filter For TCP ports {Any Random Port}
+
+- Wireshark filter For TCP ports Any Random Port
 
 ```
 tcp.port==1

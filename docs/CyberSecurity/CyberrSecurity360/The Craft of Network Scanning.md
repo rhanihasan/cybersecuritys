@@ -385,7 +385,7 @@ As well as specifying the name of the script, it is sometimes necessary to speci
 >>#nmap -sV --script mysql-dump-hashes [target-ipaddr] --script-args='username=root,password=abc123'
 
 Run all NSE scripts against found ports
-$nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip
+`$nmap -Pn -sV -O -pT:{TCP ports found},U:{UDP ports found} --script *vuln* $ip`
 
 
 ## **Nmap Traceroute**
