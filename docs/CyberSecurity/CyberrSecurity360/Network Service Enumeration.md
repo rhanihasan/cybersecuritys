@@ -10,7 +10,7 @@ sidebar_position: 10
 
 ## Enumeration
 
-### What & Why Enumeration?
+### **What & Why Enumeration?**
 
 - **Enumeration** is a process used by attackers to find weaknesses in a system by gathering information from different services. It's an important step in a successful attack.
 - Gathering information from the target activity.
@@ -19,15 +19,15 @@ sidebar_position: 10
 - Digging up and validating the information which is gathered in information gathering/recon process.
 - There are many network services like FTP, SMB, and more.
 
-## Services
+## **Services**
 
-### What & Why Service?
+### **What & Why Service?**
 
 - To make jobs easy, services are created. For example, railways are created for public purpose or service, but to use the service, one has to obey the rules & regulations of railways, like buying tickets.
 
-## Service Enumeration
+## **Service Enumeration**
 
-### What & Why Service Enumeration?
+### **What & Why Service Enumeration?**
 
 - It's a process of digging up the services, finding services with loopholes.
 - Conducting a scan to verify service ports are open. After verification of which service is running, there are various tools for enumerations:
@@ -36,9 +36,9 @@ sidebar_position: 10
   - Crackmapexec tools that were breached, created by NSA
   - And many more...
 
-## SMB Service
+## **SMB Service**
 
-### What & Why SMB?
+### **What & Why SMB?**
 
 - **Server Message Block (SMB)** allows sharing resources with other computers over the network.
 - Computers (SMB clients) on a network can connect to SMB servers to access shared files and directories or perform tasks like downloading files over the Local Area Network.
@@ -46,41 +46,41 @@ sidebar_position: 10
 - The same service in Linux OS is called SAMBA.
 - SMB uses ports 139 & 443.
 
-#### What does port 139 do?
+#### **What does port 139 do?**
 
 - Port 139 uses the **NetBIOS** protocol.
 - NetBIOS stands for Network Basic Input Output System.
 - Software applications that run on a NetBIOS network locate and identify each other via their NetBIOS names.
 
-#### What does NetBIOS do?
+#### **What does NetBIOS do?**
 
 - Allows communication between computers on local networks.
 
-#### Port 445
+#### **Port 445**
 
 - Port 445 is known as **SMB over IP** or **Server Message Block over IP**.
 - SMB in modern language is also referred to as **Common Internet File System**.
 - SMB can run directly over TCP/IP without the need for NetBIOS over TCP/IP.
 - Port 445 is used for SMB when running over IP.
 
-#### IPC$ Share
+#### **IPC$ Share**
 
 - **IPC$** is a special hidden share that allows for inter-process communication (IPC) on Windows systems.
 - With an anonymous null session, you can access the IPC$ share and interact with exposed services.
 
-#### SMB Protocol
+#### **SMB Protocol**
 
 - SMB is a **response-request protocol** used for sharing files, printers, and other resources on a network.
 
-#### Client-Server Connection
+#### **Client-Server Connection**
 
 - Clients connect to servers using **TCP/IP** or **QUIC protocols**.
 
-#### Enumerating NetBIOS
+#### **Enumerating NetBIOS**
 
 - Enumerating NetBIOS provides information about the target computer group, domain, network shares, and computer names.
 
-#### Possible Credentials
+#### **Possible Credentials**
 
 | Username(s)          | Common Passwords              |
 |----------------------|------------------------------|
@@ -89,13 +89,13 @@ sidebar_position: 10
 | Administrator, admin | (blank), password, administrator, admin |
 
 
-## Identification & Scan
+## **Identification & Scan**
 
-#### SMB Communication via Wireshark
+#### **SMB Communication via Wireshark**
 
 You can analyze SMB communication using Wireshark, a network protocol analyzer.
 
-### nblookup
+#### **nblookup**
 
 |Getting NetBIOS IP Address using `nmblookup`|
 |---|
@@ -104,7 +104,7 @@ You can analyze SMB communication using Wireshark, a network protocol analyzer.
 nmblookup -A <IP>
 ```
 
-### nbstate
+#### **nbstate**
 
 |Getting PC Information using `nbstate`|
 |---|
@@ -116,9 +116,9 @@ nmblookup -A <IP>
 #nbtstat –A <target-IP-Addrs>
 ```
 
-### nbtscan
+#### **nbtscan**
 
-#### Syntax & Commands
+#### **Syntax & Commands**
 
 |You can use `nbtscan` to gather NetBIOS information from a target IP address. Below are the commands and syntax:|
 |---|
@@ -134,7 +134,7 @@ nmblookup -A <IP>
   ```
 
 
-## Communication between Two Windows PCs
+## **Communication between Two Windows PCs**
 
 In this scenario, communication between two Windows PCs is established using **SMB Port Number 445**.
 
@@ -143,7 +143,7 @@ In this scenario, communication between two Windows PCs is established using **S
 | Windows 1 (initiating connection) | 192.168.190.229 |
 | Windows 2 (being accessed)       | 192.168.190.44  |
 
-### Syntax & Commands
+#### **Syntax & Commands**
 
 |Description|
 |-----|
@@ -161,22 +161,22 @@ All the data exchanged during this communication is encrypted.
 
 
 
-## SMB Login with Credentials & Hashes
+## **SMB Login with Credentials & Hashes**
 
-### Syntax & Commands for Credentials
+#### **Syntax & Commands for Credentials**
 
 | Description                     | Command                                         |
 |---------------------------------|-------------------------------------------------|
 | Authenticate using credentials  | `smbmap -u "username" -p "password" -H <IP> -P <PORT>` |
 
-### Syntax & Commands for Hashes
+#### **Syntax & Commands for Hashes**
 
 | Description                     | Command                                         |
 |---------------------------------|-------------------------------------------------|
 | Authenticate using NTLM/LM hashes | `smbmap -u "username" -p "<NT>:<LM>" -H <IP> -P <PORT>` |
 | Establish SMB null session      | If password response is "randomus" or blank, it's an SMB null session. |
 
-### Accessing Shares using smbclient
+#### **Accessing Shares using smbclient**
 
 | Description                     | Command                                         |
 |---------------------------------|-------------------------------------------------|
@@ -185,9 +185,9 @@ All the data exchanged during this communication is encrypted.
 
 Certainly, here's your provided Nmap scan syntax and commands formatted in markdown:
 
-## Nmap Scan
+## **Nmap Scan**
 
-### Syntax & Commands
+#### Syntax & Commands**
 
 You can perform an Nmap scan using the following syntax and commands:
 
@@ -204,11 +204,11 @@ Replace `<Target-IP>` with the IP address of the target system.
 
 Certainly, here's the information about SMB enumeration using NSE (Nmap Scripting Engine) presented using tables, bullet points, and code blocks within the markdown format:
 
-## SMB Enumeration
+## **SMB Enumeration**
 
-### NSE Nmap
+### **NSE Nmap**
 
-#### Syntax & Commands For SMB V1
+#### **Syntax & Commands For SMB V1**
 
 | Description     | Command                                      |
 |-----------------|----------------------------------------------|
@@ -239,7 +239,7 @@ Host is up (0.0068s latency).
 Nmap done: 1 IP address (1 host up) scanned in 6.08 seconds
 ```
 
-#### BeeBox
+#### **BeeBox**
 
 | Description     | Command                                      |
 |-----------------|----------------------------------------------|
@@ -250,9 +250,9 @@ Nmap done: 1 IP address (1 host up) scanned in 6.08 seconds
 |![NMAP_SCAN_SMB_STEALTH](./cybersecurity_img/Network_service_enumeration/nmapscansmbsteath.png)|
 
 
-## SMB Enumeration Using SMBv2 Scripts
+## **SMB Enumeration Using SMBv2 Scripts**
 
-### Syntax & Commands
+#### **Syntax & Commands**
 
 To enumerate SMBv2 using Nmap scripts, you can use the following commands:
 
@@ -268,9 +268,9 @@ For Windows:
 nmap -vv --script smb2-*.nse 192.168.50.124
 ```
 
-### Output Examples
+#### **Output Examples**
 
-#### Output (Linux):
+#### **Output (Linux):**
 
 ```
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-06-26 12:38 EDT
@@ -286,7 +286,7 @@ Host script results:
 Nmap done: 1 IP address (1 host up) scanned in 11.89 seconds
 ```
 
-#### Output (Windows):
+#### **Output (Windows):**
 
 ```
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-06-26 22:09 IST
@@ -314,7 +314,7 @@ Host script results:
 Nmap done: 1 IP address (1 host up) scanned in 1.69 seconds
 ```
 
-### Enumeration Insights
+### **Enumeration Insights**
 
 - There are two types of sessions: Guest sessions (random password entered) and Null sessions (blank password entered).
 - Null Sessions have no credentials, and authentication is performed over SMB.
@@ -323,17 +323,17 @@ Nmap done: 1 IP address (1 host up) scanned in 1.69 seconds
 ---
 
 
-## Guest Sessions Enumeration
+## **Guest Sessions Enumeration**
 
-### What are Guest Sessions?
+### **What are Guest Sessions?**
 
 Guest sessions refer to cases where random passwords are entered for authentication attempts. These sessions are typically used to explore accessible resources without providing valid credentials.
 
-### Why Use Guest Sessions?
+### **Why Use Guest Sessions?**
 
 Guest sessions can be useful for probing systems to identify open shares, services, and other network resources. They allow you to interact with the system without using valid credentials.
 
-### Count Sessions / Guest Sessions
+### **Count Sessions / Guest Sessions**
 
 In some scenarios, you can perform count sessions or guest sessions by providing any name during authentication. The format is:
 
@@ -342,9 +342,9 @@ In some scenarios, you can perform count sessions or guest sessions by providing
 | Any Name       | AUTH  |
 |                | SMB   |
 
-## SMB Client Usage
+### **SMB Client Usage**
 
-### Syntax & Commands for SMB Client
+#### **Syntax & Commands for SMB Client**
 
 To use the SMB client (`smbclient`) for enumeration and interaction with shares, you can use the following commands:
 
@@ -353,7 +353,7 @@ To use the SMB client (`smbclient`) for enumeration and interaction with shares,
 | Enumerate shares without a username and password | `smbclient -L <Target-IP>`        |
 | Enumerate shares without a password (using `-N` flag) | `smbclient -N -L <Target-IP>`     |
 
-### Example
+#### **Example**
 
 ```shell
 smbclient -N -L 192.168.100.130
@@ -363,7 +363,7 @@ smbclient -N -L 192.168.100.130
 |---|
 |![smbclientresults](./cybersecurity_img/Network_service_enumeration/smb_clientresults.png)|
 
-### **smbmap**
+#### **smbmap**
 
 |**Syntax & Commands**|
 |---|
@@ -371,7 +371,7 @@ smbclient -N -L 192.168.100.130
 |![SMBMAP_GUEST_SESSION](./cybersecurity_img/Network_service_enumeration/smbenumeration/smbmapguestsession.png)|
 
 
-### **Enum4linux**
+#### **Enum4linux**
 
 |**Syntax & Commands**|
 |---|
@@ -382,14 +382,14 @@ smbclient -N -L 192.168.100.130
 |![ENUM4LINUX_BASIC_SCAN2](./cybersecurity_img/Network_service_enumeration/smbenumeration/enum4linuxbasicscan2.png)|
 
 
-### **Impacket-smbclient**
+#### **Impacket-smbclient**
 
 |**Syntax & Commands**|
 |---|
 |` impacket-smbclient://<Username>@<target-ip>  (for windows)`|
 |![IMPACT-SMBCLIENT_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/impacket-smbscan.png)|
 
-### **Crackmapexec The Brute Force & Uses/Password Spray **
+#### **Crackmapexec The Brute Force & Uses/Password Spray **
 
 |**Syntax & Commands**|
 |---|
@@ -408,12 +408,12 @@ smbclient -N -L 192.168.100.130
 
 ## **Null Sessions  Enumeration**
 
-### **What & Why Null Sessions**
+#### **What & Why Null Sessions**
 
 - Null sessions. Means blank password entered.
 - Null Sessions ==> NO Credentials ==> AUTH ==> SMB
 
-### **Smbclinet**
+#### **Smbclinet**
 
 |**Syntax & Commands**|
 |---|
@@ -423,14 +423,14 @@ smbclient -N -L 192.168.100.130
 |`smbclient -N -L <Target-IP>`|
 |![SMBCLIENT_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/smbclinetbasicscan.png)|
 
-### **Smbmap**
+#### **Smbmap**
 
 |**Syntax & Commands**|
 |---|
 |`smb –u’’ -p ‘’ -H <Target-IP>`|
 |![SMBMAP_NULL_BASIC_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/smbmapnullbasicscan.png)|
 
-### **Enum4linux**
+#### **Enum4linux**
 
 |**Syntax & Commands**|
 |---|
@@ -438,7 +438,7 @@ smbclient -N -L 192.168.100.130
 |![EMUN4LINUX_BASIC_SCAN_NULL](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/enum4linuxnullbasicscan.png)|
 
 
-### **Crackmapexec**
+#### **Crackmapexec**
 
 |**Syntax & Commands**|
 |---|
@@ -446,3 +446,4 @@ smbclient -N -L 192.168.100.130
 |`crackmapexec smb <IP> -u blank-H '<HASH>`|
 |`crackmapexec smb <IP> -u blank-p blank--shares `|
 |![CRACKMAPEXEC_NULL_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/crackmapexecnullscan.png)|
+

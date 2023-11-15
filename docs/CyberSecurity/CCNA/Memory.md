@@ -130,16 +130,16 @@ The information stored in this type of memory is lost when the power supply to t
 
 ---
 
-## External Memory 
+## **External Memory** 
 
-### HardDrive
+### **HardDrive**
 
 #### **What & Why HardDrive**
 
 - First created by IBM. Had a capacity of 5mb. 
 - All data is stored here
 
-#### Types of HardDrive
+#### **Types of HardDrive**
 
 - **HDD** 
     - Hard Disk Drive
