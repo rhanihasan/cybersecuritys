@@ -1,3 +1,7 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import Highlight from '@site/src/components/Highlight';
 ---
 sidebar_position: 10
 ---
@@ -446,4 +450,25 @@ smbclient -N -L 192.168.100.130
 |`crackmapexec smb <IP> -u blank-H '<HASH>`|
 |`crackmapexec smb <IP> -u blank-p blank--shares `|
 |![CRACKMAPEXEC_NULL_SCAN](./cybersecurity_img/Network_service_enumeration/smbenumeration/Nullsession/crackmapexecnullscan.png)|
+
+## **FTP**
+
+### **What & Why FTP**
+
+
+<Tabs>
+  <TabItem value="FTP"  default>
+    FTP is a File Transfer Protocol Which is commonly used for transferring files from various devices.
+  </TabItem>
+  <TabItem value="What is Communication Model does FTP Used?" >
+    Clinet-Server
+  </TabItem>
+  <TabItem value="What the standard FTP Port ?" >
+    Port Number 21
+  </TabItem>
+</Tabs>
+
+### **Identification & Scan**
+
+#### **Nmap**
 
