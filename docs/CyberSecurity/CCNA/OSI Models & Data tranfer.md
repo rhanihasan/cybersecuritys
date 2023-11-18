@@ -140,6 +140,10 @@ In the Physical layer, data is represented as a stream of binary digits (0s and 
 |![OSI_MODEL](./img/OSI_Model.png)|
 |---|
 
+### **OSI And Attacks**
+|![OSIANDATTACKS](./img/OSI_AND_ATTACKS.png)|
+|---|
+
 
 ## **TCP/IP Protocol**
 
@@ -152,6 +156,7 @@ The TCP/IP model provides a framework for understanding how data is organized an
 - TCP/IP follows the **client-server communication model** where clients (users or machines) receive services from servers (other computers) within the network, such as sending webpages.
 - The TCP/IP protocol is **stateless**, treating each client request as new and independent, allowing continuous network path utilization.
 - It differs from the seven-layer OSI networking model, which outlines application communication across networks.
+
 
 
 ## **TCP/IP Protocol Layers**
