@@ -472,3 +472,311 @@ smbclient -N -L 192.168.100.130
 
 #### **Nmap**
 
+|**Syntax & Commands**|
+|---|
+|Output|
+```
+┌──(hasanrehni㉿kali-Hasan)-[~/credentails]
+└─$ nmap -p 21 192.168.50.124                                                                                                                            
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-06-27 00:40 IST
+Nmap scan report for 192.168.50.124
+Host is up (0.00028s latency).
+ 
+PORT   STATE SERVICE
+21/tcp open  ftp
+ 
+Nmap done: 1 IP address (1 host up) scanned in 0.05 seconds
+```
+
+
+### **Enumerating FTP**
+
+- There are various digging up on various **services Enumerations** which is Network Service Enumeration
+
+#### **NSE Enumeration**
+
+|**Syntax & Commands**|
+|---|
+|`# nmap -Pn --script ftp-*.nse <Target-ip>`|
+|![ftp-nmap-scan](./cybersecurity_img/Network_service_enumeration/ftpenumeration/ftpnmapscan.png)|
+
+
+#### **What is FTP Anonymous Login ?**
+
+:::note
+In FTP There is Anonymous Login Functional open but current it does not open by defaults.
+How does the nmap nse ftp-anon verify that its ftp anon open
+:::
+|![ftp-script-scan](./cybersecurity_img/Network_service_enumeration/ftpenumeration/frpscriptdetails.png)|
+|---|
+
+
+#### **FTP Web Access**
+
+|**Uploading & Executing through web**|
+|---|
+|`#ftp://<target-ip>`|
+|![ftp-web-login1](./cybersecurity_img/Network_service_enumeration/ftpenumeration/ftpweblogini1.png)|
+|![ftp-web-login2](./cybersecurity_img/Network_service_enumeration/ftpenumeration/ftpweblogini2.png)|
+|![ftp-web-login3](./cybersecurity_img/Network_service_enumeration/ftpenumeration/ftpweblogini3.png)|
+
+
+### **Brute Forces & Password/Users Spray**
+
+#### **Hydra**
+
+|**Syntax & Commands**|
+|---|
+|`#hydra -L users.txt -P passwords.txt IP ftp`|
+|![ftp-hydra](./cybersecurity_img/Network_service_enumeration/ftpenumeration/ftphydra.png)|
+
+
+
+## **WinRM**
+
+#### **What & Why WinRM ?**
+- Windows Remote Management 
+- This is a service remotely manage a particular device in for the windows environment.
+  - Uses the Port 5985 for non-encrypted & Port 5986 is for encrypted.
+  - In Windows Server this service is enabled but in Normal in windows this service this disable 
+  - To Enable the PowerShell commands is #Enable-Psremoting –Force
+
+### **Identification & Scan**
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---|
+|![nmap-scan](./cybersecurity_img/Network_service_enumeration/winrmenumeration/nmapscan.png)|
+
+
+### **Enumeration WinRM**
+
+#### **Evil-winrm**
+
+
+|**Syntax & Commands**|
+|---|
+|`#gem install evil-winrm`|
+|`#evil-winrm -i [Target-IP] -u Administrator -p 'password'`|
+|`#evil-winrm -i 10.11.1.111 -u Administrator -H 'hash-pass' -s /scripts/folder`|
+|![evil-winrm-scan](./cybersecurity_img/Network_service_enumeration/winrmenumeration/evilwinrmscan.png)|
+
+
+
+### **Brute Forces & Password/Users Spray**
+
+#### **Crackmapexec**
+
+|**Syntax & Commands**|
+|---|
+|`#crackmapexe winram <target-ip> -u usrname.txt -p password.txt -X (powershell cmd) Get -MPrefences`|
+|![crackmapexec-winrm-scan](./cybersecurity_img/Network_service_enumeration/winrmenumeration/winrmcrackmapexec-scan.png)|
+
+
+
+## **RDP**
+
+- Remote Desktop Service
+#### **What & Why Remote Desktop Service ?**
+
+- The Remote Desktop Protocol (RDP) is a protocol developed by Microsoft for remote access to a computer running the Windows operating system. This protocol allows display and control commands to be transmitted via the GUI encrypted over IP networks.
+- Works on port 3389
+
+### **Identification and Scans** 
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# Nmap -sV -p 3389 target ip`|
+|![rdp-nmap-scan](./cybersecurity_img/Network_service_enumeration/rdp/rdp-nmap-scan.png)|
+
+
+### **Enumeration RDP**
+
+#### **NSE Nmap**
+
+
+|**Syntax & Commands**|
+|---|
+|`#nmap -Pn -sV --version-intensity=5 -p T:3389 --script=xxxx <IP>`|
+|`#nmap -sV -sC  -p3389 --script rdp*`|
+|`nmap -sV -sC  -p3389 --packet-trace --disable-arp-ping –n`|
+|![rdp-nmap-script](./cybersecurity_img/Network_service_enumeration/rdp/rdp-nmap-script.png)|
+|**Wiresharks**|
+|![rdp-nmap-script-wireshark](./cybersecurity_img/Network_service_enumeration/rdp/nmap-scan-wireshark.png)|
+
+### **Brute Force & Users/Password Spray**
+
+|**Syntax & Commands**|
+|---|
+|**Using ncrack for one user**|
+|`ncrack -vv -u username -P passwords.txt rdp://IP`|
+|**Using ncrack for several users**|
+|`ncrack -vv -U users.txt -P passwords.txt rdp://IP`|
+
+#### **Hydra**
+
+|**Syntax & Commands**|
+|---|
+|`hydra -L user.list -P password.list rdp://<Target-IP>`|
+|![rdp-hydra-scan](./cybersecurity_img/Network_service_enumeration/rdp/rdp-hydra-scan.png)|
+
+
+### **Discovery**
+
+#### **Xfreerdp**
+
+|**Syntax & Commands**|
+|---|
+|![xfreerdp1](./cybersecurity_img/Network_service_enumeration/rdp/xfreerdp1.png)|
+|![xfreerdp2](./cybersecurity_img/Network_service_enumeration/rdp/xfreerdp2.png)|
+
+
+
+## **SMTP**
+
+#### **What is SMTP?**
+
+**SMTP (Simple Mail Transfer Protocol)** is a TCP/IP protocol designed for the transmission of electronic mail (e-mail) between computers. It serves as a communication channel for sending and receiving emails. Typically, SMTP is used in conjunction with other protocols such as POP3 or IMAP, which enable users to store messages in a server mailbox and download them as needed. This combination of protocols is often referred to as a "mail system."
+
+#### **How SMTP Works**
+
+SMTP operates as a client-server-based protocol, facilitating the sending and fetching of emails. Users employ email programs that utilize SMTP for sending messages and either POP3 or IMAP for receiving them. SMTP servers commonly operate on ports 25, 465, or 587. Key functions of an SMTP server include spam prevention through authentication and authorization of legitimate users to send emails. Many SMTP servers also support the Extended Simple Mail Transfer Protocol (ESMTP) with SMTP-Auth.
+
+
+
+1. **Sending an Email:**
+   - The SMTP client (Mail User Agent or MUA) converts the email into a header and a body.
+   - The client uploads both the header and body to the SMTP server.
+
+2. **Server Processing:**
+   - The SMTP server, acting as a Mail Transfer Agent (MTA), checks the email for size and spam.
+   - A Mail Submission Agent (MSA) may validate the email's content before the MTA, ensuring authenticity and origin.
+
+3. **Mail Submission and Transfer:**
+   - The MSA/MTA processes can be compared to a post office and are hosted on servers.
+   - The processed email is sent to the recipient's Mail User Agent (MUA) via POP3 or IMAP.
+
+4. **Receiving Email:**
+   - With POP3, the email is deleted from the server once received.
+   - IMAP stores the original email on the server and sends a copy to the client's mailbox.
+
+####  **SMTP vs. POP vs. IMAP**
+
+| Protocol | Description | Function | Port No | Default Port No (SSL) |
+|----------|-------------|----------|---------|------------------------|
+| SMTP | Simple Mail Transfer Protocol | Send Mail (Push Mail) | 25 | N/A |
+| POP | Post Office Protocol | Retrieve Mail (POP Mail) | 110 | 995 |
+| IMAP | Internet Message Access Protocol | Retrieve Mail (IMAP Mail) | 143 | 993 |
+
+#### **Commands in SMTP**
+
+- **AUTH PLAIN:** Used for client authentication.
+- **HELO:** The client logs in with its computer name to start the session.
+- **MAIL FROM:** The client specifies the email sender.
+- **RCPT TO:** The client specifies the email recipient.
+- **DATA:** Initiates the transmission of the email.
+- **RSET:** The client aborts the initiated transmission but maintains the connection.
+- **VRFY:** Checks if a mailbox is available for message transfer.
+- **EXPN:** Similar to VRFY, it checks if a mailbox is available for messaging.
+- **NOOP:** Requests a server response to prevent disconnection due to timeout.
+- **QUIT:** Terminates the session.
+
+### **Identification & Scans**
+
+#### **DIG**
+|**Syntax & Commands**|
+|---|
+|`# dig +short mx google.com`|
+|![smtp-dig](./cybersecurity_img/Network_service_enumeration/smtp/smtp-dig.png)|
+|You can connect to an SMTP server with netcat and run the VRFY command to check if email addresses are valid. You can also check mailing list membership with EXPN.|
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# Nmap –Pn –n –Sv –p 25 <Target-IP>`|
+|![smtp-nmap-scan](./cybersecurity_img/Network_service_enumeration/smtp/smtp-nmap-scan.png)|
+
+
+#### **Telnet**
+
+|**Syntax & Commands**|
+|---|
+|`Telent <Target-IP> <Port>`|
+|![smtp-telnet](./cybersecurity_img/Network_service_enumeration/smtp/smtp-telnet.png)|
+
+
+### **Enumeration SMTP**
+
+#### **NSE Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`#nmap -Pn -n -p 25 --script=smtp-*  <Target-IP>`|
+|![smtp-nmap-scan-script](./cybersecurity_img/Network_service_enumeration/smtp/smtp-namp-scan-script.png)|
+|**Wireshark**|
+![smtp-namp-script-wireshark](./cybersecurity_img/Network_service_enumeration/smtp/smtp-nmap-scan-wireshark.png)|
+
+### **Brute Force & Uses/Password Spray**
+
+### **Hydra**
+
+|**Syntax & Commands**|
+|`# hydra -L users.txt TARGET-IP smtp-enum`|
+|![smtp-hydra-scan](./cybersecurity_img/Network_service_enumeration/smtp/smtp-hydra-scan.png)|
+
+
+
+## **Microsoft SQL Server (MSSQL)**
+
+#### **What is MSSQL?**
+
+**Microsoft SQL Server** is a robust relational database management system (RDBMS) developed by Microsoft. As a database server, it serves as a software product with the primary function of storing and retrieving data as requested by various software applications. These applications can run either on the same computer where MSSQL is installed or on other computers across a network, including the Internet.
+
+#### **Key Features:**
+
+- **Database Management:** MSSQL is designed for efficiently managing databases, ensuring data integrity, and providing secure access to stored data.
+
+- **Query Language:** It employs a powerful backend language to handle queries and data manipulation tasks. SQL (Structured Query Language) is commonly used for interacting with MSSQL databases.
+
+- **Networking Capabilities:** MSSQL enables communication between client applications and the database server over a network.
+
+- **Instances:** A server running MSSQL can host multiple instances on high ports, allowing for the management of distinct databases.
+
+#### **Port Usage**:
+
+- **Port 1433:** Used by clients to interact with the MSSQL database. This port is crucial for communication and executing queries.
+
+- **Port 1434:** Used for listing available instances. A server running MSSQL can have multiple instances, each potentially on a different high port.
+
+#### **Security Considerations:**
+
+- **Default Credentials:** MSSQL installations often come with default credentials, and the commonly used ones include `sa:sa` where `sa` stands for Sysadmin or system admin. It is crucial to change these defaults to enhance security.
+
+- **Authentication:** MSSQL provides various authentication mechanisms to control access, and it's recommended to use strong authentication methods to protect sensitive data.
+
+#### **Why MSSQL?**
+
+- **Reliability:** MSSQL is known for its reliability, providing robust mechanisms for data storage, backup, and recovery.
+
+- **Scalability:** It offers scalability options, allowing organizations to scale their databases as their data storage needs grow.
+
+- **Integration with Microsoft Ecosystem:** For organizations using other Microsoft products and technologies, MSSQL seamlessly integrates with the Microsoft ecosystem.
+
+- **Security:** MSSQL provides security features to protect data and control access, including encryption and authentication mechanisms.
+
+- **Enterprise-Level Support:** Microsoft offers comprehensive support for MSSQL, making it suitable for enterprise-level applications.
+
+For more in-depth details, please refer to the official [Microsoft SQL Server website](https://www.microsoft.com/en-us/sql-server).
+
+
+### **Identification & Scans**
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# Nmap -n -Sv -Pn -p 1433,1434 Target-IP`|
