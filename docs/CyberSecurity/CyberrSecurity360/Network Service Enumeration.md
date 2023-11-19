@@ -1,10 +1,11 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-import Highlight from '@site/src/components/Highlight';
 ---
 sidebar_position: 10
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Highlight from '@site/src/components/Highlight';
+
 
 
 # Network Service Enumeration
@@ -780,3 +781,394 @@ For more in-depth details, please refer to the official [Microsoft SQL Server we
 |**Syntax & Commands**|
 |---|
 |`# Nmap -n -Sv -Pn -p 1433,1434 Target-IP`|
+|![mssql-nmap-scan](./cybersecurity_img/Network_service_enumeration/mssql/mssql-nmap-scan.png)|
+
+### **Enumeration MSSQL**
+
+#### **NSE Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# nmap -n -Pn --script=mysql-*  <Target-IP>`|
+|![mssql-nmap-script](./cybersecurity_img/Network_service_enumeration/mssql/mssql-nmap-script.png)|
+
+
+### **Brute Force & Uses/Password Spray**
+
+#### **Medusa**
+
+|**Syntax & Commands**|
+|---|
+|`# medusa -h <Target-IP> -u 'username/username.txt' -p 'password/password.txt' -M mysql`|
+|![mssql-medusa](./cybersecurity_img/Network_service_enumeration/mssql/mssql-medusa.png)|
+
+
+#### **Impacket**
+
+|**Syntax & Commands**|
+|---|
+|`impacket-mssqlclient -port 1433 DOMAIN/username:password@<target-ip>`|`
+|`impacket-mssqlclient -port 1433 DOMAIN/username:password@<target-ip> -windows-auth`|
+
+
+#### **Sqsh**
+
+|**Syntax & Commands**|
+|---|
+|`sqsh -S <target-ip> -U username -P password`|
+|`sqsh -S <target-ip> -U username -P password -D database`|
+|`# Get all users`|
+|`> SELECT * FROM sys.database`|
+|`# Switch to the database`|
+|`> USE <database>`|
+|`# Get databases`|
+|`> SELECT * FROM master.dbo.sysdatabases`|
+|![mssql-login](./cybersecurity_img/Network_service_enumeration/mssql/mssql-login.png)|
+
+
+## **MySQL**
+
+#### **What is MySQL?**
+
+**MySQL** is an open-source SQL (Structured Query Language) relational database management system (RDBMS) developed and supported by Oracle. In the context of databases, MySQL serves as a structured and organized collection of data designed for easy storage, retrieval, and management.
+
+- MSSQL===> open source==> if you are performing an attack in a small org, or someone who have limited scope . Can assume that the application could be MSQL Because they are already tired with the budget
+
+#### **Key Features:**
+
+- **Open Source:** MySQL is an open-source database system, making its source code accessible to the public and allowing users to modify and distribute it freely.
+
+- **SQL:** SQL is the primary language used to interact with MySQL databases. It provides a standardized way to query and manipulate data in relational databases.
+
+- **Portability:** MySQL is a cross-platform database system, meaning it can run on various operating systems such as Windows, Linux, and macOS.
+
+- **Community Support:** Being open source, MySQL has a large and active community of developers and users who contribute to its development, offer support, and share knowledge.
+
+- **Scalability:** MySQL is scalable, making it suitable for both small-scale applications and large-scale enterprise solutions.
+
+#### **MySQL in Comparison to MSSQL:**
+
+- **Open Source vs. Commercial:** MySQL is open source, while MSSQL (Microsoft SQL Server) is a commercial database management system.
+
+- **Port Number:** MySQL commonly uses port number 3306 for communication.
+
+- **Installation:** MySQL can be installed on various operating systems using commands like `sudo apt install mysql-server -y` for Ubuntu-based systems.
+
+- **Language:** MySQL, like MSSQL, is based on SQL, providing a standardized language for database interactions.
+
+- **Communication Model:** MySQL uses a client-server communication model, where client applications interact with the MySQL server to execute queries and manage data.
+
+- **Workflow:** MySQL is typically used as a backend database, handling the storage, retrieval, and management of data on the server side.
+
+#### **Why MySQL?**
+
+- **Open Source Advantage:** Being open source, MySQL is cost-effective and well-suited for organizations with budget constraints.
+
+- **Community Support:** The active community around MySQL ensures ongoing support, updates, and a wealth of resources for users.
+
+- **Compatibility:** MySQL is compatible with various programming languages, making it versatile for developers working in different environments.
+
+- **Scalability and Performance:** MySQL's scalability and performance make it suitable for a wide range of applications, from small projects to large-scale enterprise systems.
+
+- **Reliability:** MySQL is known for its reliability, data integrity, and robust features, making it a trusted choice for many developers and organizations.
+
+For more detailed information and resources, visit the official [MySQL website](https://www.mysql.com/).
+
+
+### **Identification & Scans**
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# nmap -sV -p 3306 target-ip`|
+|![mysql-nmap-scan](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-scan.png)|
+|**Wireshark**|
+|![mysql-nmap-scan-wireshark](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-scan-wireshark.png)|
+|Got and ACK packet that who nmap knows the port is open.|
+|Closed Ports/Filtered Ports|
+|![mysql-nmap-scan-2](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-scan-2.png)|
+|The ball/packet nmap send did not return do nmap assume the port is closed/filtered.|
+
+
+### **Enumeration MYSQL**
+
+#### **NSE Nmap**
+
+|**Syntax & Commands for mysql-info**|
+|---|
+|`# nmap -Pn -n -p 3306 --script=mysql-info.nse <tarhet-ip>`|
+|![mysql-nmap-script](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-script.png)|
+|**Wireshark**|
+|![mysql-nmap-scan-script](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-script-wireshark.png)|
+
+
+### **NSE Nmap**
+
+|**Syntax & Commands**|
+|---|
+|`# nmap -Pn -n -p 3306 --script=mysql-* <target-ip>`|
+|![mysql-nmap-scan-script-2](./cybersecurity_img/Network_service_enumeration/mysql/mysql-nmap-scan-script-2.png)|
+
+
+### **Brute Force & Users/Password Spray**
+
+#### **Hydra**
+- If the NSE scripts / other enum finds database users, bruteforce password with hydra
+
+|**Syntax  & Commands**|
+|---|
+|`#sudo hydra -l root -P /usr/share/wordlist mysql://target`|
+|![mysql-hydra](./cybersecurity_img/Network_service_enumeration/mysql/mysql-hydra.png)|
+
+
+#### **Medusa**
+|**Syntax & Commands**|
+|---|
+|`# medusa -h [Target-IP] -u username -P password.txt -t -M mysql`|
+|![mysql-medusa](./cybersecurity_img/Network_service_enumeration/mysql/mysql-medusa.png)|
+
+
+### **Discovery**
+
+| **Discovery**                             | **Command**                                              |
+|-------------------------------------------|----------------------------------------------------------|
+| **Try Connection from Outside**           | `mysql --host <IP> -u root -p root`                      |
+| **Connection from the Target Machine**    | `mysql -u root -p root database`                          |
+| **Classical Commands**                    |                                                          |
+| Show existing databases                   | `show databases;`                                        |
+| Use a specific database                   | `use database_name;`                                     |
+| Show tables in the current database       | `show tables;`                                           |
+| Describe the structure of a table         | `describe table_name;`                                   |
+| View user details in MySQL                | `select host, user, password from mysql.user;`           |
+| **Local Access / Remote Access**          |                                                          |
+| Connect to MySQL as root                  | `mysql -u root`                                          |
+| For remote access                         | `mysql -u root -p`                                       |
+|                                           | *(A password will be asked. Always test root:root credentials)* |
+
+
+|![mysql-login-2](./cybersecurity_img/Network_service_enumeration/mysql/mysql-login-2.png)|
+|---|
+
+## **NFS**
+
+
+
+| **NFS**                                       |                                                    |
+|-----------------------------------------------|----------------------------------------------------|
+| **What is NFS?**                              | Network File System                                 |
+| **Development Year**                          | 1984                                               |
+| **Developed by**                              | Sun Microsystems                                   |
+| **Similar to**                                | SMB (Server Message Block)                         |
+| **Guest Sessions**                            | Available (similar to SMB)                         |
+| **NFS Ports**                                 | 111 (TCP/UDP) - Data transfer & validation        |
+|                                               | 2049 (TCP/UDP) - Default                            |
+| **Authentication/Authorization**              | No mechanism for authentication or authorization |
+| **Cross-Platform Sharing**                    | Windows NFS server shares files with Linux & MacOS|
+| **NFS Acronym**                               | Network File System                                |
+| **NFS Client Interaction**                    | Mounting (Process that allows an NFS client to interact with a remote directory as if it were a physical device) |
+| **Representation of Files/Directories on Server** | File handle                                    |
+| **Communication Protocol**                    | RPC (Remote Procedure Call)                        |
+| **Latest Version**                            | NFSv4.2                                           |
+| **NFS Versions**                              |                                                    |
+| NFSv2                                         | Older version, supported by many systems, operated entirely over UDP |
+| NFSv3                                         | More features, including variable file size and better error reporting, not fully compatible with NFSv2 clients |
+| NFSv4                                         | Includes Kerberos, works through firewalls and on the Internet, no longer requires portmappers, supports ACLs, applies state-based operations, provides performance improvements and high security. The first version to have a stateful protocol. |
+| **More Details**                              | Available on the website                            |
+
+
+### **Identification & Scans**
+
+#### **Nmap**
+
+|**Syntax & Commands**|
+|---| 
+|`Nmap –n -Pn -v -p 111,2049 Target-IP`|
+
+#### **rpcinfo**
+
+|**Syntax & Commands**|
+|`rpcinfo -p <ip>`|
+
+
+### **Enumeration NFS**
+
+
+|**Syntax & Commands**|
+|---|
+|`nmap -sV -p 111 --script=rpcinfo <target-ip>`|
+|`nmap -p 111 --script nfs* <target-ip>`|
+|![nfs-nmap-scan-script](./cybersecurity_img/Network_service_enumeration/nfs/nfs-nmap-script.png)|
+
+
+
+#### **Show all mounts**
+
+- If nfs is available, use showmount to view available mounting points
+- There is nfs share available or not but its shows/works on the subnets basis
+- To know which folder has the server available to mount you an ask it using:
+
+|**Syntax & Commands**|
+|---|
+|`#Showmount -e target`|
+```
+┌──(root㉿Kali-Linux-full)-[/home/hasanrehni/credentails]
+└─# showmount -e 192.168.100.130            
+Export list for 192.168.100.130:
+/mnt/nfs_share *
+```
+|![nfs-showmunt-wireshark](./cybersecurity_img/Network_service_enumeration/nfs/nfs-showmount-wireshark.png)|
+|---|
+
+
+#### **Mounting the Share**
+```bash
+# Create a directory for mounting
+mkdir /mnt/new_back
+
+# Mount the NFS share (version 2) with nolock option
+mount -t nfs -o vers=2 10.12.0.150:/backup /mnt/new_back -o nolock
+
+# Create the directory for mounting
+mkdir /mnt/nfs
+
+# Mount the NFS share
+mount -t nfs $ip:/share /mnt/nfs
+
+# Example: Mounting an NFS share
+┌──(root㉿Kali-Linux-full)-[/home/hasanrehni]
+└─# mount -t nfs 192.168.100.130:/mnt/nfs_share /home/hasanrehni/mntdir
+
+# Output: Created symlink for systemd
+Created symlink /run/systemd/system/remote-fs.target.wants/rpc-statd.service → /lib/systemd/system/rpc-statd.service.
+```
+
+Explanation:
+- `mkdir /mnt/new_back`: Creates a directory named "new_back" in the "/mnt" directory.
+- `mount -t nfs -o vers=2 10.12.0.150:/backup /mnt/new_back -o nolock`: Mounts an NFS share from IP address "10.12.0.150" at the "/backup" directory to the local directory "/mnt/new_back" using NFS version 2 and the "nolock" option.
+- `mkdir /mnt/nfs`: Creates a directory named "nfs" in the "/mnt" directory.
+- `mount -t nfs $ip:/share /mnt/nfs`: Mounts an NFS share from the specified IP address and directory to the local directory "/mnt/nfs".
+- `mount -t nfs 192.168.100.130:/mnt/nfs_share /home/hasanrehni/mntdir`: Example command to mount an NFS share from IP address "192.168.100.130" at the "/mnt/nfs_share" directory to the local directory "/home/hasanrehni/mntdir".
+
+
+Certainly! Here's the information in a formatted manner:
+
+### **SSH (Secure Shell)**
+
+**What is SSH?**
+Secure Shell (SSH) is a Command Line Interface (CLI) that provides similar services to Telnet but in a secure manner. Unlike Telnet, SSH encrypts the communication between the client and the server, providing a more secure method of remote access.
+
+**Key Features:**
+- **Public Key & Private Key:** SSH uses a pair of cryptographic keys, a public key, and a private key. Both parties share their public keys, and communication is encrypted using each other's public keys, which can only be decrypted by their corresponding private keys.
+- **Port Number:** SSH operates on Port 22.
+
+### **Identification & Scans**
+
+**Nmap:**
+```bash
+# Nmap Scan for Port 22 (SSH)
+nmap -n -Pn -p 22 192.168.50.124
+```
+
+**Nmap Scan Output:**
+```bash
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-07-12 15:35 IST
+Nmap scan report for 192.168.50.124
+Host is up (0.00092s latency).
+ 
+PORT   STATE SERVICE
+22/tcp open  ssh
+ 
+Nmap done: 1 IP address (1 host up) scanned in 0.07 seconds
+```
+
+Explanation:
+- `nmap -n -Pn -p 22 192.168.50.124`: Initiates an Nmap scan to check the status of Port 22 (SSH) on the IP address "192.168.50.124".
+
+
+
+
+Certainly! Here's the information in a formatted manner:
+
+### **Enumeration for SSH**
+
+#### **NSE (Nmap Scripting Engine) Scans**
+
+#### 1. Check SSH Public Key Acceptance
+```bash
+nmap -n -Pn -p 22 --script=ssh-publickey-acceptance.nse  192.168.50.124
+```
+
+#### 2. Check SSHv1
+```bash
+nmap -n -Pn -p 22 --script=sshv1.nse 192.168.50.124
+```
+
+#### 3. Check SSH Host Key
+```bash
+nmap -n -Pn -p 22 --script=ssh-hostkey.nse 192.168.50.124
+```
+
+- SSH Host Key Output:
+```bash
+PORT   STATE SERVICE
+22/tcp open  ssh
+| ssh-hostkey: 
+|   2048 db:a0:f9:fe:d5:d4:b8:cb:c0:30:67:ce:f9:59:6a:da (RSA)
+|   256 74:a7:94:d6:8f:19:62:98:f1:24:37:2b:c1:6c:b9:5f (ECDSA)
+|_  256 c2:e5:3b:e8:cf:8f:83:53:b0:6c:1b:47:65:05:c4:4a (ED25519)
+```
+
+#### 4. Check SSH Run (Authentication Methods)
+```bash
+nmap -n -Pn -p 22 --script=ssh-run.nse 192.168.50.124
+```
+
+- SSH Run Output (Failed without specifying credentials and command):
+```bash
+PORT   STATE SERVICE
+22/tcp open  ssh
+|_ssh-run: Failed to specify credentials and command to run.
+```
+
+#### 5. Check SSH Authentication Methods
+```bash
+nmap -n -Pn -p 22 --script=ssh-auth-methods.nse 192.168.50.124
+```
+
+- SSH Authentication Methods Output:
+```bash
+PORT   STATE SERVICE
+22/tcp open  ssh
+| ssh-auth-methods: 
+|   Supported authentication methods: 
+|     publickey
+|     password
+|_    keyboard-interactive
+```
+
+### Additional Information
+- SSH operates on Port 22.
+- Nmap can be used to perform various SSH-related checks, including public key acceptance, SSHv1 support, host key enumeration, authentication methods, and more.
+- Ensure proper credentials and commands are provided when using specific scripts, as failure messages may occur without proper specification.
+
+
+
+### **Brute Force & Users/Password Spray**
+
+#### **Hydra**
+|**Syntax & Commands**|
+|`#Hydra –U username.txt -P password.txt ssh://Target-IP`|
+
+
+#### **Medusa**
+|**Syntax & Commands**|
+|`#medusa -h $ip -U user.txt -P pass.txt -M ssh`|
+
+
+#### **Ncrack**
+|**Syntax & Commands**|
+|---|
+|`#ncrack –v –U user.txt –P pass.txt $ip:22`|
+|![ncark-ssh](./cybersecurity_img/Network_service_enumeration/ssh/ssh-ncark.png)|
+
