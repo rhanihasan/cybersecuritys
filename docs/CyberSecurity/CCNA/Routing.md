@@ -210,3 +210,185 @@ The following are some common RIP commands:
 IGRP was an early proprietary routing protocol developed by **Cisco**. While it had some advantages, it's largely been replaced by more open and widely adopted routing protocols like **OSPF** and **EIGRP**. These modern protocols offer greater flexibility and are more suited to complex, modern networks.
 :::
 
+
+---
+
+
+### **EIGRP**
+
+
+**EIGRP (Enhanced Interior Gateway Routing Protocol):**
+- **Protocol Number:** 88
+- Developed and maintained by Cisco, an advanced version of IGRP.
+- Utilizes Dual Algorithms for routing decisions.
+
+
+**Key Features:**
+- Maximum Hops is 256
+- Support Wildcard , which is Total number of subnet minus subnet question 
+
+```
+Example:
+	255.255.255.255
+	255.255.255.0
+	0.0.0255
+```
+
+- Supports Classless routing.
+- Supports FLSM (Fixed-Length Subnet Masking) and VLSM (Variable-Length Subnet Masking), including subnets.
+- Wildcard masks can be used for summarization.  
+- Classless, Support FLSM & VLSM , Subnets.
+
+
+#### **Metric Calculation:**
+- EIGRP metric calculation includes bandwidth, delay, reliability, load, and MTU.
+
+
+**Bandwidth and Delay Calculation:**
+- Bandwidth calculated as 10^7 / (least bandwidth).
+- Delay is the sum of delays on serial links, divided by 10 for unit conversion to seconds.
+
+**Load Balancing:**
+- Load balancing occurs when multiple routes have identical metrics.
+- Load can dynamically change based on traffic patterns.
+- History of link utilization is considered for load balancing.
+-	When both route has all functions same. Then load balance will apply.
+-	Load can be change anytime, because of traffic.
+-	How many times , the packed down its check the history of link (link means wire)
+-	Multi cast id 224.0.0.10
+
+#### **MTU (Maximum Transmission Unit):**
+
+- Represents the maximum size of data transmitted over a network.
+- EIGRP now primarily uses bandwidth and delay for metric calculation instead of MTU.
+- Maximum transmission Units
+- First converted into frightments and into binary  to Physical OSI layer and send data into 1500 BYTES.
+- So Load balance , Reliability can caused RAM and CPU of  router heavy impacted that why now eigrp only uses Bandwidth and speed.
+
+
+
+#### **Interface Types and Characteristics:**
+- **Serial Cable:**
+  - Bandwidth: 1544 Kbps
+  - Delay: 20,000 milliseconds
+
+- **Ethernet:**
+  - Bandwidth: 10 Mbps
+  - Delay: 200 milliseconds
+
+- **FastEthernet:**
+  - Bandwidth: 100 Mbps
+  - Delay: 100 milliseconds
+
+- **GigabitEthernet:**
+  - Bandwidth: 1 Gbps
+  - Delay: 10 milliseconds
+
+**Changing EIGRP Routes:**
+- EIGRP uses bandwidth and delay in its metric calculation.
+- To influence EIGRP route selection, you can modify these parameters.
+- For example, if you want to change the route preference, you can adjust the bandwidth and delay values on the relevant interfaces.
+
+**Example:**
+Suppose you want to change the route preference for a FastEthernet interface. You can do this by modifying the bandwidth and delay values. Let's say you want to make the FastEthernet interface less preferred:
+
+```bash
+interface FastEthernet0/0
+ bandwidth 50000  # Adjust the bandwidth to a higher value (e.g., 50 Mbps)
+ delay 2000       # Adjust the delay to a higher value (e.g., 2000 microseconds)
+```
+
+By increasing the bandwidth and delay, you are effectively making the route less desirable, and EIGRP may choose an alternative route with lower metric values.
+
+
+
+####	**Hello Packets and Neighbor Table:**
+-	Hello packets are exchanged every 5 seconds between routers to check the status of neighboring routers.
+-	Neighbour tables store information about adjacent routers, including address and interface details.
+	
+####	**Update Timing:**
+-	Updates occur every 5 seconds.
+-	Hold-down time is 15 seconds.
+
+
+####	**Neighbour table**
+-	Each router keep state information about adjacent neighbours. When a newly discoverd neighbour is found its address and interface are recorded and information is hold in neighbour table.
+>	R1 ---> R2
+
+-	Hello  Packet
+>	R1 <---- R2 
+
+-	Hello Packet
+-	Its send packet not data sp router memories and ram is not getting fullystorage.
+####	**Topology table**
+-	Collect all the data of route.
+>	R1 ----> R2
+
+-	Full Table
+>	R1 <---- R2
+
+-	Thanks
+>	R1 <---- R2
+
+-	Full Table
+>	R1 -----> R2
+
+-	Thanks
+
+####	**Topology Table:**
+-	Collects all data about routes.
+
+
+**Hello Packets and Neighbor Table:**
+- Hello packets are exchanged every 5 seconds between routers to check the status of neighboring routers.
+- Neighbour tables store information about adjacent routers, including address and interface details.
+
+**Update Timing:**
+- Updates occur every 5 seconds.
+- Hold-down time is 15 seconds.
+
+**Topology Table:**
+- Collects all data about routes.
+
+**Routing Table:**
+- Displays the best routes.
+- Filters all routes to show only the best ones.
+- Its filters all the routes shows the best routes Now router has many route so Router cant  shows all the routes.
+   - Send hello packet every 5 second (To check the partner is Alive or dead)
+   - And if down then its takes 15 second to shutdown that routes.
+
+
+
+
+**EIGRP and OSPF:**
+- Both have incremental updates, meaning new connections are updated instantly.
+- IGRP and EIGRP work specifically on Cisco devices, while OSPF is vendor-independent.
+
+
+**EIGRP Metric Formula Example:**
+
+
+-	EIGRP Choice the least form link
+- For bandwidth with serial Link.
+   - 107   / least Bandwidth  = 107   / 1544 = 1,00,000/1544 = 6477
+-	For delay 
+- Delay = sum all link
+   - R1 + R2 + R3+ with serial link number
+   - 20,000 + 20,000 + 20,000 = 60,000
+   - Divide by 10 % because convert into unit per second 
+   - 60,000 / 10 = 6000
+-	For Metric 
+-  Metric = Bandwidth + delay * 256
+   - 6477 + 6000 *256  = 3194112
+
+#### **Universal Configuration:**
+- `Router eigrp <AS Number>`
+- `Network <wildcard>`
+
+**EIGRP Verification Commands:**
+- `show ip eigrp neighbors`
+- `show ip eigrp interface`
+- `show ip route eigrp`
+- `show ip eigrp topology`
+- `show ip eigrp traffic`
+- `show ip protocols`
