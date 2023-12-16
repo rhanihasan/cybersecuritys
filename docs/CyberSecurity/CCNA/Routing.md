@@ -402,3 +402,60 @@ By increasing the bandwidth and delay, you are effectively making the route less
 - `show ip eigrp topology`
 - `show ip eigrp traffic`
 - `show ip protocols`
+
+
+---
+### **OSPF**
+- OSPF (Open Shortest Path First):
+  - Open Standard Path First.
+  - Works on Dijkstra’s Algorithm.
+  - Protocol number: 89.
+  - Multicast updates.
+  - Multicast IDs: 224.0.0.5, 224.0.0.6 Network ID.
+  - Classless, supports VLSM, FLSM, and wildcard.
+  - Hops are unlimited.
+  - Update times:
+    - Hello packet: 10 seconds.
+    - Hold-down packet: 40 seconds.
+    - Has trigger update with a type called incremental update.
+  - Neighbor table:
+    - Sends hello packets to identify neighbors on the network.
+  - Topology table:
+    - Displays all possible routes.
+  - Route table:
+    - Filters routes through the topology table and shows the best route to the destination.
+  - Supports authentication.
+  - Link state is based on speed.
+  - Metric is based on speed.
+  - Disadvantage: Area concept design is challenging; incorrect design can hinder OSPF functionality.
+
+####  **Area Concept.**
+- It help to reduce the data floodes.
+
+|![OSPF_IMG_1](./img/Routing/OSPF%20img1.png)|
+|---|
+
+- There are only two heavy router and all are low storage devices.  If RIP is applied it will share data every time to everyone so low storage device might get damage.
+- But OSPF Is applied.
+
+![OSRP_IMG_2](./img/Routing/OSPF%20img2.png)
+
+
+-	Area 0 is the backbone of all routers.
+-	Protocols rule is somehow every router must connect to area 0.
+- Its basically, area 0 is the head of a community and take problems to the superior (like network added or down etc.)
+
+#### **Universal configuration**
+
+```
+#routing oscp <numbers>
+#network <ip-address> <wildcards> area <0-255 number>
+
+```
+
+#### **LSA**
+
+- OSPF single network is also called LSA 1 
+
+
+
