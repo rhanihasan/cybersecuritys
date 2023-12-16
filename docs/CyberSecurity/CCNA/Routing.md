@@ -438,7 +438,8 @@ By increasing the bandwidth and delay, you are effectively making the route less
 - There are only two heavy router and all are low storage devices.  If RIP is applied it will share data every time to everyone so low storage device might get damage.
 - But OSPF Is applied.
 
-![OSRP_IMG_2](./img/Routing/OSPF%20img2.png)
+|![OSRP_IMG_2](./img/Routing/OSPF%20img2.png)|
+|---|
 
 
 -	Area 0 is the backbone of all routers.
