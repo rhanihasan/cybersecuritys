@@ -47,6 +47,16 @@ import Highlight from '@site/src/components/Highlight';
 
 ## **Routing Concepts:**
 
+- **Router has two types:**
+  1. Fixed
+  2. Modular
+
+- **Boot Sequence:**
+  - POST (Power-On Self-Test), which loads a bootstrap program.
+  - It checks the configuration register values, which are 0x2012 and 0x2142.
+  - The bootstrap program locates the configuration register and proceeds to check for the IOS on the flash drive, loading it into RAM (Decompression of IOS).
+  - Once loaded, it becomes the running configuration stored in RAM, and the startup configuration is saved in NVRAM.
+
 - **Routing Protocols:** Routers use routing protocols to exchange network information and fill their routing tables. Examples include RIP, OSPF, and EIGRP.
 - **IGP (Interior Gateway Protocol):** Used for smaller networks within an organization. Examples: RIP, OSPF, EIGRP.
 - **EGP (Exterior Gateway Protocol):** Used for larger, external networks like the Internet. Examples: BGP, EGP.
