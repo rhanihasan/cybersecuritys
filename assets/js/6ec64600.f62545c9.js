@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkhassan_website=self.webpackChunkhassan_website||[]).push([[5854],{6795:e=>{e.exports=JSON.parse('{"label":"hello","permalink":"/journey/blog/tags/hello","allTagsPath":"/journey/blog/tags","count":2}')}}]);
