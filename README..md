@@ -29,7 +29,7 @@ If you have any questions or feedback, please feel free to contact me:
 
 * Email: rhanihasan@gmail.com
 * LinkedIn: https://www.linkedin.com/in/hasan-rhani-767526210/
-* Website: https://rhanihasan.github.io/journey/
+* Website: https://rhanihasan.github.io/home/
 
 ## Thank You
 

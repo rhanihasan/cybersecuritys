@@ -10,7 +10,7 @@ sidebar_position: 2
 - Email: [rhanihasan9@gmail.com](mailto:rhanihasan9@gmail.com)
 - Phone: 8433663196
 - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/hasan-rhani-767526210/)
-- Website: [Portfolio](https://rhanihasan.github.io/journey/)
+- Website: [Portfolio](https://rhanihasan.github.io/home/)
 
 ## **Objective**
 
