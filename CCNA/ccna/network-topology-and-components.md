@@ -3,25 +3,27 @@ description: >-
   A network topology is the physical and logical arrangement of nodes and
   connections in a network. Nodes include devices like switches, routers, and
   software with switch and router features
+cover: ../.gitbook/assets/Network Topology and componets CCNA.jpeg
+coverY: 0
 ---
 
 # Network Topology & Components
 
-## Topology & Components
+## <mark style="color:purple;">Topology & Components</mark>
 
-### Network Topology
+### <mark style="color:blue;">Network Topology</mark>
 
 > Topology Means the arrangements or layout.
 >
 > > Network Topology Means Network Diagram or layout of network.
 
-### Types
+### <mark style="color:purple;">Types</mark>
 
-#### POP Topology
+#### <mark style="color:blue;">POP Topology</mark>
 
 > Point to Point Topology connects between two nodes directly.
 
-#### Bus Topology
+#### <mark style="color:blue;">Bus Topology</mark>
 
 > It the first topology used to connect two or more computers using single cable (Coaxial Cable).
 >
@@ -40,7 +42,7 @@ description: >-
 | Bus topology is cheap,                                          | Files doesn't has secret (it broadcasts data to all) |
 | Use a single coaxial cable which connects all ,including nodes. | There is not backup when the cable is damage         |
 
-#### Ring Topology
+#### <mark style="color:blue;">Ring Topology</mark>
 
 > * Every device is connected to exactly two other devices, forming a ring for communication.
 > * Data travels in one direction (or sometimes both, in a dual ring).
@@ -52,7 +54,7 @@ description: >-
 | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Its has a backup ways to destination in networks | Its doesn't have <mark style="color:orange;">BNC Terminator</mark>. & ts has struggle to add new Pc’s because ring Wire has to be the connected wires, It has BNC connector. |
 
-#### Star Topology
+#### <mark style="color:blue;">Star Topology</mark>
 
 > All the devices are connected to a central HUB or switch.
 
@@ -62,7 +64,7 @@ description: >-
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | If one PC is down & cable is physically damaged, So the others are not effected. | A hub or switch is a single point of failure for the network |
 
-#### Hybrid Topology
+#### <mark style="color:blue;">Hybrid Topology</mark>
 
 > A Combination of two or more different types of topologies.
 
@@ -72,7 +74,7 @@ description: >-
 | -------------------------------------------------- | ------------------------------------------------------ |
 | Flexible And Scabble for Large and Complex network | Can be more expensive and complex to set up and manger |
 
-#### Mesh Topology
+#### <mark style="color:blue;">Mesh Topology</mark>
 
 > Every devise is connected to every other device.
 
@@ -80,34 +82,34 @@ description: >-
 | ---------------------------------------------------------------------- | --------------------------------------------- |
 | <p>High Redundancy and reliability<br>Multiply paths for data flow</p> | Expensive and complex to install and maintain |
 
-Types
+<mark style="color:blue;">Types</mark>
 
-Half Mesh Topology
+<mark style="color:blue;">Half Mesh Topology</mark>
 
 > Only some devices are connected to multiple others.
 
 <figure><img src="../.gitbook/assets/half_mesh_topology.png" alt=""><figcaption><p>Half Mesh</p></figcaption></figure>
 
-Full Mesh Topology
+<mark style="color:blue;">Full Mesh Topology</mark>
 
 > Every device is connected to every other device.
 
 <figure><img src="../.gitbook/assets/full_mesh_topoplogy.png" alt=""><figcaption><p>Full Mesh Topology</p></figcaption></figure>
 
-## Network Components
+## <mark style="color:purple;">Network Components</mark>
 
 > It is a digital telecommunications network which allows nodes to share resources. Nodes are also known as endpoints or end hosts.
 
-#### Clients
+#### <mark style="color:blue;">Clients</mark>
 
 > * laptop, desktop, phones.
 > * These devices access service made available by a server.
 
-#### **SERVERS**
+#### <mark style="color:blue;">**SERVERS**</mark>
 
 > A device provides services with clients.
 
-#### **SWITCHES & HUB**
+#### <mark style="color:blue;">**SWITCHES & HUB**</mark>
 
 > * The first device was HUB then its updated by Switches.
 > * HUBs
@@ -120,7 +122,7 @@ Full Mesh Topology
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Cheap, doesn’t need power supply, Multiply connections. | Broadcast, dummy device, Doesn’t understand IP **& MAC**, can’t perform configuration, no software & half duplex. |
 
-#### Switches
+#### <mark style="color:blue;">Switches</mark>
 
 > * Switches are used to connect devices within a Lan.
 > * Switches have multiple interfaces/ports for end host to connect to.
@@ -133,7 +135,7 @@ Full Mesh Topology
 | <p>Connects multiple device has serval ports company can also customize the switch according to the requirements.</p><p>Doesn’t Broadcast.</p> | Expensive / Costly.     |
 | Understands MAC & IP Address. & Have some Security Feature.                                                                                    | Need More Power Supply. |
 
-**ROUTERS**
+<mark style="color:blue;">**ROUTERS**</mark>
 
 > * Routers are used to connect different **LANs**.
 > * They have fewer network interfaces than switches.
@@ -144,11 +146,11 @@ Full Mesh Topology
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPONENT_ROUETRS" alt=""><figcaption><p>Routers</p></figcaption></figure>
 
-**Repeater**
+<mark style="color:blue;">**Repeater**</mark>
 
 > Repeater helps to transfer the data with some speed it started \[boost data and frequency etc ]
 
-#### Network Speeds
+#### <mark style="color:blue;">Network Speeds</mark>
 
 > * **Ethernet:** Up to 10 Mbps
 > * **Fast Ethernet:** Up to 100 Mbps
@@ -156,12 +158,12 @@ Full Mesh Topology
 > * **SFP (Small Form-factor Pluggable) Ports:** Up to 100 Gbps
 >   * SR(Short Range) and LR (Long Range)
 
-#### Firewall
+#### <mark style="color:blue;">Firewall</mark>
 
 > * Network security devices that protect a network from attacks.
 > * Can be hardware or software/virtualized firewalls.
 
-#### **Cisco ASA (Adaptive Security Appliance):**
+#### <mark style="color:blue;">**Cisco ASA (Adaptive Security Appliance):**</mark>
 
 > * Filters IP addresses.
 > * Manages traffic flow.
@@ -169,13 +171,13 @@ Full Mesh Topology
 > * Can manually block URLs.
 > * Does not filter emails.
 
-#### **Cisco FTD (Firepower Threat Defense):**
+#### <mark style="color:blue;">**Cisco FTD (Firepower Threat Defense):**</mark>
 
 > Combines functions of WSA (Web Security Appliance), firewall, NGIPS (Next Generation Intrusion Prevention System), and AMP (Advanced Malware Protection).
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPENENT_FIREWALL" alt=""><figcaption><p>Cisco Firewall Family</p></figcaption></figure>
 
-#### **Cisco ESA (Email Security Appliance):**
+#### <mark style="color:blue;">**Cisco ESA (Email Security Appliance):**</mark>
 
 > * Monitors and filters emails.
 > * Secures emails from unauthorized access.
@@ -184,7 +186,7 @@ Full Mesh Topology
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPENENT_ESA" alt=""><figcaption><p>ESA (IronPort)</p></figcaption></figure>
 
-**Cisco WSA (Web Security Appliance):**
+<mark style="color:blue;">**Cisco WSA (Web Security Appliance):**</mark>
 
 > * Monitors and filters internet traffic.
 > * Filters URLs.
@@ -195,42 +197,42 @@ Full Mesh Topology
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPONENT_WSA" alt=""><figcaption><p>WSA</p></figcaption></figure>
 
-#### **Cisco ISE (Identity Services Engine):**
+#### <mark style="color:blue;">**Cisco ISE (Identity Services Engine):**</mark>
 
 > * Manages authentication for employees.
 > * Generates user accounts and passwords for devices.
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPONENT_WSA" alt=""><figcaption><p>ISE</p></figcaption></figure>
 
-#### **AAA (Authentication, Authorization, and Accounting):**
+#### <mark style="color:blue;">**AAA (Authentication, Authorization, and Accounting):**</mark>
 
 > * **Authentication:** Verifies user identity.
 > * **Authorization:** Grants access to authorized devices.
 > * **Accounting:** Tracks user activities.
 
-#### **NGIPS (Next Generation Intrusion Prevention System):**
+#### <mark style="color:blue;">**NGIPS (Next Generation Intrusion Prevention System):**</mark>
 
 > * Scans data for viruses, trojans, etc.
 > * Tracks unauthorized activities.
 > * Positioned behind the firewall.
 
-**Wi-Fi Access Points:**
+<mark style="color:blue;">**Wi-Fi Access Points:**</mark>
 
 > Devices that provide wireless access to a network.
 
 <figure><img src="../.gitbook/assets/CCNA_NETWORK_COMPENENT_ACCESSPOINT" alt=""><figcaption><p>Access Point</p></figcaption></figure>
 
-**WLC (Wireless Lan Controller)**
+<mark style="color:blue;">**WLC (Wireless Lan Controller)**</mark>
 
 > Manage Multiply Access Point
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>WLC</p></figcaption></figure>
 
-**AMP (Advanced Malware Protection):**
+<mark style="color:blue;">**AMP (Advanced Malware Protection):**</mark>
 
 > Protects against malware.
 
-**Cisco Talos:**
+<mark style="color:blue;">**Cisco Talos:**</mark>
 
 > * A threat intelligence and research organization.
 > * Provides protection against cybersecurity threats.
