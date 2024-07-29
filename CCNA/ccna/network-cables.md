@@ -129,9 +129,13 @@ coverY: 0
 
 <figure><img src="../.gitbook/assets/NETWORK_CABLE_SFP.jpeg" alt=""><figcaption><p>SFP</p></figcaption></figure>
 
-> <mark style="color:purple;">LR -> Long Range. SR -> Short Range.</mark>
+#### Long && Short Range SFP
 
 <figure><img src="../.gitbook/assets/NETWORK_CABLE_SFP_LR_SR.jpeg" alt=""><figcaption><p>SFP LR And SR</p></figcaption></figure>
+
+> Long Range SFP is used for long range communication, Both Side should be equal.
+>
+> Short Range SFP is used for Short range communication, Both Side shoild be equal.
 
 ### <mark style="color:purple;">**MDIX Technology:**</mark>
 

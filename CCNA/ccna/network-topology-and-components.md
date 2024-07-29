@@ -3,8 +3,22 @@ description: >-
   A network topology is the physical and logical arrangement of nodes and
   connections in a network. Nodes include devices like switches, routers, and
   software with switch and router features
-cover: ../.gitbook/assets/Network Topology and componets CCNA.jpeg
+cover: ../.gitbook/assets/Network_Topology_VS_Compoenets_logo.png
 coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Network Topology & Components
