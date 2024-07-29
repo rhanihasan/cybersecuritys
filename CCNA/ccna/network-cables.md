@@ -123,7 +123,15 @@ coverY: 0
 | 10gbase-lr                    | 802.3ae       | 10gbps | Single mode               | 10km        |
 | 10gbase-er                    | 802.3ae       | 10gbps | Single mode               | 30km        |
 
+#### <mark style="color:blue;">Small Form-Factor Pluggable (SFP)</mark>
+
+> Small Form-factor Pluggable (SFP) module is a compact, hot-swappable transceiver used for both telecommunication and data communication applications.
+
+<figure><img src="../.gitbook/assets/NETWORK_CABLE_SFP.jpeg" alt=""><figcaption><p>SFP</p></figcaption></figure>
+
 > <mark style="color:purple;">LR -> Long Range. SR -> Short Range.</mark>
+
+<figure><img src="../.gitbook/assets/NETWORK_CABLE_SFP_LR_SR.jpeg" alt=""><figcaption><p>SFP LR And SR</p></figcaption></figure>
 
 ### <mark style="color:purple;">**MDIX Technology:**</mark>
 
